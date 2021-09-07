@@ -11,10 +11,11 @@ export const GlobalStyle = createGlobalStyle`
     --black: #0A0A09;
     --orange: #FF9B2D;
     --yellow: #FFCE3B;
-    --white: #E5E5E5;
+    --white: #fff;
     --red: #D5222B;
     --dark-salmon: #F25553;
     --salmon: #FF9790;
+    --gray: #7C7575
   }
   
   * {
@@ -30,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Mulish', sans-serif;
   }
   h1 {
-    font-family: 'Merienda', cursive;
+    font-family: 'Suez One', serif;
   }
 
   h2, h3 {
@@ -42,6 +43,10 @@ export const GlobalStyle = createGlobalStyle`
   }
   select {
     outline: none;
+  }
+
+  button {
+    cursor: pointer;
   }
   
 `;
