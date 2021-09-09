@@ -8,13 +8,11 @@ export const ContainerProd = styled.div`
         margin: 5%;
         max-height: 220px
     }
-   
 `
 export const ContainerCart = styled.div`
     display: flex;
     font-family: "Mulish", sans-serif;
     font-weigth: bold;
-
 `
 
 export const ContainerInfo = styled.div`
@@ -35,7 +33,7 @@ export const ContainerInfo = styled.div`
     p{
         border: 1px solid gray;
         padding: 3%;
-        width: 350px
+        width: 350px;
        
     }
 
@@ -53,7 +51,6 @@ export const ContainerPrice = styled.div`
     font-size: 19px;
     margin: 10%;
     margin-top: 13rem;
-    
 
     button{
         width: 200px;

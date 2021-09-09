@@ -10,7 +10,6 @@ interface Product {
     sizes: string;
     comments: string;
 
-
 }
 
 interface IProductsProps {
