@@ -32,7 +32,6 @@ const Routes = () => {
       </Route>
       <Route path="/products/brand/:id">
         <BrandPage />
-
       </Route>
     </Switch>
   );
