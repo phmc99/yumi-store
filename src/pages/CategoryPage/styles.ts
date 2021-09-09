@@ -4,11 +4,16 @@ export const Container = styled.div`
   h1 {
     font-size: 3rem;
     text-align: center;
-    margin-top: 20px;
+    margin: 20px;
     color: var(--purple);
     text-shadow: 3px 3px 3px rgb(144 144 144);
     font-variant: small-caps;
     letter-spacing: 2px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.2rem;
   }
 
   @media (min-width: 600px) {

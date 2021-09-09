@@ -27,6 +27,9 @@ const SpeciesPage = () => {
       <Container>
         {id === "1" ? <h1>Cachorros</h1> : <h1>Gatos</h1>}
 
+        <p>Aqui você encontra os melhores produtos para o seu pet!</p>
+        <p>Da melhor qualidade com o menor preço!</p>
+
         <ul>
           {products.map((item) => (
             <li key={item.id}>{item.name}</li>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Images = styled.div`
-  width: 100vw;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: space-evenly;
@@ -137,5 +137,19 @@ export const Details = styled.div`
         font-weight: 100;
       }
     }
+  }
+`;
+
+export const Category = styled.div`
+  h1 {
+    font-size: 3rem;
+    font-variant: small-caps;
+    text-align: center;
+    margin: 25px auto 20px;
+    color: var(--purple);
+  }
+
+  a {
+    text-decoration: none;
   }
 `;

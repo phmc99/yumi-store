@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import CarouselBanner from "../../components/Carousel";
-import { Images, HoverText, Details } from "./styles";
+import { Images, HoverText, Details, Category } from "./styles";
 
 //Carrossel
 import Carousel from "react-multi-carousel";
@@ -28,7 +28,7 @@ const Home = () => {
     },
     mobile: {
       breakpoint: { max: 450, min: 0 },
-      items: 2,
+      items: 1,
     },
   };
 
@@ -91,8 +91,10 @@ const Home = () => {
           <h3>A primeira troca é grátis!</h3>
         </div>
       </Details>
-      <div>
-        <h1>Roupas</h1>
+      <Category>
+        <Link to="/products/category/5">
+          <h1>Roupas</h1>
+        </Link>
         <Carousel
           renderArrowsWhenDisabled={true}
           swipeable={true}
@@ -116,9 +118,43 @@ const Home = () => {
           <p>4</p>
           <p>5</p>
           <p>6</p>
-          <p>+</p>
+          <Link to="/products/category/5">
+            <p>+</p>
+          </Link>
         </Carousel>
-      </div>
+      </Category>
+      <Category>
+        <Link to="/products/category/4">
+          <h1>Brinquedos</h1>
+        </Link>
+        <Carousel
+          renderArrowsWhenDisabled={true}
+          swipeable={true}
+          draggable={true}
+          showDots={true}
+          responsive={responsive}
+          ssr={true}
+          infinite={true}
+          keyBoardControl={true}
+          customTransition="transform 500ms ease-in-out"
+          transitionDuration={500}
+          containerClass="carousel-container"
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
+          focusOnSelect={true}
+          centerMode={true}
+        >
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+          <p>5</p>
+          <p>6</p>
+          <Link to="/products/category/4">
+            <p>+</p>
+          </Link>
+        </Carousel>
+      </Category>
     </>
   );
 };

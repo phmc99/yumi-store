@@ -25,7 +25,11 @@ const CategoryPage = () => {
     <>
       <CarouselBanner />
       <Container>
-        {id === "1" ? <h1>Beleza e Higiene</h1> : <h1>Comida</h1>}
+        {id === "1" ? <h1>Beleza e Higiene</h1> : null}
+        {id === "2" ? <h1>Comida</h1> : null}
+        {id === "3" ? <h1>Acessórios</h1> : null}
+        {id === "4" ? <h1>Brinquedos</h1> : null}
+        {id === "5" ? <h1>Roupas</h1> : null}
 
         <ul>
           {products.map((item) => (
