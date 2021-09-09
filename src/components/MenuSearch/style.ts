@@ -1,29 +1,28 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import imageLogo from "../../assets/dogImage.png";
-import { VscSearch, VscHeart } from "react-icons/vsc";
-import { BsPersonFill } from "react-icons/bs";
-import { HiShoppingCart } from "react-icons/hi";
 
-const StyledMenuBar = styled.nav`
+export const StyledMenuBar = styled.nav`
   width: 100%;
   height: 65px;
   background-color: transparent;
   padding: 0 20px 0 5px;
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  align-items: center;
+  position: relative;
   z-index: 100;
   .logo {
     margin-top: 0;
     width: 50px;
     height: 50px;
   }
+  @media (max-width: 414px) {
+    align-items: flex-start;
+  }
 `;
 
-const ContainerLogo = styled.div`
+export const ContainerLogo = styled.div`
   display: flex;
+  cursor: pointer;
   h1 {
     font-family: "Merienda", cursive;
     font-style: normal;
@@ -38,22 +37,22 @@ const ContainerLogo = styled.div`
   }
 `;
 
-const StyledRightNav = styled.ul`
+export const StyledRightNav = styled.ul<{open: boolean}>`
   div {
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: no-wrap;
+    height: 60px;
   }
 
   li {
     padding: 18px 10px;
     width: 50px;
-
-    border-bottom: 2px solid transparent;
+    border-bottom: 3px solid transparent;
 
     &:hover {
-      border-bottom: 2px solid #0d2538;
+      border-bottom: 3px solid #0d2538;
       @media (max-width: 414px) {
         border: none;
       }
@@ -63,6 +62,7 @@ const StyledRightNav = styled.ul`
       display: flex;
       gap: 7px;
       color: black;
+      width: 50px;
       @media (max-width: 414px) {
         font-size: 1.5rem;
         gap: 20px;
@@ -108,7 +108,7 @@ const StyledRightNav = styled.ul`
   }
 `;
 
-const StyledBurger = styled.div`
+export const StyledBurger = styled.div<{open: boolean}>`
   width: 1.5rem;
   height: 2rem;
   position: relative;
@@ -149,58 +149,99 @@ const StyledBurger = styled.div`
   }
 `;
 
-export const Menu = () => {
-  const [open, setOpen] = useState(false);
-  //   const history = useHistory();
+export const Search = styled.div`
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 30px;
+  height: 45px;
+  width: 45vw;
+  padding: 0 0 0 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  input {
+    height: 30px;
+    width: calc(45vw - 50px);
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 20px;
+  }
+  div:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 414px) {
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    div {
+      height: 0;
+      width: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      color: transparent;
+    }
+    input {
+      height: 0;
+      width: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+  }
+`;
 
-  //   const handleLogout = () => {
-  //     localStorage.clear();
-  //     history.push("/");
-  //   };
+export const BottomMenu = styled.ul<{open: boolean}>`
+  list-style: none;
 
-  //   const token = localStorage.getItem("token");
-
-  return (
-    <StyledMenuBar>
-      <ContainerLogo>
-        <img
-          className="logo"
-          style={{ height: "55px", width: "55px" }}
-          src={imageLogo}
-          alt="logo"
-        ></img>
-        <h1 className="titleMenu">Yumi</h1>
-        <h1 className="titleMenu-2">Store</h1>
-      </ContainerLogo>
-      <StyledBurger open={open} onClick={() => setOpen(!open)}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </StyledBurger>
-      <StyledRightNav open={open}>
-        <div>
-          <li>
-            <Link to="/login">
-              <VscSearch style={{ height: "30px", width: "30px" }} />
-            </Link>
-          </li>
-          <li>
-            <Link to="/login">
-              <BsPersonFill style={{ height: "30px", width: "30px" }} />
-            </Link>
-          </li>
-          <li>
-            <Link to="/login">
-              <VscHeart style={{ height: "30px", width: "30px" }} />
-            </Link>
-          </li>
-          <li>
-            <Link to="/login">
-              <HiShoppingCart style={{ height: "30px", width: "30px" }} />
-            </Link>
-          </li>
-        </div>
-      </StyledRightNav>
-    </StyledMenuBar>
-  );
-};
+  div {
+    transition: opacity 0.2s;
+    opacity: ${({ open }) => (open ? "0" : "100%")};
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    .item {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      border-bottom: 3px solid transparent;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+    .item:hover {
+      border-bottom: 3px solid black;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+    @media (max-width: 414px) {
+      height: 100px;
+      .item {
+        width: 30vw;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+      }
+      .item {
+        font-size: 15px;
+      }
+    }
+    .item {
+      text-decoration: none;
+      font-family: Suez One;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 39px;
+      color: black;
+    }
+  }
+`;

@@ -3,7 +3,7 @@ import { Input } from "../../components/Input";
 import { IoIosLock, IoMdMail } from "react-icons/io";
 import FormButton from "../../components/FormButton";
 import loginImg from "../../assets/login.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -11,7 +11,6 @@ import {} from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../../services";
 import { Menu } from "../../components/Menu";
-import { MenuSearch } from "../../components/MenuSearch";
 
 interface IRegisterForm {
   email: string;
@@ -45,10 +44,15 @@ const LoginPage = () => {
       });
   };
 
+  const token = localStorage.getItem("token")
+
+  if (token !== null) {
+    return <Redirect to="/" />
+  }
+
   return (
     <>
-      {/* <Menu /> */}
-      <MenuSearch />
+      <Menu />
       <FormPage>
         <FormBox className="form">
           <h1>Login</h1>

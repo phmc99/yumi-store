@@ -20,8 +20,10 @@ const Routes = () => {
       </Route>
       <Route path="/login">
         <LoginPage />
+        </Route>
       <Route path="/products">
         <Products />
+        </Route>
       <Route path="/products/species/:id">
         <SpeciesPage />
       </Route>
