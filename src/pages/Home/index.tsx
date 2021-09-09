@@ -15,6 +15,7 @@ import Delivery from "../../assets/entrega.png";
 import Buy from "../../assets/compra.png";
 import ONG from "../../assets/ong.png";
 import Return from "../../assets/troca.png";
+import { MenuSearch } from "../../components/MenuSearch";
 
 const Home = () => {
   const responsive = {
@@ -34,7 +35,7 @@ const Home = () => {
 
   return (
     <>
-      Home
+      <MenuSearch/>
       <CarouselBanner />
       <Images>
         <Link to="/products/species/1">
