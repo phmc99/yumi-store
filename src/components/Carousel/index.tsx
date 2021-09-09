@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Container } from "./styles";
+import { Container, Image } from "./styles";
 
 //Images
 import Banner1 from "../../assets/banner1.png";
@@ -24,7 +24,8 @@ const CarouselBanner = () => {
   };
 
   return (
-    <div>
+    <>
+      <Image />
       <Carousel
         renderArrowsWhenDisabled={true}
         swipeable={true}
@@ -64,7 +65,7 @@ const CarouselBanner = () => {
           </Link>
         </Container>
       </Carousel>
-    </div>
+    </>
   );
 };
 

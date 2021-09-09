@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+
   h1 {
     font-size: 3rem;
     text-align: center;
@@ -60,5 +65,18 @@ export const BrandImages = styled.div`
     p {
       font-size: 1.6rem;
     }
+  }
+`;
+
+export const Products = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+
+  li {
+    list-style: none;
   }
 `;

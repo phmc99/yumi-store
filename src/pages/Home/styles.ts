@@ -83,7 +83,7 @@ export const Details = styled.div`
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: column;
-  background-color: var(--light-purple);
+  background-color: #fdb1ac;
   margin-top: 30px;
   padding: 20px 0;
 
@@ -145,11 +145,24 @@ export const Category = styled.div`
     font-size: 3rem;
     font-variant: small-caps;
     text-align: center;
-    margin: 25px auto 20px;
+    margin: 45px auto 0;
     color: var(--purple);
   }
 
   a {
     text-decoration: none;
+  }
+`;
+
+export const More = styled.div`
+  width: 210px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  svg {
+    font-size: 9rem;
+    color: var(--purple);
   }
 `;
