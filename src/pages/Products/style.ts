@@ -61,7 +61,6 @@ export const ContainerPrice = styled.div`
     margin-top: 2rem;
   }
 
-
   .club-price {
     font-family: "Merienda One", cursive;
     font-size: 19px;

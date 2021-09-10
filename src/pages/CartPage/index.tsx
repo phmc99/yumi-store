@@ -9,7 +9,7 @@ import {
 } from "./styles";
 
 const CartPage = () => {
-  const { cartProducts } = useCartContext();
+  const { cartProduct } = useCartContext();
 
   return (
     <div>
