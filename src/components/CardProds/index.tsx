@@ -7,10 +7,12 @@ import {
 } from "./styles";
 import { useProducts } from "../../providers/Products";
 
+
 const CardProds = ({ prod }: any) => {
-
-  const {addProduct} = useProducts()
-
+  
+const {addProduct} = useProducts()
+  
+  
   return (
     <ContainerProd>
       <CardDivisor>
@@ -35,6 +37,7 @@ const CardProds = ({ prod }: any) => {
               </span>
             </h4>
             <AddButton onClick={() => addProduct(prod)}>Comprar</AddButton>
+            <AddButton>Comprar</AddButton>
           </ContainerPrice>
         </div>
       </CardDivisor>

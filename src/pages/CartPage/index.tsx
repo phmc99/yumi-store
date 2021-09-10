@@ -24,7 +24,7 @@ const CartPage = () => {
       <DivPagamento>
         <ButtonPagamento>Confirmar pedido</ButtonPagamento>
       </DivPagamento>
-      {cartProduct.map((item, index) => (
+      {cartProducts.map((item, index) => (
         <Cart products={item} key={index} />
       ))}
     </div>
