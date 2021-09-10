@@ -4,7 +4,7 @@ import {ContainerProd, ContainerCart, ContainerInfo, ContainerPrice} from "./sty
 
 export const Products = () => {
 
-    const { products } = useProducts();
+    const { products, addProduct } = useProducts();
 
     return (
         <div>
@@ -28,7 +28,7 @@ export const Products = () => {
                 ))} */}
                     <h4>R${prod.price}</h4>
                     <h4 className="club-price">R${prod.member_price}  <span className="club-logo">Yumi</span>Club</h4>
-                    <button>Comprar</button>
+                    <button onClick={() => addProduct(prod)}>Comprar</button>
                 </ContainerPrice>
                 
         </ContainerCart>

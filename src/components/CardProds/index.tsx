@@ -5,8 +5,14 @@ import {
   ContainerPrice,
   AddButton,
 } from "./styles";
+import { useProducts } from "../../providers/Products";
+
 
 const CardProds = ({ prod }: any) => {
+  
+const {addProduct} = useProducts()
+  
+  
   return (
     <ContainerProd>
       <CardDivisor>
@@ -30,6 +36,7 @@ const CardProds = ({ prod }: any) => {
                 <span className="logo-tar">&nbsp; Yumi</span>Club
               </span>
             </h4>
+            <AddButton onClick={() => addProduct(prod)}>Comprar</AddButton>
             <AddButton>Comprar</AddButton>
           </ContainerPrice>
         </div>
