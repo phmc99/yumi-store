@@ -9,7 +9,7 @@ import {
 } from "./styles";
 
 const CartPage = () => {
-  const { cartProducts } = useCartContext();
+  const { cartProduct } = useCartContext();
 
   return (
     <div>
@@ -24,7 +24,7 @@ const CartPage = () => {
       <DivPagamento>
         <ButtonPagamento>Confirmar pedido</ButtonPagamento>
       </DivPagamento>
-      {cartProducts.map((item, index) => (
+      {cartProduct.map((item, index) => (
         <Cart products={item} key={index} />
       ))}
     </div>

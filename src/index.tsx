@@ -12,9 +12,7 @@ ReactDOM.render(
     <Providers>
     <BrowserRouter>
       <ConfigProvider locale={ptBr}>
-        <Provider>
           <App />
-        </Provider>
       </ConfigProvider>  
     </BrowserRouter>
     </Providers>

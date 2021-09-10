@@ -5,9 +5,8 @@ import {
   ReactNode,
   useEffect,
 } from "react";
-import api from "../../services";
 
-interface Products {
+interface Product {
   name: string;
   price: number;
   image_url: string;
@@ -17,37 +16,36 @@ interface ProducutsCart {
   children: ReactNode;
 }
 
-interface CartProducts {
-  cartProducts: Products[];
-  addCart: (cart: Products) => void;
-  removeCart: (cart: Products) => void;
+interface CartProduct {
+  cartProduct: Product[];
+  setCartProduct: any;
+  addCart: (cart: Product) => void;
+  removeCart: (cart: Product) => void;
 }
 
-const CartContext = createContext<CartProducts>({} as CartProducts);
+const CartContext = createContext<CartProduct>({} as CartProduct);
 
 export const CartProvider = ({ children }: ProducutsCart) => {
-  const [cartProducts, setCartProducts] = useState<Products[]>([]);
+  const [cartProduct, setCartProduct] = useState<Product[]>([]);
 
-  useEffect(() => {
-    api
-      .get("/orders")
-      .then((response) => setCartProducts([...response.data]))
-      .catch((err) => console.log("erro"));
-  }, []);
-
-  const addCart = (cart: Products) => {
-    setCartProducts([...cartProducts, cart]);
+  const addCart = (cart: Product) => {
+    setCartProduct([...cartProduct, cart]);
   };
 
-  const removeCart = (cartDeleted: Products) => {
-    const newList = cartProducts.filter(
+  const removeCart = (cartDeleted: Product) => {
+    const newList = cartProduct.filter(
       (remove) => remove.name !== cartDeleted.name
     );
-    setCartProducts(newList);
+    setCartProduct(newList);
   };
 
+  useEffect(() => {
+        localStorage.get("cart", JSON.stringify(cartProduct))
+    }, [cartProduct])
+
+
   return (
-    <CartContext.Provider value={{ cartProducts, addCart, removeCart }}>
+    <CartContext.Provider value={{ cartProduct, addCart, removeCart, setCartProduct }}>
       {children}
     </CartContext.Provider>
   );
