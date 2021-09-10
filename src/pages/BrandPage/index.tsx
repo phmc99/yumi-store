@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import CardProds from "../../components/CardProds";
 
 import CarouselBanner from "../../components/Carousel";
 import api from "../../services";
 
 import { IProducts } from "../../types";
-import { Container, BrandImages } from "../CategoryPage/styles";
+import { Container, BrandImages, Products } from "../CategoryPage/styles";
 
 const BrandPage = () => {
   const [products, setProducts] = useState([] as IProducts[]);
@@ -63,11 +64,13 @@ const BrandPage = () => {
           </>
         ) : null}
 
-        <ul>
+        <Products>
           {products.map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+              <CardProds prod={item} />
+            </li>
           ))}
-        </ul>
+        </Products>
       </Container>
     </>
   );

@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import CardProds from "../../components/CardProds";
 
 import CarouselBanner from "../../components/Carousel";
 import api from "../../services";
 
 import { IProducts } from "../../types";
-import { Container } from "../CategoryPage/styles";
+import { Container, Products } from "../CategoryPage/styles";
 
 const SpeciesPage = () => {
   const [products, setProducts] = useState([] as IProducts[]);
@@ -30,11 +31,13 @@ const SpeciesPage = () => {
         <p>Aqui você encontra os melhores produtos para o seu pet!</p>
         <p>Da melhor qualidade com o menor preço!</p>
 
-        <ul>
+        <Products>
           {products.map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+              <CardProds prod={item} />
+            </li>
           ))}
-        </ul>
+        </Products>
       </Container>
     </>
   );
