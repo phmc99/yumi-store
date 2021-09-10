@@ -24,6 +24,10 @@ const Routes = () => {
         <LoginPage />
       </Route>
 
+      <Route exact path="/products">
+        <Products />
+      </Route>
+
       <Route path="/products">
         <Products />
       </Route>

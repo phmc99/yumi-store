@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import CarouselBanner from "../../components/Carousel";
-import { Images, HoverText, Details, Category } from "./styles";
+import { Images, HoverText, Details, Category, More } from "./styles";
+import { IProducts } from "../../types";
+import { AiOutlinePlus } from "react-icons/ai";
 
 //Carrossel
 import Carousel from "react-multi-carousel";
@@ -15,26 +18,48 @@ import Delivery from "../../assets/entrega.png";
 import Buy from "../../assets/compra.png";
 import ONG from "../../assets/ong.png";
 import Return from "../../assets/troca.png";
+import api from "../../services";
+import CardProds from "../../components/CardProds";
+import { MenuSearch } from "../../components/MenuSearch";
 
 const Home = () => {
+  const [productsClothes, setProductsClothes] = useState([] as IProducts[]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      await api
+        .get(`/products?category=2`)
+        .then((response) => setProductsClothes(response.data));
+    };
+    getProducts();
+  }, []);
+
   const responsive = {
+    desktopL: {
+      breakpoint: { max: 3000, min: 1300 },
+      items: 5,
+    },
     desktop: {
-      breakpoint: { max: 3000, min: 900 },
+      breakpoint: { max: 1300, min: 1000 },
       items: 4,
     },
     tablet: {
-      breakpoint: { max: 900, min: 450 },
+      breakpoint: { max: 1000, min: 730 },
       items: 3,
     },
+    medium: {
+      breakpoint: { max: 730, min: 470 },
+      items: 2,
+    },
     mobile: {
-      breakpoint: { max: 450, min: 0 },
+      breakpoint: { max: 470, min: 0 },
       items: 1,
     },
   };
 
   return (
     <>
-      Home
+      <MenuSearch/>
       <CarouselBanner />
       <Images>
         <Link to="/products/species/1">
@@ -110,19 +135,20 @@ const Home = () => {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
           focusOnSelect={true}
-          centerMode={true}
         >
-          <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
-          <p>5</p>
-          <p>6</p>
-          <Link to="/products/category/5">
-            <p>+</p>
-          </Link>
+          {productsClothes.map((item) => (
+            <li key={item.id}>
+              <CardProds prod={item} />
+            </li>
+          ))}
+          <More>
+            <Link to="/products/category/5">
+              <AiOutlinePlus />
+            </Link>
+          </More>
         </Carousel>
       </Category>
+
       <Category>
         <Link to="/products/category/4">
           <h1>Brinquedos</h1>
@@ -142,17 +168,17 @@ const Home = () => {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
           focusOnSelect={true}
-          centerMode={true}
         >
-          <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
-          <p>5</p>
-          <p>6</p>
-          <Link to="/products/category/4">
-            <p>+</p>
-          </Link>
+          {productsClothes.map((item) => (
+            <li key={item.id}>
+              <CardProds prod={item} />
+            </li>
+          ))}
+          <More>
+            <Link to="/products/category/4">
+              <AiOutlinePlus />
+            </Link>
+          </More>
         </Carousel>
       </Category>
     </>

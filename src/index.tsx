@@ -6,9 +6,11 @@ import ptBr from "antd/lib/locale/pt_BR"
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import Provider from "./providers"
+import Providers from "./providers/index";
 
 ReactDOM.render(
   <React.StrictMode>
+    <Providers>
     <BrowserRouter>
       <ConfigProvider locale={ptBr}>
         <Provider>
@@ -16,6 +18,7 @@ ReactDOM.render(
         </Provider>
       </ConfigProvider>  
     </BrowserRouter>
+    </Providers>
   </React.StrictMode>,
   document.getElementById("root")
 );
