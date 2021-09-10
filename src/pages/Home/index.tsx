@@ -20,6 +20,7 @@ import ONG from "../../assets/ong.png";
 import Return from "../../assets/troca.png";
 import api from "../../services";
 import CardProds from "../../components/CardProds";
+import { MenuSearch } from "../../components/MenuSearch";
 
 const Home = () => {
   const [productsClothes, setProductsClothes] = useState([] as IProducts[]);
@@ -58,6 +59,7 @@ const Home = () => {
 
   return (
     <>
+      <MenuSearch/>
       <CarouselBanner />
       <Images>
         <Link to="/products/species/1">

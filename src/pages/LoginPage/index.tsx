@@ -3,13 +3,14 @@ import { Input } from "../../components/Input";
 import { IoIosLock, IoMdMail } from "react-icons/io";
 import FormButton from "../../components/FormButton";
 import loginImg from "../../assets/login.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {} from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../../services";
+import { Menu } from "../../components/Menu";
 
 interface IRegisterForm {
   email: string;
@@ -43,38 +44,47 @@ const LoginPage = () => {
       });
   };
 
+  const token = localStorage.getItem("token")
+
+  if (token !== null) {
+    return <Redirect to="/" />
+  }
+
   return (
-    <FormPage>
-      <FormBox className="form">
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            icon={IoMdMail}
-            placeholder="E-mail"
-            register={register("email")}
-            error={errors.email}
-          />
-          <span className="error-message">{errors.email?.message}</span>
+    <>
+      <Menu />
+      <FormPage>
+        <FormBox className="form">
+          <h1>Login</h1>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Input
+              icon={IoMdMail}
+              placeholder="E-mail"
+              register={register("email")}
+              error={errors.email}
+            />
+            <span className="error-message">{errors.email?.message}</span>
 
-          <Input
-            icon={IoIosLock}
-            placeholder="Senha"
-            register={register("password")}
-            type="password"
-            error={errors.password}
-          />
-          <span className="error-message">{errors.password?.message}</span>
+            <Input
+              icon={IoIosLock}
+              placeholder="Senha"
+              register={register("password")}
+              type="password"
+              error={errors.password}
+            />
+            <span className="error-message">{errors.password?.message}</span>
 
-          <span>
-            Não possui uma conta? <Link to="/register">Cadastre-se</Link>
-          </span>
-          <FormButton type="submit">Entrar</FormButton>
-        </form>
-      </FormBox>
-      <aside className="illustration login-illustration">
-        <img src={loginImg} alt="imagem" />
-      </aside>
-    </FormPage>
+            <span>
+              Não possui uma conta? <Link to="/register">Cadastre-se</Link>
+            </span>
+            <FormButton type="submit">Entrar</FormButton>
+          </form>
+        </FormBox>
+        <aside className="illustration login-illustration">
+          <img src={loginImg} alt="imagem" />
+        </aside>
+      </FormPage>
+    </>
   );
 };
 
