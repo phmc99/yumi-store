@@ -28,6 +28,10 @@ const Routes = () => {
         <Products />
       </Route>
 
+      <Route path="/products">
+        <Products />
+      </Route>
+      
       <Route path="/products/species/:id">
         <SpeciesPage />
       </Route>
