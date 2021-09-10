@@ -6,17 +6,19 @@ import {
   AddButton,
 } from "./styles";
 import { useProducts } from "../../providers/Products";
+import { IProducts } from "../../types";
 
+interface ICardProdsProps {
+  prod: IProducts;
+}
 
-const CardProds = ({ prod }: any) => {
-  
-const {addProduct} = useProducts()
-  
-  
+const CardProds = ({ prod }: ICardProdsProps) => {
+  const { addProduct } = useProducts();
+
   return (
     <ContainerProd>
       <CardDivisor>
-        <div key={prod.index}>
+        <div key={prod.id}>
           <ContainerPrice>
             <img src={prod.image_url} alt={prod.image_url} />
             <h3>
@@ -37,7 +39,6 @@ const {addProduct} = useProducts()
               </span>
             </h4>
             <AddButton onClick={() => addProduct(prod)}>Comprar</AddButton>
-            <AddButton>Comprar</AddButton>
           </ContainerPrice>
         </div>
       </CardDivisor>

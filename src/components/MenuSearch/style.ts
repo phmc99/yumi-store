@@ -21,24 +21,26 @@ export const StyledMenuBar = styled.nav`
 `;
 
 export const ContainerLogo = styled.div`
-  display: flex;
   cursor: pointer;
-  h1 {
-    font-family: "Merienda", cursive;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 25px;
-    line-height: 52px;
-    margin-top: 5px;
-  }
 
-  .titleMenu-2 {
-    color: #8f4bc7;
+  .logo-button {
+    display: flex;
+    h1 {
+      font-family: "Merienda", cursive;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 52px;
+      margin-top: 5px;
+    }
+    .titleMenu-2 {
+      color: #8f4bc7;
+    }
   }
 `;
 
-export const StyledRightNav = styled.ul<{open: boolean}>`
-  div {
+export const StyledRightNav = styled.ul<{ open: boolean }>`
+  .right-nav {
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -47,6 +49,7 @@ export const StyledRightNav = styled.ul<{open: boolean}>`
   }
 
   li {
+    cursor: pointer;
     padding: 18px 10px;
     width: 50px;
     border-bottom: 3px solid transparent;
@@ -103,12 +106,12 @@ export const StyledRightNav = styled.ul<{open: boolean}>`
     transition: transform 0.3s ease-in-out;
 
     li {
-      color: #fff;
+      color: var(--black);
     }
   }
 `;
 
-export const StyledBurger = styled.div<{open: boolean}>`
+export const StyledBurger = styled.div<{ open: boolean }>`
   width: 1.5rem;
   height: 2rem;
   position: relative;
@@ -194,7 +197,7 @@ export const Search = styled.div`
   }
 `;
 
-export const BottomMenu = styled.ul<{open: boolean}>`
+export const BottomMenu = styled.ul<{ open: boolean }>`
   list-style: none;
 
   div {

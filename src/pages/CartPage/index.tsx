@@ -1,4 +1,5 @@
 import Cart from "../../components/Cart";
+import { MenuSearch } from "../../components/MenuSearch";
 import { useCartContext } from "../../providers/CartProvider";
 import {
   Div,
@@ -9,10 +10,11 @@ import {
 } from "./styles";
 
 const CartPage = () => {
-  const { cartProduct } = useCartContext();
+  const { cartProducts } = useCartContext();
 
   return (
     <div>
+      <MenuSearch />
       <Div>
         <Titulo>Meu carrinho:</Titulo>
         <Paragrafo>
@@ -25,7 +27,7 @@ const CartPage = () => {
         <ButtonPagamento>Confirmar pedido</ButtonPagamento>
       </DivPagamento>
       {cartProducts.map((item, index) => (
-        <Cart products={item} key={index} />
+        <Cart product={item} key={index} />
       ))}
     </div>
   );

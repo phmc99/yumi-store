@@ -1,14 +1,19 @@
 export interface Type {}
 
+interface IRating {
+  comments: string[];
+  grades: number[];
+}
+
 export interface IProducts {
-  id: number;
+  id: string;
   name: string;
   description: string;
   category: number;
-  species: number;
+  specie: string;
   sizes: string[];
   price: string;
   member_price: string;
   image_url: string;
-  rating?: any;
+  rating: IRating;
 }
