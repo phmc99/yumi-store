@@ -18,21 +18,22 @@ import Delivery from "../../assets/entrega.png";
 import Buy from "../../assets/compra.png";
 import ONG from "../../assets/ong.png";
 import Return from "../../assets/troca.png";
-import api from "../../services";
 import CardProds from "../../components/CardProds";
 import { MenuSearch } from "../../components/MenuSearch";
+import { useProducts } from "../../providers/Products";
 
 const Home = () => {
-  const [productsClothes, setProductsClothes] = useState([] as IProducts[]);
+  const { products } = useProducts();
+
+  const [filterToys, setFilterToys] = useState<IProducts[]>([]);
+  const [filterClothes, setFilterClothes] = useState<IProducts[]>([]);
 
   useEffect(() => {
-    const getProducts = async () => {
-      await api
-        .get(`/products?category=2`)
-        .then((response) => setProductsClothes(response.data));
-    };
-    getProducts();
-  }, []);
+    let filteredToys = products.filter((item) => item.category === 4);
+    let filteredClothes = products.filter((item) => item.category === 5);
+    setFilterToys(filteredToys);
+    setFilterClothes(filteredClothes);
+  }, [products]);
 
   const responsive = {
     desktopL: {
@@ -59,10 +60,10 @@ const Home = () => {
 
   return (
     <>
-      <MenuSearch/>
+      <MenuSearch />
       <CarouselBanner />
       <Images>
-        <Link to="/products/species/1">
+        <Link to="/products/species/cachorro">
           <HoverText>
             <img src={Dogs} alt="Cachorros" />
             <div className="text">
@@ -71,7 +72,7 @@ const Home = () => {
           </HoverText>
         </Link>
 
-        <Link to="/products/species/2">
+        <Link to="/products/species/gato">
           <HoverText>
             <img src={Cats} alt="Gatos" />
             <div className="text">
@@ -136,7 +137,7 @@ const Home = () => {
           itemClass="carousel-item-padding-40-px"
           focusOnSelect={true}
         >
-          {productsClothes.map((item) => (
+          {filterClothes.map((item) => (
             <li key={item.id}>
               <CardProds prod={item} />
             </li>
@@ -169,7 +170,7 @@ const Home = () => {
           itemClass="carousel-item-padding-40-px"
           focusOnSelect={true}
         >
-          {productsClothes.map((item) => (
+          {filterToys.map((item) => (
             <li key={item.id}>
               <CardProds prod={item} />
             </li>

@@ -5,12 +5,20 @@ import {
   ContainerPrice,
   AddButton,
 } from "./styles";
+import { useProducts } from "../../providers/Products";
+import { IProducts } from "../../types";
 
-const CardProds = ({ prod }: any) => {
+interface ICardProdsProps {
+  prod: IProducts;
+}
+
+const CardProds = ({ prod }: ICardProdsProps) => {
+  const { addProduct } = useProducts();
+
   return (
     <ContainerProd>
       <CardDivisor>
-        <div key={prod.index}>
+        <div key={prod.id}>
           <ContainerPrice>
             <img src={prod.image_url} alt={prod.image_url} />
             <h3>
@@ -30,7 +38,7 @@ const CardProds = ({ prod }: any) => {
                 <span className="logo-tar">&nbsp; Yumi</span>Club
               </span>
             </h4>
-            <AddButton>Comprar</AddButton>
+            <AddButton onClick={() => addProduct(prod)}>Comprar</AddButton>
           </ContainerPrice>
         </div>
       </CardDivisor>

@@ -1,45 +1,35 @@
-import {
-  useContext,
-  useState,
-  createContext,
-  ReactNode,
-  useEffect,
-} from "react";
-import api from "../../services";
+import { useContext, useState, createContext, ReactNode } from "react";
 
-interface Products {
-  name: string;
-  price: number;
-  image_url: string;
-}
+import { IProducts } from "../../types";
 
-interface ProducutsCart {
+interface CartProviderProps {
   children: ReactNode;
 }
 
-interface CartProducts {
-  cartProducts: Products[];
-  addCart: (cart: Products) => void;
-  removeCart: (cart: Products) => void;
+interface CartProviderData {
+  cartProducts: IProducts[];
+  setCartProducts: any;
+  addCart: (cart: IProducts) => void;
+  removeCart: (cart: IProducts) => void;
 }
 
-const CartContext = createContext<CartProducts>({} as CartProducts);
+const CartContext = createContext<CartProviderData>({} as CartProviderData);
 
-export const CartProvider = ({ children }: ProducutsCart) => {
-  const [cartProducts, setCartProducts] = useState<Products[]>([]);
+export const CartProvider = ({ children }: CartProviderProps) => {
+  const [cartProducts, setCartProducts] = useState<IProducts[]>([]);
 
-  useEffect(() => {
-    api
-      .get("/orders")
-      .then((response) => setCartProducts([...response.data]))
-      .catch((err) => console.log("erro"));
-  }, []);
+  // useEffect(() => {
+  //   api
+  //     .get("/orders")
+  //     .then((response) => setCartProducts([...response.data]))
+  //     .catch((err) => console.log("erro"));
+  // }, []);
 
-  const addCart = (cart: Products) => {
+  const addCart = (cart: IProducts) => {
     setCartProducts([...cartProducts, cart]);
   };
 
-  const removeCart = (cartDeleted: Products) => {
+  const removeCart = (cartDeleted: IProducts) => {
     const newList = cartProducts.filter(
       (remove) => remove.name !== cartDeleted.name
     );
@@ -47,7 +37,9 @@ export const CartProvider = ({ children }: ProducutsCart) => {
   };
 
   return (
-    <CartContext.Provider value={{ cartProducts, addCart, removeCart }}>
+    <CartContext.Provider
+      value={{ cartProducts, addCart, removeCart, setCartProducts }}
+    >
       {children}
     </CartContext.Provider>
   );

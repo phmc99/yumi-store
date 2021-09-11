@@ -5,7 +5,7 @@ import { AiFillPhone } from "react-icons/ai";
 import { IoIosLock, IoMdMail } from "react-icons/io";
 import FormButton from "../../components/FormButton";
 import registerImg from "../../assets/register.png";
-import { Link, useHistory, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -53,7 +53,15 @@ const RegisterPage = () => {
 
   const onSubmit: SubmitHandler<IRegisterForm> = async (data) => {
     await api
-      .post("register", data)
+      .post(
+        "auth/register",
+        { ...data, address: {} },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then(() => {
         toast.success("Cadastro concluído!");
         history.push("/login");
@@ -62,12 +70,6 @@ const RegisterPage = () => {
         toast.error("Ops, algo de errado aconteceu!");
       });
   };
-
-  const token = localStorage.getItem("token")
-
-  if (token !== null) {
-    return <Redirect to="/" />
-  }
 
   return (
     <>
