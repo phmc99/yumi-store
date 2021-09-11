@@ -1,6 +1,7 @@
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { useCartContext } from "../../providers/CartProvider";
+import { IProducts } from "../../types";
 import {
   ListCart,
   Image,
@@ -9,35 +10,27 @@ import {
   TitlePrice,
 } from "./styles";
 
-interface Products {
-  name: string;
-  image_url: string;
-  price: number;
-}
-
 interface ProductsProps {
-  products: Products;
+  product: IProducts;
 }
 
-const Cart = ({ products }: ProductsProps) => {
+const Cart = ({ product }: ProductsProps) => {
   const { removeCart, addCart } = useCartContext();
-
-  const { name, price, image_url } = products;
 
   return (
     <>
       <div>
         <ListCart>
-          <Image src={image_url} alt="roupa" />
-          <ParagrafoProduct>{name}</ParagrafoProduct>
-          <Button onClick={() => addCart(products)}>
+          <Image src={product.image_url} alt="roupa" />
+          <ParagrafoProduct>{product.name}</ParagrafoProduct>
+          <Button onClick={() => addCart(product)}>
             <AiOutlinePlusSquare size="25px" />
           </Button>
           1
-          <Button onClick={() => removeCart(products)}>
+          <Button onClick={() => removeCart(product)}>
             <AiOutlineMinusSquare size="25px" />
           </Button>
-          <TitlePrice>R$ {price}</TitlePrice>
+          <TitlePrice>R$ {product.price}</TitlePrice>
           <Button style={{ marginLeft: "7rem" }}>
             <BsTrash size="20px" />
           </Button>

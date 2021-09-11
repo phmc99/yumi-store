@@ -5,12 +5,9 @@ import {
   ContainerInfo,
   ContainerPrice,
 } from "./style";
-// import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 
 export const Products = () => {
-  const { products } = useProducts();
-
-
+  const { products, addProduct } = useProducts();
   return (
     <div>
       {products.map((prod, index) => (
@@ -20,12 +17,12 @@ export const Products = () => {
             <ContainerInfo>
               <h4>{prod.name}</h4>
               <p>
+                {" "}
                 Descrição: <br></br>
                 <br></br>
                 {prod.description}
               </p>
             </ContainerInfo>
-
             <ContainerPrice>
               {/* {products.map((prod, index) => (
                     <button key={index}>
@@ -37,10 +34,10 @@ export const Products = () => {
                 R${prod.member_price} <span className="club-logo">Yumi</span>
                 Club
               </h4>
-              <button>Comprar</button>
+              <button onClick={() => addProduct(prod)}>Comprar</button>
             </ContainerPrice>
           </ContainerCart>
-          <p> {prod.comments}</p>
+          <p> {prod.rating.comments}</p>
         </ContainerProd>
       ))}
     </div>

@@ -8,6 +8,7 @@ import { Products } from "../pages/Products/Index";
 import SpeciesPage from "../pages/SpeciesPage";
 import CategoryPage from "../pages/CategoryPage";
 import BrandPage from "../pages/BrandPage";
+import CartPage from "../pages/CartPage";
 
 const Routes = () => {
   return (
@@ -28,11 +29,7 @@ const Routes = () => {
         <Products />
       </Route>
 
-      <Route path="/products">
-        <Products />
-      </Route>
-      
-      <Route path="/products/species/:id">
+      <Route path="/products/species/:specie">
         <SpeciesPage />
       </Route>
 
@@ -42,6 +39,10 @@ const Routes = () => {
 
       <Route path="/products/brand/:id">
         <BrandPage />
+      </Route>
+
+      <Route path="/cart">
+        <CartPage />
       </Route>
     </Switch>
   );

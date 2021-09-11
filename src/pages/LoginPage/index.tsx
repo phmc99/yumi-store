@@ -33,21 +33,24 @@ const LoginPage = () => {
 
   const onSubmit: SubmitHandler<IRegisterForm> = async (data) => {
     await api
-      .post("login", data)
+      .post("auth/login", data)
       .then((response: any) => {
         toast.success("Bem vindx!");
-        localStorage.setItem("@yumi:token", response);
-        history.push("/dashboard");
+        localStorage.setItem(
+          "@yumi:token",
+          JSON.stringify(response.data.token)
+        );
+        history.push("/cart");
       })
       .catch(() => {
         toast.error("Ops, algo de errado aconteceu!");
       });
   };
 
-  const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
 
   if (token !== null) {
-    return <Redirect to="/" />
+    return <Redirect to="/" />;
   }
 
   return (
