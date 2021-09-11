@@ -12,7 +12,7 @@ export interface IProducts {
   category: number;
   specie: string;
   sizes: string[];
-  price: string;
+  price: number;
   member_price: string;
   image_url: string;
   rating: IRating;
