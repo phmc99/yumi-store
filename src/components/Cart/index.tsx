@@ -8,6 +8,7 @@ import {
   ParagrafoProduct,
   Button,
   TitlePrice,
+  Box
 } from "./styles";
 
 interface ProductsProps {
@@ -19,23 +20,23 @@ const Cart = ({ product }: ProductsProps) => {
 
   return (
     <>
-      <div>
+      <Box>
         <ListCart>
           <Image src={product.image_url} alt="roupa" />
           <ParagrafoProduct>{product.name}</ParagrafoProduct>
           <Button onClick={() => addCart(product)}>
-            <AiOutlinePlusSquare size="25px" />
+            <AiOutlinePlusSquare size="30px" color={"8F4BC7"} />
           </Button>
           1
           <Button onClick={() => removeCart(product)}>
-            <AiOutlineMinusSquare size="25px" />
+            <AiOutlineMinusSquare size="30px" color={"8F4BC7"}/>
           </Button>
           <TitlePrice>R$ {product.price}</TitlePrice>
-          <Button style={{ marginLeft: "7rem" }}>
-            <BsTrash size="20px" />
+          <Button>
+            <BsTrash size="30px" />
           </Button>
         </ListCart>
-      </div>
+      </Box>
     </>
   );
 };
