@@ -10,6 +10,7 @@ import CategoryPage from "../pages/CategoryPage";
 import BrandPage from "../pages/BrandPage";
 import CartPage from "../pages/CartPage";
 import Favorites from "../pages/Favorites";
+import Error from "../pages/Error";
 
 const Routes = () => {
   return (
@@ -48,6 +49,10 @@ const Routes = () => {
 
       <Route path="/favorite">
         <Favorites />
+      </Route>
+
+      <Route>
+        <Error />
       </Route>
     </Switch>
   );
