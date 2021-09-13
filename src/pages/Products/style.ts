@@ -3,11 +3,14 @@ import styled from "styled-components";
 export const ContainerProd = styled.div`
   display: flex;
   margin: 5%;
+  border: 3px solid var(--dark-purple);
+  padding: 2%;
 
   img {
     margin: 5%;
     max-height: 220px;
   }
+  
 `;
 export const ContainerCart = styled.div`
   display: flex;
@@ -17,7 +20,8 @@ export const ContainerCart = styled.div`
 
 export const ContainerInfo = styled.div`
   display: flex;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  margin-left: 3rem;
   flex-wrap: wrap;
   width: 40vw;
 
@@ -41,13 +45,18 @@ export const ContainerInfo = styled.div`
   button {
     font-weight: bold;
   }
+  .stars{
+    display: flex;
+    flex-direction: row-reverse;
+  }
 `;
 export const ContainerPrice = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 19px;
-  margin: 10%;
-  margin-top: 13rem;
+  font-size: 23px;
+  margin: 16%;
+  margin-top: 8rem;
+ 
 
   button {
     width: 200px;
@@ -60,13 +69,49 @@ export const ContainerPrice = styled.div`
     font-family: "Suez One", sans-serif;
     margin-top: 2rem;
   }
-
+  h4{
+    margin-top: 2rem;
+    font-weight: bold;
+  }
   .club-price {
+    margin-top: 0;
     font-family: "Merienda One", cursive;
-    font-size: 19px;
+    font-size: 23px;
     color: #8f4bc7;
   }
   .club-logo {
     color: black;
   }
 `;
+export const SideImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin-top: 8%;
+
+  img{
+    width:100px;
+  }
+  img:hover {
+    filter: brightness(0.85);
+    transition: all 0.4s;
+  }
+`
+export const MainImage = styled.div`
+  cursor: pointer;
+  margin-top: 8%;
+
+  img:hover {
+    filter: brightness(0.85);
+    transition: all 0.4s;
+  }
+`
+export const ContainerComment = styled.div`
+  display: flex;
+  margin-top: 8%;
+
+  img:hover {
+    filter: brightness(0.85);
+    transition: all 0.4s;
+  }
+`
