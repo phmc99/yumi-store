@@ -12,7 +12,7 @@ export const ContainerProd = styled.div`
 export const ContainerCart = styled.div`
   display: flex;
   font-family: "Mulish", sans-serif;
-  font-weigth: bold;
+  font-weight: bold;
 `;
 
 export const ContainerInfo = styled.div`
@@ -24,7 +24,7 @@ export const ContainerInfo = styled.div`
   h4 {
     width: 300px;
     color: #0a0a09;
-    font-weigth: bold;
+    font-weight: bold;
     margin-bottom: 1rem;
     font-size: 20px;
   }
@@ -35,7 +35,7 @@ export const ContainerInfo = styled.div`
   }
 
   .span-price {
-    color: #black;
+    color: #000;
   }
 
   button {

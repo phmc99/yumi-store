@@ -2,6 +2,7 @@ import { AiTwotoneStar } from "react-icons/ai";
 import {
   ContainerProd,
   CardDivisor,
+  ContainerInfo,
   ContainerPrice,
   AddButton,
 } from "./styles";
@@ -19,18 +20,18 @@ const CardProds = ({ prod }: ICardProdsProps) => {
     <ContainerProd>
       <CardDivisor>
         <div key={prod.id}>
-          <ContainerPrice>
+          <ContainerInfo>
             <img src={prod.image_url} alt={prod.image_url} />
-            <h3>
-              {prod.name}
-              <p>
-                <AiTwotoneStar color="var(--yellow)" />
-                <AiTwotoneStar color="var(--yellow)" />
-                <AiTwotoneStar color="var(--yellow)" />
-                <AiTwotoneStar color="var(--yellow)" />
-                <AiTwotoneStar color="var(--yellow)" />
-              </p>
-            </h3>
+            <h3>{prod.name}</h3>
+          </ContainerInfo>
+          <ContainerPrice>
+            <p>
+              <AiTwotoneStar color="var(--yellow)" />
+              <AiTwotoneStar color="var(--yellow)" />
+              <AiTwotoneStar color="var(--yellow)" />
+              <AiTwotoneStar color="var(--yellow)" />
+              <AiTwotoneStar color="var(--yellow)" />
+            </p>
             <h4>R${prod.price}</h4>
             <h4 className="club-price">
               R${prod.member_price}
