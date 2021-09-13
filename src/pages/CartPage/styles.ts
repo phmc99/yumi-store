@@ -34,12 +34,14 @@ export const Paragrafo = styled.p`
   padding: 1rem;
   font-size: 0.8rem;
   font-weight: bold;
+  justify-content: center;
 
   @media (min-width: 760px) {
     margin: 3.5rem 2.5rem 0rem 2.5rem;
     width: 350px;
     font-weight: bold;
     font-size: 1.3rem;
+    justify-content: center;
   }
 `;
 
