@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Cart from "../../components/Cart";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useCartContext } from "../../providers/CartProvider";
@@ -12,14 +13,15 @@ import {
 const CartPage = () => {
   const { cartProducts } = useCartContext();
 
+  /* const total = cartProducts.reduce((a,b) => a + b.price, 0)
+  console.log(cartProducts) */
   return (
     <div>
       <MenuSearch />
       <Div>
         <Titulo>Meu carrinho:</Titulo>
         <Paragrafo>
-          Subtotal: R$
-          {/* {cartProducts.reduce((acc, current) => acc + current.price, 0).toFixed(2)} */}
+          Subtotal: R$ {}
         </Paragrafo>
       </Div>
 
