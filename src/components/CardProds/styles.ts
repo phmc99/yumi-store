@@ -29,6 +29,7 @@ export const ContainerInfo = styled.div`
   padding: 3%;
 
   h3 {
+    height: 70px;
     font-size: 15px;
     font-family: "Mulish", serif;
     margin: 4% 0 4% 0;
@@ -58,6 +59,24 @@ export const ContainerPrice = styled.div`
   }
   .logo-tar {
     color: var(--purple);
+  }
+
+  .favButton {
+    width: 100%;
+    display: flex;
+    background: initial;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+      font-size: 1.5rem;
+      color: #f00;
+    }
+    p {
+      font-size: 0.85rem;
+      color: #f00;
+      margin: 0;
+    }
   }
 `;
 

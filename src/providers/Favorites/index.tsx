@@ -13,7 +13,6 @@ interface FavoriteProviderProps {
 }
 
 interface FavoriteProviderData {
-  favorite: boolean;
   favoritesProducts: IProducts[];
   handleAddFavorite: (item: IProducts) => void;
   handleRemoveFavorite: (item: IProducts) => void;
@@ -24,19 +23,17 @@ const FavoriteContext = createContext<FavoriteProviderData>(
 );
 
 export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
-  const [favorite, setFavorite] = useState(false);
-
   const [favoritesProducts, setFavoritesProducts] = useState<IProducts[]>(
     JSON.parse(localStorage.getItem("@yumishop:favorites") || "[]")
   );
 
   const handleAddFavorite = (item: IProducts) => {
-    setFavorite(true);
-    setFavoritesProducts([...favoritesProducts, item]);
+    if (favoritesProducts.includes(item) === false) {
+      setFavoritesProducts([...favoritesProducts, item]);
+    }
   };
 
   const handleRemoveFavorite = (item: IProducts) => {
-    setFavorite(false);
     setFavoritesProducts(
       favoritesProducts.filter((remove) => remove.name !== item.name)
     );
@@ -49,12 +46,9 @@ export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
     );
   }, [favoritesProducts]);
 
-  console.log(favoritesProducts);
-
   return (
     <FavoriteContext.Provider
       value={{
-        favorite,
         favoritesProducts,
         handleAddFavorite,
         handleRemoveFavorite,

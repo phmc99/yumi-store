@@ -19,7 +19,7 @@ const Favorites = () => {
         <Products>
           {favoritesProducts.map((item) => (
             <li key={item.id}>
-              <CardProds prod={item} />
+              <CardProds prod={item} favorite={true} />
             </li>
           ))}
         </Products>
