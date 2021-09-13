@@ -14,9 +14,13 @@ import {
   BottomMenu,
 } from "./style";
 import { Menu, Dropdown, Button } from "antd";
+import { Badge } from "antd";
+import { useCartContext } from "../../providers/CartProvider";
 
 export const MenuSearch = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const [filtrado, setFiltrado] = useState("");
+  const { cartProducts } = useCartContext();
 
   const [profileButtonClicked, setProfileButtonClicked] =
     useState<boolean>(false);
@@ -24,6 +28,12 @@ export const MenuSearch = () => {
   const history = useHistory();
   const changePage = (route: string) => {
     history.push(`/${route}`);
+  };
+
+  const Pesquisar = () => {
+    if (filtrado !== "") {
+      history.push(`/products/filtered:${filtrado}`, filtrado);
+    }
   };
 
   const menu = (
@@ -128,8 +138,12 @@ export const MenuSearch = () => {
           </div>
         </ContainerLogo>
         <Search>
-          <input placeholder="Exemplo: Cama para cachorros"></input>
-          <div>
+          <input
+            value={filtrado}
+            onChange={(event) => setFiltrado(event.target.value)}
+            placeholder="Exemplo: Casa Iglu Furacão Pet Preta para Cães"
+          ></input>
+          <div onClick={() => Pesquisar()}>
             <VscSearch style={{ height: "25px", width: "25px" }} />
           </div>
         </Search>
@@ -139,7 +153,10 @@ export const MenuSearch = () => {
           <div></div>
         </StyledBurger>
         {profileButtonClicked && (
-          <ProfileMenu profileButtonClicked={profileButtonClicked} setProfileButtonClicked={setProfileButtonClicked} />
+          <ProfileMenu
+            profileButtonClicked={profileButtonClicked}
+            setProfileButtonClicked={setProfileButtonClicked}
+          />
         )}
         <StyledRightNav open={open}>
           <div className="right-nav">
@@ -150,14 +167,20 @@ export const MenuSearch = () => {
                 </Link>
               </li>
             )}
-            <li key="2" onMouseLeave={() => setProfileButtonClicked(false)} onMouseEnter={() => setProfileButtonClicked(true)}>
+            <li
+              key="2"
+              onMouseLeave={() => setProfileButtonClicked(false)}
+              onMouseEnter={() => setProfileButtonClicked(true)}
+            >
               <BsPersonFill style={{ height: "30px", width: "30px" }} />
             </li>
             <li key="3" onClick={() => changePage("favorite")}>
               <VscHeart style={{ height: "30px", width: "30px" }} />
             </li>
             <li key="4" onClick={() => changePage("cart")}>
-              <HiShoppingCart style={{ height: "30px", width: "30px" }} />
+              <Badge count={cartProducts.length}>
+                <HiShoppingCart style={{ height: "30px", width: "30px" }} />
+              </Badge>
             </li>
           </div>
         </StyledRightNav>

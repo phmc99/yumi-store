@@ -9,7 +9,6 @@ import { Link, useHistory } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import {} from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../../services";
 import { Menu } from "../../components/Menu";
