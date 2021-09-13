@@ -3,10 +3,11 @@ import { GrFormClose } from "react-icons/gr"
 import { useHistory } from "react-router";
  
 interface CloseButton{
+  profileButtonClicked: boolean;
   setProfileButtonClicked: (toggle: boolean) => void;
 }
 
-const ProfileMenu = ({ setProfileButtonClicked }: CloseButton) => {
+const ProfileMenu = ({ profileButtonClicked, setProfileButtonClicked }: CloseButton) => {
 
   const history = useHistory()
 
@@ -26,7 +27,7 @@ const ProfileMenu = ({ setProfileButtonClicked }: CloseButton) => {
   };
 
   return (
-    <ModalProfile>
+    <ModalProfile onMouseLeave={() => setProfileButtonClicked(false)} onMouseEnter={() => setProfileButtonClicked(true)} profileButtonClicked={profileButtonClicked}>
       {token !== null ? (
         <>
           <p>logado</p>
@@ -45,7 +46,6 @@ const ProfileMenu = ({ setProfileButtonClicked }: CloseButton) => {
         <button onClick={() => GoToRegister()}>Nova Conta</button>
         </>
       )}
-      <button className="close" onClick={() => setProfileButtonClicked(false)}><GrFormClose style={{height: '20px', width: '20px'}} /></button>
     </ModalProfile>
   );
 };

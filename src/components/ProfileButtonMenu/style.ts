@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalProfile = styled.div`
+export const ModalProfile = styled.div<{ profileButtonClicked: boolean }>`
   @media (max-width: 414px) {
     top: 65px;
     right: 0;
@@ -18,7 +18,15 @@ export const ModalProfile = styled.div`
     justify-content: space-around;
     align-items: center;
     z-index: 9999;
-    padding: 10px 5px 10px 0px;
+    padding: 10px 5px 10px 5px;
+    @keyframes example {
+      from {opacity: 0;}
+  to {opacity: 100%;}
+}
+animation-name: example;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+
     div{
         display: flex;
         flex-direction: column;
@@ -83,5 +91,3 @@ text-transform: uppercase;
         margin-bottom: 0;
     }
 `
-
-// export

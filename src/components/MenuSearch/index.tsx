@@ -21,11 +21,6 @@ export const MenuSearch = () => {
   const [profileButtonClicked, setProfileButtonClicked] =
     useState<boolean>(false);
 
-  const ActivateButtonMenu = () => {
-    setOpen(false);
-    setProfileButtonClicked(true);
-  };
-
   const history = useHistory();
   const changePage = (route: string) => {
     history.push(`/${route}`);
@@ -144,7 +139,7 @@ export const MenuSearch = () => {
           <div></div>
         </StyledBurger>
         {profileButtonClicked && (
-          <ProfileMenu setProfileButtonClicked={setProfileButtonClicked} />
+          <ProfileMenu profileButtonClicked={profileButtonClicked} setProfileButtonClicked={setProfileButtonClicked} />
         )}
         <StyledRightNav open={open}>
           <div className="right-nav">
@@ -155,7 +150,7 @@ export const MenuSearch = () => {
                 </Link>
               </li>
             )}
-            <li key="2" onClick={() => ActivateButtonMenu()}>
+            <li key="2" onMouseLeave={() => setProfileButtonClicked(false)} onMouseEnter={() => setProfileButtonClicked(true)}>
               <BsPersonFill style={{ height: "30px", width: "30px" }} />
             </li>
             <li key="3" onClick={() => changePage("favorite")}>
