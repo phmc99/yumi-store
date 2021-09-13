@@ -1,73 +1,173 @@
 import styled from "styled-components";
 
-export const ContainerProd = styled.div`
+export const Images = styled.div`
+  width: 100%;
+  height: auto;
   display: flex;
-  margin: 0 5% 5% 5%;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-top: 30px;
 
   img {
-    margin: 5%;
-    max-height: 220px;
+    height: 80vw;
+    margin: 6px 0;
+  }
+
+  @media (min-width: 600px) {
+    img {
+      height: 45vw;
+      max-height: 510px;
+    }
   }
 `;
-export const ContainerCart = styled.div`
-  display: flex;
-  font-family: "Mulish", sans-serif;
-  font-weigth: bold;
+
+export const HoverText = styled.div`
+  position: relative;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 6px black);
+
+  img {
+    opacity: 1;
+    display: block;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+    border-radius: 10px;
+  }
+
+  .text {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+
+    h3 {
+      font-size: 1.5rem;
+      color: var(--white);
+      font-variant: petite-caps;
+      font-weight: 100;
+    }
+  }
+
+  :hover {
+    img {
+      filter: brightness(0.45);
+    }
+
+    .text {
+      opacity: 1;
+    }
+  }
+
+  :active {
+    position: relative;
+    top: 3px;
+  }
+
+  @media (min-width: 800px) {
+    .text {
+      h3 {
+        font-size: 2rem;
+      }
+    }
+  }
 `;
 
-export const ContainerInfo = styled.div`
+export const Details = styled.div`
   display: flex;
-  margin-top: 3rem;
-  flex-wrap: wrap;
-  width: 40vw;
-
-  h4 {
-    width: 300px;
-    color: #0a0a09;
-    font-weigth: bold;
-    margin-bottom: 1rem;
-    font-size: 20px;
-  }
-  p {
-    border: 1px solid gray;
-    padding: 3%;
-    width: 350px;
-  }
-
-  .span-price {
-    color: #black;
-  }
-
-  button {
-    font-weight: bold;
-  }
-`;
-export const ContainerPrice = styled.div`
-  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
   flex-direction: column;
-  font-size: 19px;
-  margin: 10%;
-  margin-top: 13rem;
+  background-color: #fdb1ac;
+  margin-top: 30px;
+  padding: 20px 0;
 
-  button {
-    width: 200px;
-    height: 40px;
-    border-radius: 13px;
-    background-color: #8f4bc7;
-    color: #ffffff;
-    font-size: 15px;
-    text-transform: uppercase;
-    font-family: "Suez One", sans-serif;
-    margin-top: 2rem;
+  .info {
+    margin: 5px auto;
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+      width: 20vw;
+      max-width: 85px;
+    }
+
+    h3 {
+      margin-left: 20px;
+      font-size: 1.3rem;
+      font-variant-caps: petite-caps;
+      line-height: 0.9;
+      font-weight: 100;
+    }
   }
 
-  .club-price {
-    font-family: "Merienda One", cursive;
-    font-size: 19px;
-    color: #8f4bc7;
+  @media (min-width: 450px) {
+    flex-direction: row;
+
+    img {
+      width: 10vw;
+    }
+
+    .info {
+      width: 20vw;
+      flex-direction: column;
+      justify-content: center;
+
+      h3 {
+        text-align: center;
+        margin-left: 0;
+        margin-top: 10px;
+        font-weight: 100;
+      }
+    }
   }
-  .club-logo {
-    color: black;
+
+  @media (min-width: 1000px) {
+    .info {
+      h3 {
+        font-size: 1.6rem;
+        font-weight: 100;
+      }
+    }
+  }
+`;
+
+export const Category = styled.div`
+  h1 {
+    font-size: 3rem;
+    font-variant: small-caps;
+    text-align: center;
+    margin: 45px auto 0;
+    color: var(--purple);
+  }
+  li {
+    list-style: none;
+  }
+  display: flex;
+  flex-wrap: wrap;
+  a {
+    text-decoration: none;
+  }
+`;
+
+export const More = styled.div`
+  width: 210px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  svg {
+    font-size: 9rem;
+    color: var(--purple);
   }
 `;
 

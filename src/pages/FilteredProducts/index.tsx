@@ -1,17 +1,15 @@
 import { useProducts } from "../../providers/Products";
-import {
-  ContainerProd,
-  ContainerCart,
-  ContainerInfo,
-  ContainerPrice,
-  Pesquisou,
-} from "./style";
-import { useLocation } from "react-router-dom";
+import { Category, More, Pesquisou } from "./style";
+import { useLocation, Link } from "react-router-dom";
 import { MenuSearch } from "../../components/MenuSearch";
+import { useState } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
+import CardProds from "../../components/CardProds";
 
 export const FilteredProducts = () => {
-  const { products, addProduct } = useProducts();
+  const { products } = useProducts();
   const location = useLocation<string>();
+
   const filteredProducts = products.filter(({ name }) =>
     name
       .toLowerCase()
@@ -24,46 +22,32 @@ export const FilteredProducts = () => {
           .replace(/[\u0300-\u036f]/g, "")
       )
   );
+  const [NotFinded, setNotFinded] = useState<boolean>(false);
+
+  if (filteredProducts.length === 0) {
+    setNotFinded(true);
+  }
 
   return (
     <>
       <MenuSearch />
-      <div>
-        <Pesquisou>
-          <h2>Você pesquisou por:</h2>
-          <p>{location.state}</p>
-        </Pesquisou>
-        {filteredProducts.map((prod, index) => (
-          <ContainerProd key={index}>
-            <img src={prod.image_url} alt={prod.image_url} />
-            <ContainerCart>
-              <ContainerInfo>
-                <h4>{prod.name}</h4>
-                <p>
-                  {" "}
-                  Descrição: <br></br>
-                  <br></br>
-                  {prod.description}
-                </p>
-              </ContainerInfo>
-              <ContainerPrice>
-                {/* {products.map((prod, index) => (
-                    <button key={index}>
-                        {prod.sizes} 
-                    </button>
-                ))} */}
-                <h4>R${prod.price}</h4>
-                <h4 className="club-price">
-                  R${prod.member_price} <span className="club-logo">Yumi</span>
-                  Club
-                </h4>
-                <button onClick={() => addProduct(prod)}>Comprar</button>
-              </ContainerPrice>
-            </ContainerCart>
-            <p> {prod.rating.comments}</p>
-          </ContainerProd>
+      <Pesquisou>
+        <h2>Você pesquisou por:</h2>
+        <p>{location.state}</p>
+        {NotFinded && <p>Não encontrado...</p>}
+      </Pesquisou>
+      <Category>
+        {filteredProducts.map((item) => (
+          <li key={item.id}>
+            <CardProds prod={item} />
+          </li>
         ))}
-      </div>
+        <More>
+          <Link to="/">
+            <AiOutlinePlus />
+          </Link>
+        </More>
+      </Category>
     </>
   );
 };
