@@ -20,7 +20,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 5px;
 
     h3 {
       margin: 20px 0 10px;
@@ -169,7 +169,7 @@ export const Support = styled.div`
   }
 
   @media (min-width: 650px) {
-    width: 50%;
+    width: 30vw;
     max-width: 480px;
   }
 `;

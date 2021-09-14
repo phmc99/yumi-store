@@ -18,3 +18,8 @@ export interface IProducts {
   rating: IRating;
   __v: number;
 }
+
+export interface IProductCart {
+  product: IProducts;
+  quantity: number;
+}
