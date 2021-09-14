@@ -6,6 +6,7 @@ export const ContainerProd = styled.button`
   justify-content: space-between;
   flex-direction: column;
   background-color: var(--white);
+  cursor: auto;
 
   img {
     margin: 6%;
@@ -41,7 +42,7 @@ export const ContainerPrice = styled.div`
   font-size: 17px;
   padding: 3%;
 
-  p {
+  .rating {
     margin: 0 0 10px;
     text-align: left;
   }
@@ -52,6 +53,7 @@ export const ContainerPrice = styled.div`
   .club-price {
     font-weight: bolder;
     color: var(--purple);
+    width: 200px;
   }
   .club-logo {
     font-family: "Merienda", cursive;

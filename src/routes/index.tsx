@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 import Home from "../pages/Home";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-import { Products } from "../pages/Products/Index";
 import { FilteredProducts } from "../pages/FilteredProducts";
 import { NotFoundFilteredProducts } from "../pages/NotFoundProducts";
 import SpeciesPage from "../pages/SpeciesPage";
@@ -13,6 +12,7 @@ import BrandPage from "../pages/BrandPage";
 import CartPage from "../pages/CartPage";
 import Favorites from "../pages/Favorites";
 import Error from "../pages/Error";
+import Product from "../pages/Product/Index";
 
 const Routes = () => {
   return (
@@ -29,8 +29,8 @@ const Routes = () => {
         <LoginPage />
       </Route>
 
-      <Route exact path="/products">
-        <Products />
+      <Route exact path="/products/:id">
+        <Product />
       </Route>
 
       <Route exact path="/products/filtered:name">

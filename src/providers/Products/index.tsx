@@ -5,6 +5,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import toast from "react-hot-toast";
 import api from "../../services";
 import { IProducts } from "../../types";
 import { useCartContext } from "../CartProvider";
@@ -39,9 +40,9 @@ export const ProductsProvider = ({ children }: IProductsProps) => {
   }, []);
 
   const addProduct = (prod: IProducts) => {
-    
     setCartProducts([...cartProducts, prod]);
     localStorage.setItem("cart", JSON.stringify(cartProducts));
+    toast.success("Produto adicionado ao carrinho!");
   };
 
   return (

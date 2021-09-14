@@ -6,7 +6,7 @@ interface IRating {
 }
 
 export interface IProducts {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   category: number;
@@ -18,4 +18,3 @@ export interface IProducts {
   rating: IRating;
   __v: number;
 }
-

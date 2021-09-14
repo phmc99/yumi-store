@@ -5,6 +5,8 @@ import { Images, HoverText, Details, Category, More } from "./styles";
 import { IProducts } from "../../types";
 import { AiOutlinePlus } from "react-icons/ai";
 import Footer from "../../components/Footer";
+import { MenuSearch } from "../../components/MenuSearch";
+import { useProducts } from "../../providers/Products";
 
 //Carrossel
 import Carousel from "react-multi-carousel";
@@ -20,8 +22,6 @@ import Buy from "../../assets/compra.png";
 import ONG from "../../assets/ong.png";
 import Return from "../../assets/troca.png";
 import CardProds from "../../components/CardProds";
-import { MenuSearch } from "../../components/MenuSearch";
-import { useProducts } from "../../providers/Products";
 
 const Home = () => {
   const { products } = useProducts();
@@ -125,7 +125,6 @@ const Home = () => {
         <Carousel
           renderArrowsWhenDisabled={true}
           swipeable={true}
-          draggable={true}
           showDots={true}
           responsive={responsive}
           ssr={true}
@@ -136,10 +135,9 @@ const Home = () => {
           containerClass="carousel-container"
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
-          focusOnSelect={true}
         >
           {filterClothes.map((item) => (
-            <li key={item.id}>
+            <li key={item._id}>
               <CardProds prod={item} />
             </li>
           ))}
@@ -158,7 +156,6 @@ const Home = () => {
         <Carousel
           renderArrowsWhenDisabled={true}
           swipeable={true}
-          draggable={true}
           showDots={true}
           responsive={responsive}
           ssr={true}
@@ -169,10 +166,9 @@ const Home = () => {
           containerClass="carousel-container"
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
-          focusOnSelect={true}
         >
           {filterToys.map((item) => (
-            <li key={item.id}>
+            <li key={item._id}>
               <CardProds prod={item} />
             </li>
           ))}
