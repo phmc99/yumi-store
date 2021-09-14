@@ -24,7 +24,7 @@ const FavoriteContext = createContext<FavoriteProviderData>(
 
 export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
   const [favoritesProducts, setFavoritesProducts] = useState<IProducts[]>(
-    JSON.parse(localStorage.getItem("@yumishop:favorites") || "[]")
+    JSON.parse(localStorage.getItem("@yumistore:favorites") || "[]")
   );
 
   const handleAddFavorite = (item: IProducts) => {
@@ -41,7 +41,7 @@ export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
 
   useEffect(() => {
     localStorage.setItem(
-      "@yumishop:favorites",
+      "@yumistore:favorites",
       JSON.stringify(favoritesProducts)
     );
   }, [favoritesProducts]);

@@ -23,7 +23,7 @@ const CardProds = ({ prod, favorite = false }: ICardProdsProps) => {
   return (
     <ContainerProd>
       <CardDivisor>
-        <div key={prod.id}>
+        <div key={prod._id}>
           <ContainerInfo>
             <img src={prod.image_url} alt={prod.image_url} />
             <h3>{prod.name}</h3>

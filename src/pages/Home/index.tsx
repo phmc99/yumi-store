@@ -139,7 +139,7 @@ const Home = () => {
           focusOnSelect={true}
         >
           {filterClothes.map((item) => (
-            <li key={item.id}>
+            <li key={item._id}>
               <CardProds prod={item} />
             </li>
           ))}
@@ -172,7 +172,7 @@ const Home = () => {
           focusOnSelect={true}
         >
           {filterToys.map((item) => (
-            <li key={item.id}>
+            <li key={item._id}>
               <CardProds prod={item} />
             </li>
           ))}

@@ -66,7 +66,7 @@ const BrandPage = () => {
 
         <Products>
           {products.map((item) => (
-            <li key={item.id}>
+            <li key={item._id}>
               <CardProds prod={item} />
             </li>
           ))}

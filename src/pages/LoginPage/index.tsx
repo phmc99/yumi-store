@@ -40,7 +40,7 @@ const LoginPage = () => {
           "@yumi:token",
           JSON.stringify(response.data.token)
         );
-        history.push("/cart");
+        history.push("/");
       })
       .catch(() => {
         toast.error("Ops, algo de errado aconteceu!");
