@@ -15,14 +15,13 @@ const CartPage = () => {
 
   /* const total = cartProducts.reduce((a,b) => a + b.price, 0)
   console.log(cartProducts) */
+
   return (
     <div>
       <MenuSearch />
       <Div>
         <Titulo>Meu carrinho:</Titulo>
-        <Paragrafo>
-          Subtotal: R$ {}
-        </Paragrafo>
+        <Paragrafo>Subtotal: R$ {}</Paragrafo>
       </Div>
 
       <DivPagamento>

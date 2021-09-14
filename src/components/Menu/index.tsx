@@ -18,11 +18,6 @@ export const Menu = () => {
   const [profileButtonClicked, setProfileButtonClicked] =
     useState<boolean>(false);
 
-  const ActivateButtonMenu = () => {
-    setOpen(false);
-    setProfileButtonClicked(true);
-  };
-
   const history = useHistory();
   const goHome = () => {
     history.push("/");
@@ -48,16 +43,16 @@ export const Menu = () => {
         <div></div>
       </StyledBurger>
       {profileButtonClicked && (
-        <ProfileMenu setProfileButtonClicked={setProfileButtonClicked} />
+        <ProfileMenu profileButtonClicked={profileButtonClicked} setProfileButtonClicked={setProfileButtonClicked} />
       )}
       <StyledRightNav open={open}>
         <div>
-          <li key="1">
-            <Link to="/">
+          <li key="1" onClick={() => goHome()}>
+            <Link to={{}}>
               <VscSearch style={{ height: "30px", width: "30px" }} />
             </Link>
           </li>
-          <li key="2" onClick={() => ActivateButtonMenu()}>
+          <li key="2" onMouseLeave={() => setProfileButtonClicked(false)} onMouseEnter={() => setProfileButtonClicked(true)}>
             <Link to={{}}>
               <BsPersonFill style={{ height: "30px", width: "30px" }} />
             </Link>
