@@ -48,6 +48,7 @@ export const MenuSearch = () => {
           .replace(/[\u0300-\u036f]/g, "")
       )
   );
+
   const Pesquisar = () => {
     if (filtrado !== "" && filteredProducts.length !== 0) {
       history.push(`/products/filtered:${filtrado}`, filtrado);

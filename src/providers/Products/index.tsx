@@ -39,6 +39,7 @@ export const ProductsProvider = ({ children }: IProductsProps) => {
     getProducts();
   }, []);
 
+
   const addProduct = (product: IProducts) => {
     setCartProducts([...cartProducts, { product, quantity: 1 }]);
     localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
