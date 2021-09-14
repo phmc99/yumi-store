@@ -47,7 +47,7 @@ const LoginPage = () => {
       });
   };
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("@yumi:token");
 
   if (token !== null) {
     return <Redirect to="/" />;

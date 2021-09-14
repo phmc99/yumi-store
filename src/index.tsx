@@ -10,11 +10,11 @@ import Providers from "./providers/index";
 ReactDOM.render(
   <React.StrictMode>
     <Providers>
-    <BrowserRouter>
-      <ConfigProvider locale={ptBr}>
+      <BrowserRouter>
+        <ConfigProvider locale={ptBr}>
           <App />
-      </ConfigProvider>  
-    </BrowserRouter>
+        </ConfigProvider>
+      </BrowserRouter>
     </Providers>
   </React.StrictMode>,
   document.getElementById("root")
