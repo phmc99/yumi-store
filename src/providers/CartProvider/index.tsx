@@ -1,4 +1,5 @@
 import { useContext, useState, createContext, ReactNode } from "react";
+import api from "../../services";
 
 import { IProducts } from "../../types";
 
@@ -11,19 +12,17 @@ interface CartProviderData {
   setCartProducts: any;
   addCart: (cart: IProducts) => void;
   removeCart: (cart: IProducts) => void;
+  /* postOrders: () => void; */
 }
 
 const CartContext = createContext<CartProviderData>({} as CartProviderData);
 
 export const CartProvider = ({ children }: CartProviderProps) => {
+  const token = JSON.parse(localStorage.getItem("token") || "null");
+
   const [cartProducts, setCartProducts] = useState<IProducts[]>([]);
 
-  // useEffect(() => {
-  //   api
-  //     .get("/orders")
-  //     .then((response) => setCartProducts([...response.data]))
-  //     .catch((err) => console.log("erro"));
-  // }, []);
+
 
   const addCart = (cart: IProducts) => {
     setCartProducts([...cartProducts, cart]);

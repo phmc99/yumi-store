@@ -3,7 +3,6 @@ import { Box, Titulo, Paragrafo, Bold, Button } from "./styles";
 
 const InfoClient = () => {
   const { userInfo } = useProfile();
-  
   return (
     <>
       <Box>
