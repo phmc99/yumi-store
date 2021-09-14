@@ -32,7 +32,7 @@ const SpeciesPage = () => {
 
         <Products>
           {filterProducts.map((item) => (
-            <li key={item.id}>
+            <li key={item._id}>
               <CardProds prod={item} />
             </li>
           ))}

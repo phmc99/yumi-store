@@ -5,6 +5,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
+import toast from "react-hot-toast";
 
 import { IProducts } from "../../types";
 
@@ -24,12 +25,15 @@ const FavoriteContext = createContext<FavoriteProviderData>(
 
 export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
   const [favoritesProducts, setFavoritesProducts] = useState<IProducts[]>(
-    JSON.parse(localStorage.getItem("@yumishop:favorites") || "[]")
+    JSON.parse(localStorage.getItem("@yumistore:favorites") || "[]")
   );
 
   const handleAddFavorite = (item: IProducts) => {
     if (favoritesProducts.includes(item) === false) {
       setFavoritesProducts([...favoritesProducts, item]);
+      toast("Produto favoritado!", {
+        icon: "❤️",
+      });
     }
   };
 
@@ -37,11 +41,14 @@ export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
     setFavoritesProducts(
       favoritesProducts.filter((remove) => remove.name !== item.name)
     );
+    toast("Produto removido dos favoritos!", {
+      icon: "💔",
+    });
   };
 
   useEffect(() => {
     localStorage.setItem(
-      "@yumishop:favorites",
+      "@yumistore:favorites",
       JSON.stringify(favoritesProducts)
     );
   }, [favoritesProducts]);

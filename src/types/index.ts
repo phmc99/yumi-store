@@ -6,7 +6,7 @@ interface IRating {
 }
 
 export interface IProducts {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   category: number;
@@ -19,3 +19,7 @@ export interface IProducts {
   __v: number;
 }
 
+export interface IProductCart {
+  product: IProducts;
+  quantity: number;
+}

@@ -1,5 +1,4 @@
 import { Link, useHistory } from "react-router-dom";
-import { useEffect, useState } from "react";
 import imageLogo from "../../assets/dogImage.png";
 import { VscSearch, VscHeart } from "react-icons/vsc";
 import { BsPersonFill } from "react-icons/bs";
@@ -18,6 +17,7 @@ import { Badge } from "antd";
 import { useCartContext } from "../../providers/CartProvider";
 import { useProducts } from "../../providers/Products";
 import { useProfile } from "../../providers/Profile";
+import { useState } from "react";
 
 export const MenuSearch = () => {
   const { products } = useProducts();
@@ -34,7 +34,7 @@ export const MenuSearch = () => {
     history.push(`/${route}`);
   };
 
-  console.log(userInfo)
+  console.log(userInfo);
 
   const filteredProducts = products.filter(({ name }) =>
     name
@@ -48,7 +48,6 @@ export const MenuSearch = () => {
           .replace(/[\u0300-\u036f]/g, "")
       )
   );
-
   const Pesquisar = () => {
     if (filtrado !== "" && filteredProducts.length !== 0) {
       history.push(`/products/filtered:${filtrado}`, filtrado);
