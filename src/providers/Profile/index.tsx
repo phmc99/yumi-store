@@ -1,15 +1,16 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import api from "../../services";
 
 interface IUserInfo {
-    id: string;
-    username: any;
-    email: any;
+    yumiClub: boolean;
+    _id: string;
+    name: string;
+    email: string;
+    phone: string;
   }
 
 interface IProfileContextData {
-    userInfo: { username: string };
-    getUser: () => void;
+    userInfo: IUserInfo[];
   }
 
 interface IProviderProps {
@@ -19,22 +20,22 @@ interface IProviderProps {
 const ProfileContext = createContext<IProfileContextData>({} as IProfileContextData)
 
 export const ProfileProvider = ({ children }: IProviderProps) => {
-    const [userInfo, setUserInfo] = useState<IUserInfo>({} as IUserInfo)
+    const [userInfo, setUserInfo] = useState<IUserInfo[]>([])
 
-    const token = JSON.parse(localStorage.getItem("token") || "null");
-    const id = JSON.parse(localStorage.getItem("Id") || "null");
+    const id = JSON.parse(localStorage.getItem("@yumi:id") || "null");
     
     const getUser = async () => {
-        const resp = await api.get(`users/${id}/`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
+        const resp = await api.get(`/auth/user/${id}`)
         setUserInfo(resp.data)
     }
 
+  useEffect(() => {
+    getUser();
+    // eslint-disable-next-line
+  }, []);
+
     return (
-        <ProfileContext.Provider value={{ userInfo, getUser }}>
+        <ProfileContext.Provider value={{ userInfo }}>
             {children}
         </ProfileContext.Provider>
     )
