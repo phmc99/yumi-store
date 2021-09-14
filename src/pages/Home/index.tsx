@@ -4,6 +4,7 @@ import CarouselBanner from "../../components/Carousel";
 import { Images, HoverText, Details, Category, More } from "./styles";
 import { IProducts } from "../../types";
 import { AiOutlinePlus } from "react-icons/ai";
+import Footer from "../../components/Footer";
 
 //Carrossel
 import Carousel from "react-multi-carousel";
@@ -182,6 +183,7 @@ const Home = () => {
           </More>
         </Carousel>
       </Category>
+      <Footer />
     </>
   );
 };
