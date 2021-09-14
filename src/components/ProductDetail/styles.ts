@@ -10,9 +10,6 @@ export const ContainerProd = styled.div`
     margin: 5%;
     max-height: 220px;
   }
-<<<<<<< HEAD:src/pages/Products/style.ts
-  
-=======
 
   .images {
     display: flex;
@@ -38,7 +35,6 @@ export const ContainerProd = styled.div`
       height: 480px;
     }
   }
->>>>>>> baf4e5bdebf9a12a20c043161a3a4580b62ee7c1:src/components/ProductDetail/styles.ts
 `;
 
 export const ContainerCart = styled.div`

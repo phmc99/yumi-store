@@ -17,6 +17,7 @@ import { Badge } from "antd";
 import { useCartContext } from "../../providers/CartProvider";
 import { useProducts } from "../../providers/Products";
 import { useProfile } from "../../providers/Profile";
+import { useState } from "react";
 
 export const MenuSearch = () => {
   const { products } = useProducts();
