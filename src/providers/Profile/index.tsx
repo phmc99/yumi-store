@@ -2,6 +2,7 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import api from "../../services";
 
 interface IUserInfo {
+  user: {
     yumiClub: boolean;
     _id: string;
     name: string;
@@ -9,8 +10,16 @@ interface IUserInfo {
     phone: string;
   }
 
+  }
+
 interface IProfileContextData {
-    userInfo: IUserInfo[];
+    userInfo: { user: {
+      yumiClub: boolean,
+      _id: string,
+      name: string,
+      email: string,
+      phone: string, 
+    } };
   }
 
 interface IProviderProps {
@@ -20,7 +29,7 @@ interface IProviderProps {
 const ProfileContext = createContext<IProfileContextData>({} as IProfileContextData)
 
 export const ProfileProvider = ({ children }: IProviderProps) => {
-    const [userInfo, setUserInfo] = useState<IUserInfo[]>([])
+    const [userInfo, setUserInfo] = useState<IUserInfo>({} as IUserInfo)
 
     const id = JSON.parse(localStorage.getItem("@yumi:id") || "null");
     
