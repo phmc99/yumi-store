@@ -1,9 +1,8 @@
 import { useProducts } from "../../providers/Products";
-import { Category, More, Pesquisou } from "./style";
-import { useLocation, Link } from "react-router-dom";
+import { Category, Pesquisou } from "./style";
+import { useLocation } from "react-router-dom";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useState } from "react";
-import { AiOutlinePlus } from "react-icons/ai";
 import CardProds from "../../components/CardProds";
 
 export const FilteredProducts = () => {
@@ -42,11 +41,6 @@ export const FilteredProducts = () => {
             <CardProds prod={item} />
           </li>
         ))}
-        <More>
-          <Link to="/">
-            <AiOutlinePlus />
-          </Link>
-        </More>
       </Category>
     </>
   );
