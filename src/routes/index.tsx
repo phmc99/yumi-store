@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "../pages/Home";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import { Products } from "../pages/Products/Index";
 import { FilteredProducts } from "../pages/FilteredProducts";
 import { NotFoundFilteredProducts } from "../pages/NotFoundProducts";
 import SpeciesPage from "../pages/SpeciesPage";
@@ -33,14 +34,6 @@ const Routes = () => {
         <Product />
       </Route>
 
-      <Route exact path="/products/filtered:name">
-        <FilteredProducts />
-      </Route>
-
-      <Route exact path="/products/not-found">
-        <NotFoundFilteredProducts />
-      </Route>
-
       <Route path="/products/species/:specie">
         <SpeciesPage />
       </Route>
@@ -55,14 +48,6 @@ const Routes = () => {
 
       <Route path="/cart">
         <CartPage />
-      </Route>
-
-      <Route path="/favorite">
-        <Favorites />
-      </Route>
-
-      <Route>
-        <Error />
       </Route>
     </Switch>
   );
