@@ -1,24 +1,26 @@
 import { ModalProfile } from "./style";
-import { GrFormClose } from "react-icons/gr"
 import { useHistory } from "react-router";
- 
-interface CloseButton{
+
+interface CloseButton {
+  profileButtonClicked: boolean;
   setProfileButtonClicked: (toggle: boolean) => void;
 }
 
-const ProfileMenu = ({ setProfileButtonClicked }: CloseButton) => {
+const ProfileMenu = ({
+  profileButtonClicked,
+  setProfileButtonClicked,
+}: CloseButton) => {
+  const history = useHistory();
 
-  const history = useHistory()
-
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("@yumi:token");
 
   const GoToLogin = () => {
-    history.push("/login")
-  }
+    history.push("/login");
+  };
 
   const GoToRegister = () => {
-    history.push("/register")
-  }
+    history.push("/register");
+  };
 
   const handleLogout = () => {
     localStorage.clear();
@@ -26,26 +28,28 @@ const ProfileMenu = ({ setProfileButtonClicked }: CloseButton) => {
   };
 
   return (
-    <ModalProfile>
+    <ModalProfile
+      onMouseLeave={() => setProfileButtonClicked(false)}
+      onMouseEnter={() => setProfileButtonClicked(true)}
+      profileButtonClicked={profileButtonClicked}
+    >
       {token !== null ? (
         <>
           <p>logado</p>
-          <button onClick={() => handleLogout()}></button>
-      </>
-
+          <button onClick={() => handleLogout()}>Sair</button>
+        </>
       ) : (
         <>
-        <div>
-        <p className="first">Já possui uma conta?</p>
-          <p className="first">Acesse Aqui!</p>
-        </div>
-        <button onClick={() => GoToLogin()}>Entrar</button>
-        <p className="ou">ou</p>
-        <p className="aqui">Cadastre-se Aqui!</p>
-        <button onClick={() => GoToRegister()}>Nova Conta</button>
+          <div>
+            <p className="first">Já possui uma conta?</p>
+            <p className="first">Acesse Aqui!</p>
+          </div>
+          <button onClick={() => GoToLogin()}>Entrar</button>
+          <p className="ou">ou</p>
+          <p className="aqui">Cadastre-se Aqui!</p>
+          <button onClick={() => GoToRegister()}>Nova Conta</button>
         </>
       )}
-      <button className="close" onClick={() => setProfileButtonClicked(false)}><GrFormClose style={{height: '20px', width: '20px'}} /></button>
     </ModalProfile>
   );
 };
