@@ -5,14 +5,10 @@ import Home from "../pages/Home";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import { Products } from "../pages/Products/Index";
-import { FilteredProducts } from "../pages/FilteredProducts";
-import { NotFoundFilteredProducts } from "../pages/NotFoundProducts";
 import SpeciesPage from "../pages/SpeciesPage";
 import CategoryPage from "../pages/CategoryPage";
 import BrandPage from "../pages/BrandPage";
 import CartPage from "../pages/CartPage";
-import Favorites from "../pages/Favorites";
-import Error from "../pages/Error";
 
 const Routes = () => {
   return (
@@ -33,14 +29,6 @@ const Routes = () => {
         <Products />
       </Route>
 
-      <Route exact path="/products/filtered:name">
-        <FilteredProducts />
-      </Route>
-
-      <Route exact path="/products/not-found">
-        <NotFoundFilteredProducts />
-      </Route>
-
       <Route path="/products/species/:specie">
         <SpeciesPage />
       </Route>
@@ -55,14 +43,6 @@ const Routes = () => {
 
       <Route path="/cart">
         <CartPage />
-      </Route>
-
-      <Route path="/favorite">
-        <Favorites />
-      </Route>
-
-      <Route>
-        <Error />
       </Route>
     </Switch>
   );
