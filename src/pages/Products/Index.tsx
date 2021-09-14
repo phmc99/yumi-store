@@ -17,7 +17,6 @@ export const Products = () => {
             <ContainerInfo>
               <h4>{prod.name}</h4>
               <p>
-                {" "}
                 Descrição: <br></br>
                 <br></br>
                 {prod.description}
