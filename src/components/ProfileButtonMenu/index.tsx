@@ -40,10 +40,7 @@ const ProfileMenu = ({
       {token !== null ? (
         <>
           <h2>{userInfo.user.name}</h2>
-          <Link to={{}}>Dados</Link>
-          <Link to={{}}>Endereços</Link>
-          <Link to={{}}>Favoritos</Link>
-          <Link to={{}}>Avaliar Produto</Link>
+          <Link to={{}}>Meus Dados</Link>
           <button onClick={() => handleLogout()}>Sair</button>
         </>
       ) : (
