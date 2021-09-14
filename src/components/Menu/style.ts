@@ -51,6 +51,7 @@ export const StyledRightNav = styled.ul<{ open: boolean }>`
 
     &:hover {
       border-bottom: 2px solid #0d2538;
+      cursor: pointer;
       @media (max-width: 414px) {
         border: none;
       }
@@ -95,7 +96,7 @@ export const StyledRightNav = styled.ul<{ open: boolean }>`
     top: 0;
     right: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
 

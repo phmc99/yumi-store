@@ -10,12 +10,11 @@ export const ContainerProd = styled.div`
     margin: 5%;
     max-height: 220px;
   }
-  
 `;
 export const ContainerCart = styled.div`
   display: flex;
   font-family: "Mulish", sans-serif;
-  font-weigth: bold;
+  font-weight: bold;
 `;
 
 export const ContainerInfo = styled.div`
@@ -28,7 +27,7 @@ export const ContainerInfo = styled.div`
   h4 {
     width: 300px;
     color: #0a0a09;
-    font-weigth: bold;
+    font-weight: bold;
     margin-bottom: 1rem;
     font-size: 20px;
   }
@@ -39,15 +38,24 @@ export const ContainerInfo = styled.div`
   }
 
   .span-price {
-    color: #black;
+    color: #000;
   }
 
   button {
     font-weight: bold;
   }
-  .stars{
+  .stars {
     display: flex;
     flex-direction: row-reverse;
+  }
+
+  .favButton {
+    background-color: initial;
+    color: #f00;
+
+    svg {
+      font-size: 2.5rem;
+    }
   }
 `;
 export const ContainerPrice = styled.div`
@@ -56,7 +64,6 @@ export const ContainerPrice = styled.div`
   font-size: 23px;
   margin: 16%;
   margin-top: 8rem;
- 
 
   button {
     width: 200px;
@@ -69,7 +76,7 @@ export const ContainerPrice = styled.div`
     font-family: "Suez One", sans-serif;
     margin-top: 2rem;
   }
-  h4{
+  h4 {
     margin-top: 2rem;
     font-weight: bold;
   }
@@ -89,14 +96,14 @@ export const SideImage = styled.div`
   cursor: pointer;
   margin-top: 8%;
 
-  img{
-    width:100px;
+  img {
+    width: 100px;
   }
   img:hover {
     filter: brightness(0.85);
     transition: all 0.4s;
   }
-`
+`;
 export const MainImage = styled.div`
   cursor: pointer;
   margin-top: 8%;
@@ -105,7 +112,7 @@ export const MainImage = styled.div`
     filter: brightness(0.85);
     transition: all 0.4s;
   }
-`
+`;
 export const ContainerComment = styled.div`
   display: flex;
   margin-top: 8%;
@@ -114,4 +121,4 @@ export const ContainerComment = styled.div`
     filter: brightness(0.85);
     transition: all 0.4s;
   }
-`
+`;
