@@ -1,5 +1,4 @@
 import { Link, useHistory } from "react-router-dom";
-import { useState } from "react";
 import imageLogo from "../../assets/dogImage.png";
 import { VscSearch, VscHeart } from "react-icons/vsc";
 import { BsPersonFill } from "react-icons/bs";
@@ -17,12 +16,14 @@ import { Menu, Dropdown, Button } from "antd";
 import { Badge } from "antd";
 import { useCartContext } from "../../providers/CartProvider";
 import { useProducts } from "../../providers/Products";
+import { useProfile } from "../../providers/Profile";
 
 export const MenuSearch = () => {
   const { products } = useProducts();
   const [open, setOpen] = useState<boolean>(false);
   const [filtrado, setFiltrado] = useState("");
   const { cartProducts } = useCartContext();
+  const { userInfo } = useProfile();
 
   const [profileButtonClicked, setProfileButtonClicked] =
     useState<boolean>(false);
@@ -31,6 +32,8 @@ export const MenuSearch = () => {
   const changePage = (route: string) => {
     history.push(`/${route}`);
   };
+
+  console.log(userInfo);
 
   const filteredProducts = products.filter(({ name }) =>
     name
