@@ -20,6 +20,20 @@ export const CardDivisor = styled.div`
   border: solid 1px var(--gray);
   border-radius: 10px;
   box-shadow: 0px 0px 10px 2px #a0a0a0;
+  display: flex;
+`;
+
+export const ContainerInfo = styled.div`
+  text-align: left;
+  font-size: 17px;
+  padding: 3%;
+
+  h3 {
+    height: 70px;
+    font-size: 15px;
+    font-family: "Mulish", serif;
+    margin: 4% 0 4% 0;
+  }
 `;
 
 export const ContainerPrice = styled.div`
@@ -28,14 +42,8 @@ export const ContainerPrice = styled.div`
   padding: 3%;
 
   p {
-    margin: 10px 0;
+    margin: 0 0 10px;
     text-align: left;
-  }
-
-  h3 {
-    font-size: 15px;
-    font-family: "Mulish", serif;
-    margin: 4% 0 4% 0;
   }
 
   h4 {
@@ -51,6 +59,24 @@ export const ContainerPrice = styled.div`
   }
   .logo-tar {
     color: var(--purple);
+  }
+
+  .favButton {
+    width: 100%;
+    display: flex;
+    background: initial;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+      font-size: 1.5rem;
+      color: #f00;
+    }
+    p {
+      font-size: 0.85rem;
+      color: #f00;
+      margin: 0;
+    }
   }
 `;
 
