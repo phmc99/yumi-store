@@ -10,6 +10,7 @@ export const ContainerProd = styled.div`
     margin: 5%;
     max-height: 220px;
   }
+  
 `;
 export const ContainerCart = styled.div`
   display: flex;
@@ -44,6 +45,7 @@ export const ContainerInfo = styled.div`
   button {
     font-weight: bold;
   }
+
   .stars {
     display: flex;
     flex-direction: row-reverse;
@@ -58,6 +60,7 @@ export const ContainerInfo = styled.div`
     }
   }
 `;
+
 export const ContainerPrice = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,6 +79,7 @@ export const ContainerPrice = styled.div`
     font-family: "Suez One", sans-serif;
     margin-top: 2rem;
   }
+
   h4 {
     margin-top: 2rem;
     font-weight: bold;
@@ -90,6 +94,7 @@ export const ContainerPrice = styled.div`
     color: black;
   }
 `;
+
 export const SideImage = styled.div`
   display: flex;
   flex-direction: column;
@@ -104,6 +109,7 @@ export const SideImage = styled.div`
     transition: all 0.4s;
   }
 `;
+
 export const MainImage = styled.div`
   cursor: pointer;
   margin-top: 8%;
@@ -113,6 +119,7 @@ export const MainImage = styled.div`
     transition: all 0.4s;
   }
 `;
+
 export const ContainerComment = styled.div`
   display: flex;
   margin-top: 8%;
