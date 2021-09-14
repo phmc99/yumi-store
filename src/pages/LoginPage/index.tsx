@@ -48,6 +48,7 @@ const LoginPage = () => {
   };
 
   const token = localStorage.getItem("token");
+  
 
   if (token !== null) {
     return <Redirect to="/" />;

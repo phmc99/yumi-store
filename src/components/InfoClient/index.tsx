@@ -1,9 +1,8 @@
-import { useProfile } from "../../providers/Profile";
+import { useProfile } from "../../providers/Profile";     
 import { Box, Titulo, Paragrafo, Bold, Button } from "./styles";
 
-const InfoClient = () => {
-  const { userInfo } = useProfile();
-  
+const InfoClient = () => {        
+
   return (
     <>
       <Box>
@@ -33,9 +32,14 @@ const InfoClient = () => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button>Editar dados</Button>
         </div>
+
       </Box>
     </>
   );
 };
 
 export default InfoClient;
+/* function ola(ola: any) {
+  throw new Error("Function not implemented.");
+}
+ */

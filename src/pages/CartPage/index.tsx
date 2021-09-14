@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import Cart from "../../components/Cart";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useCartContext } from "../../providers/CartProvider";
@@ -9,6 +8,7 @@ import {
   DivPagamento,
   Paragrafo,
 } from "./styles";
+
 
 const CartPage = () => {
   const { cartProducts } = useCartContext();
