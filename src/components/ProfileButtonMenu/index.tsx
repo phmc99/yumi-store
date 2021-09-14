@@ -1,5 +1,7 @@
 import { ModalProfile } from "./style";
 import { useHistory } from "react-router";
+import { useProfile } from "../../providers/Profile";
+import { Link } from "react-router-dom";
 
 interface CloseButton {
   profileButtonClicked: boolean;
@@ -11,6 +13,8 @@ const ProfileMenu = ({
   setProfileButtonClicked,
 }: CloseButton) => {
   const history = useHistory();
+
+  const { userInfo } = useProfile();
 
   const token = localStorage.getItem("@yumi:token");
 
@@ -35,7 +39,11 @@ const ProfileMenu = ({
     >
       {token !== null ? (
         <>
-          <p>logado</p>
+          <h2>{userInfo.user.name}</h2>
+          <Link to={{}}>Dados</Link>
+          <Link to={{}}>Endereços</Link>
+          <Link to={{}}>Favoritos</Link>
+          <Link to={{}}>Avaliar Produto</Link>
           <button onClick={() => handleLogout()}>Sair</button>
         </>
       ) : (
