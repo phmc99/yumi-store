@@ -1,39 +1,65 @@
-import { useProfile } from "../../providers/Profile";     
+import { useState } from "react";
+import { useHistory } from "react-router";
+import { useLocalizaCep } from "../../providers/CepProvider";
+import { useProfile } from "../../providers/Profile";
 import { Box, Titulo, Paragrafo, Bold, Button } from "./styles";
 
-const InfoClient = () => {        
+const InfoClient = () => {
+  const [btn, setBtn] = useState(false);
+
+  const history = useHistory();
+  const { userInfo } = useProfile();
+  const { ceps } = useLocalizaCep();
+
+  const handleBtn = () => {
+    setBtn(true);
+    history.push("/info");
+  };
+  const handleBtn1 = () => {
+    setBtn(false);
+    history.push("/cart");
+  };
 
   return (
     <>
-      <Box>
-        <Titulo>Confirmar dados</Titulo>
-        <Paragrafo>
-          <Bold>Nome:</Bold> Weslley Bastos
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>CPF:</Bold> 111.111.111-11
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>E-mail:</Bold> wessbastos@gmail.com
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>Telefone:</Bold> (xx) x xxxx-xxxx
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>Endereço:</Bold> Rua X, número 2 - Jd PaulistaSão Paulo-SP
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>Cidade/UF:</Bold> São Paulo/SP
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>CEP:</Bold> 010.101.010-11
-        </Paragrafo>
+      {userInfo.map((user, index) => (
+        <Box key={index}>
+          <Titulo>Confirmar dados</Titulo>
+          <Paragrafo>
+            <Bold>Nome:</Bold> {user.name}
+          </Paragrafo>
+          <Paragrafo>
+            <Bold>E-mail:</Bold> {user.email}
+          </Paragrafo>
+          <Paragrafo>
+            <Bold>Telefone:</Bold> {user.phone}
+          </Paragrafo>
+          {ceps.map((address) => (
+            <div key={index}>
+              <Paragrafo>
+                <Bold>Endereço:</Bold> {address.logradouro}
+              </Paragrafo>
+              <Paragrafo>
+                <Bold>Cidade/UF:</Bold> {address.localidade}
+              </Paragrafo>
+              <Paragrafo>
+                <Bold>CEP:</Bold> {address.cep}
+              </Paragrafo>
+              <Paragrafo>
+                <Bold>Bairro:</Bold> {address.bairro}
+              </Paragrafo>
 
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button>Editar dados</Button>
-        </div>
-
-      </Box>
+            </div>
+          ))}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            {btn ? (
+              <Button onClick={handleBtn1}>Use Este Endereço </Button>
+            ) : (
+              <Button onClick={handleBtn}>Editar dados</Button>
+            )}
+          </div>
+        </Box>
+      ))}
     </>
   );
 };

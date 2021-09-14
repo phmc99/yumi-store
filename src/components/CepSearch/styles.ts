@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 535px;
   height: 545px;
-  border: 1px solid #8f4bc7;
+  border: 2px solid #8f4bc7;
   border-radius: 12px;
   margin: 10px;
 `;
@@ -14,7 +14,7 @@ export const Input = styled.input`
   width: 40%;
   margin: 0.75rem;
   height: 40px;
-  padding: 0.8rem;
+  padding: 0.7rem;
 `;
 
 export const Box = styled.div`
@@ -27,7 +27,7 @@ export const Info = styled.h4`
   font-weight: bold;
   border: 1px solid #8f4bc7;
   width: 95%;
-  height: 45px;
+  height: 40px;
   margin: 0.8rem auto;
   padding: 0.4rem;
   align-items: center;
@@ -39,18 +39,18 @@ export const InputForm = styled.input`
   width: 45%;
   margin: 5px auto;
   border: 1px solid #8f4bc7;
-  height: 45px;
+  height: 40px;
   border-radius: 7px;
   padding: 0.4rem;
   font-weight: bold;
   font-size: 1rem;
 `;
 
-export const Button = styled.button`
+export const ButtonSearch = styled.button`
   width: 50%;
   height: 40px;
   border-radius: 5px;
-  background-color: #8F4BC7;
+  background-color: #8f4bc7;
   border: 0;
   cursor: pointer;
   color: #fff;

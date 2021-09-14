@@ -34,12 +34,14 @@ export const Paragrafo = styled.p`
   padding: 1rem;
   font-size: 0.8rem;
   font-weight: bold;
+  justify-content: center;
 
   @media (min-width: 760px) {
     margin: 3.5rem 2.5rem 0rem 2.5rem;
     width: 350px;
     font-weight: bold;
     font-size: 1.3rem;
+    justify-content: center;
   }
 `;
 
@@ -49,7 +51,6 @@ export const DivPagamento = styled.div`
   width: 85vw;
 
   @media (min-width: 760px) {
-    
   }
 `;
 
@@ -66,8 +67,14 @@ export const ButtonPagamento = styled.button`
   margin: 0 auto;
 
   @media (min-width: 760px) {
-      width: 220px;
-      height: 40px;
-      margin-right: 0%;
+    width: 220px;
+    height: 40px;
+    margin-right: 0%;
   }
+`;
+
+export const Box = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
 `;

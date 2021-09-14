@@ -1,5 +1,5 @@
 import { Link, useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import imageLogo from "../../assets/dogImage.png";
 import { VscSearch, VscHeart } from "react-icons/vsc";
 import { BsPersonFill } from "react-icons/bs";
@@ -14,105 +14,116 @@ import {
   BottomMenu,
 } from "./style";
 import { Menu, Dropdown, Button } from "antd";
+import { Badge } from "antd";
+import { useCartContext } from "../../providers/CartProvider";
+import { useProducts } from "../../providers/Products";
+import { useProfile } from "../../providers/Profile";
 
 export const MenuSearch = () => {
+  const { products } = useProducts();
   const [open, setOpen] = useState<boolean>(false);
+  const [filtrado, setFiltrado] = useState("");
+  const { cartProducts } = useCartContext();
+  const { userInfo } = useProfile();
 
   const [profileButtonClicked, setProfileButtonClicked] =
     useState<boolean>(false);
-
-  const ActivateButtonMenu = () => {
-    setOpen(false);
-    setProfileButtonClicked(true);
-  };
 
   const history = useHistory();
   const changePage = (route: string) => {
     history.push(`/${route}`);
   };
 
-  const menu = (
+  console.log(userInfo)
+
+  const filteredProducts = products.filter(({ name }) =>
+    name
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .includes(
+        filtrado
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+      )
+  );
+
+  const Pesquisar = () => {
+    if (filtrado !== "" && filteredProducts.length !== 0) {
+      history.push(`/products/filtered:${filtrado}`, filtrado);
+    } else if (filteredProducts.length === 0) {
+      history.push(`/products/not-found`, filtrado);
+    }
+  };
+
+  const menuSaude = (
     <Menu>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          Novidades
-        </a>
+        <Link rel="noopener noreferrer" to="/products/category/1">
+          Beleza e Higiene
+        </Link>
       </Menu.Item>
+    </Menu>
+  );
+
+  const menuAdote = (
+    <Menu>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
-          Rações
-        </a>
+        <Link rel="noopener noreferrer" to={{}}>
+          Acolha
+        </Link>
       </Menu.Item>
+    </Menu>
+  );
+
+  const menuOutlet = (
+    <Menu>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          Petiscos
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          Higiene
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
+        <Link rel="noopener noreferrer" to="/products/category/5">
           Roupas
-        </a>
+        </Link>
       </Menu.Item>
+    </Menu>
+  );
+
+  const menuCaninos = (
+    <Menu>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
+        <Link rel="noopener noreferrer" to="/products/species/cachorro">
+          Caninos
+        </Link>
+      </Menu.Item>
+    </Menu>
+  );
+
+  const menuFelinos = (
+    <Menu>
+      <Menu.Item>
+        <Link rel="noopener noreferrer" to="/products/species/gato">
+          Felinos
+        </Link>
+      </Menu.Item>
+    </Menu>
+  );
+
+  const menuOutros = (
+    <Menu>
+      <Menu.Item>
+        <Link rel="noopener noreferrer" to="/products/category/3">
+          Acessórios
+        </Link>
+      </Menu.Item>
+
+      <Menu.Item>
+        <Link rel="noopener noreferrer" to="/products/category/4">
           Brinquedos
-        </a>
+        </Link>
       </Menu.Item>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          Viagens
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
-          Camas
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          Coleiras e Guias
-        </a>
+        <Link rel="noopener noreferrer" to="/products/category/2">
+          Rações
+        </Link>
       </Menu.Item>
     </Menu>
   );
@@ -133,8 +144,12 @@ export const MenuSearch = () => {
           </div>
         </ContainerLogo>
         <Search>
-          <input placeholder="Exemplo: Cama para cachorros"></input>
-          <div>
+          <input
+            value={filtrado}
+            onChange={(event) => setFiltrado(event.target.value)}
+            placeholder="Exemplo: Casa Iglu Furacão Pet Preta para Cães"
+          ></input>
+          <div onClick={() => Pesquisar()}>
             <VscSearch style={{ height: "25px", width: "25px" }} />
           </div>
         </Search>
@@ -144,7 +159,10 @@ export const MenuSearch = () => {
           <div></div>
         </StyledBurger>
         {profileButtonClicked && (
-          <ProfileMenu setProfileButtonClicked={setProfileButtonClicked} />
+          <ProfileMenu
+            profileButtonClicked={profileButtonClicked}
+            setProfileButtonClicked={setProfileButtonClicked}
+          />
         )}
         <StyledRightNav open={open}>
           <div className="right-nav">
@@ -155,14 +173,20 @@ export const MenuSearch = () => {
                 </Link>
               </li>
             )}
-            <li key="2" onClick={() => ActivateButtonMenu()}>
+            <li
+              key="2"
+              onMouseLeave={() => setProfileButtonClicked(false)}
+              onMouseEnter={() => setProfileButtonClicked(true)}
+            >
               <BsPersonFill style={{ height: "30px", width: "30px" }} />
             </li>
             <li key="3" onClick={() => changePage("favorite")}>
               <VscHeart style={{ height: "30px", width: "30px" }} />
             </li>
             <li key="4" onClick={() => changePage("cart")}>
-              <HiShoppingCart style={{ height: "30px", width: "30px" }} />
+              <Badge count={cartProducts.length}>
+                <HiShoppingCart style={{ height: "30px", width: "30px" }} />
+              </Badge>
             </li>
           </div>
         </StyledRightNav>
@@ -172,7 +196,7 @@ export const MenuSearch = () => {
         <div style={{ width: "100%" }}>
           <Dropdown
             className="item"
-            overlay={menu}
+            overlay={menuCaninos}
             placement="bottomCenter"
             arrow
             key="1"
@@ -181,7 +205,7 @@ export const MenuSearch = () => {
           </Dropdown>
           <Dropdown
             className="item"
-            overlay={menu}
+            overlay={menuFelinos}
             placement="bottomCenter"
             arrow
           >
@@ -189,16 +213,7 @@ export const MenuSearch = () => {
           </Dropdown>
           <Dropdown
             className="item"
-            overlay={menu}
-            placement="bottomCenter"
-            arrow
-            key="2"
-          >
-            <Button>Outros Pets</Button>
-          </Dropdown>
-          <Dropdown
-            className="item"
-            overlay={menu}
+            overlay={menuSaude}
             placement="bottomCenter"
             arrow
             key="3"
@@ -207,7 +222,7 @@ export const MenuSearch = () => {
           </Dropdown>
           <Dropdown
             className="item"
-            overlay={menu}
+            overlay={menuOutlet}
             placement="bottomCenter"
             arrow
             key="4"
@@ -216,7 +231,16 @@ export const MenuSearch = () => {
           </Dropdown>
           <Dropdown
             className="item"
-            overlay={menu}
+            overlay={menuOutros}
+            placement="bottomCenter"
+            arrow
+            key="2"
+          >
+            <Button>Outros</Button>
+          </Dropdown>
+          <Dropdown
+            className="item"
+            overlay={menuAdote}
             placement="bottomCenter"
             arrow
             key="5"

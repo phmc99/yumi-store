@@ -39,6 +39,7 @@ export const ProductsProvider = ({ children }: IProductsProps) => {
   }, []);
 
   const addProduct = (prod: IProducts) => {
+    
     setCartProducts([...cartProducts, prod]);
     localStorage.setItem("cart", JSON.stringify(cartProducts));
   };

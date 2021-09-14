@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { useLocalizaCep } from "../../providers/CepProvider";
-import { Container, Input, Info, Box, InputForm, Button } from "./styles";
+import { Container, Input, Info, Box, InputForm, ButtonSearch } from "./styles";
 
 export const CepCard = () => {
-  const { ceps, cepNumber, setCepNumber, handleSearch } = useLocalizaCep();
+  const { ceps, cepNumber, setCepNumber, handleSearch, setCeps } =
+    useLocalizaCep();
+
+  console.log(ceps);
 
   return (
     <Container>
@@ -10,9 +14,12 @@ export const CepCard = () => {
         placeholder=" CEP:"
         onChange={(evt) => setCepNumber(evt.target.value)}
       />
-      <Button disabled={!cepNumber} onClick={() => handleSearch(cepNumber)}>
+      <ButtonSearch
+        disabled={!cepNumber}
+        onClick={() => handleSearch(cepNumber)}
+      >
         Buscar
-      </Button>
+      </ButtonSearch>
 
       {ceps.map((cep, index) => {
         return (

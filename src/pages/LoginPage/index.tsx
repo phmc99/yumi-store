@@ -40,6 +40,10 @@ const LoginPage = () => {
           "@yumi:token",
           JSON.stringify(response.data.token)
         );
+        localStorage.setItem(
+          "@yumi:id",
+          JSON.stringify(response.data.user._id)
+        );
         history.push("/cart");
       })
       .catch(() => {
@@ -47,8 +51,7 @@ const LoginPage = () => {
       });
   };
 
-  const token = localStorage.getItem("token");
-  
+  const token = localStorage.getItem("@yumi:token");
 
   if (token !== null) {
     return <Redirect to="/" />;

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { useCartContext } from "../../providers/CartProvider";
@@ -8,7 +9,7 @@ import {
   ParagrafoProduct,
   Button,
   TitlePrice,
-  Box
+  Box,
 } from "./styles";
 
 interface ProductsProps {
@@ -16,27 +17,54 @@ interface ProductsProps {
 }
 
 const Cart = ({ product }: ProductsProps) => {
-  const { removeCart, addCart } = useCartContext();
+  const { removeCart, addCart, cartProducts } = useCartContext();
 
+  const [quantityValue, setQuantityValue] = useState(product.__v);
+
+  const handlePlusQuantity = () => {
+    setQuantityValue(quantityValue + 1);
+    cartProducts.map((item) => {
+      if (item.id === product.id) {
+        item.__v++;
+      }
+      return item;
+    });
+  };
+
+  const handleSubQuantity = () => {
+    if (quantityValue !== 0) {
+      setQuantityValue(quantityValue - 1);
+      cartProducts.map((item) => {
+        if (item.id === product.id) {
+          item.__v--;
+        }
+        return item;
+      });
+    }
+  };
+
+  console.log(cartProducts);
   return (
     <>
       <Box>
         <ListCart>
           <Image src={product.image_url} alt="roupa" />
           <ParagrafoProduct>{product.name}</ParagrafoProduct>
-          <Button onClick={() => addCart(product)}>
+          <Button onClick={handleSubQuantity}>
+            <AiOutlineMinusSquare size="30px" color={"8F4BC7"} />
+          </Button>
+          <p>{product.__v}</p>
+          <Button onClick={handlePlusQuantity}>
             <AiOutlinePlusSquare size="30px" color={"8F4BC7"} />
           </Button>
-          1
-          <Button onClick={() => removeCart(product)}>
-            <AiOutlineMinusSquare size="30px" color={"8F4BC7"}/>
-          </Button>
-          <TitlePrice>R$ {product.price}</TitlePrice>
+          <TitlePrice>R$ {parseInt(product.price) * quantityValue}</TitlePrice>
           <Button>
             <BsTrash size="30px" />
           </Button>
         </ListCart>
       </Box>
+
+      {console.log(quantityValue)}
     </>
   );
 };
