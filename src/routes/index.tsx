@@ -12,6 +12,7 @@ import BrandPage from "../pages/BrandPage";
 import CartPage from "../pages/CartPage";
 import Favorites from "../pages/Favorites";
 import Error from "../pages/Error";
+import Product from "../pages/Product/Index";
 
 const Routes = () => {
   return (
@@ -26,6 +27,10 @@ const Routes = () => {
 
       <Route path="/login">
         <LoginPage />
+      </Route>
+
+      <Route exact path="/products/:id">
+        <Product />
       </Route>
 
       <Route exact path="/products/filtered:name">

@@ -5,6 +5,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
+import toast from "react-hot-toast";
 
 import { IProducts } from "../../types";
 
@@ -30,6 +31,9 @@ export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
   const handleAddFavorite = (item: IProducts) => {
     if (favoritesProducts.includes(item) === false) {
       setFavoritesProducts([...favoritesProducts, item]);
+      toast("Produto favoritado!", {
+        icon: "❤️",
+      });
     }
   };
 
@@ -37,6 +41,9 @@ export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
     setFavoritesProducts(
       favoritesProducts.filter((remove) => remove.name !== item.name)
     );
+    toast("Produto removido dos favoritos!", {
+      icon: "💔",
+    });
   };
 
   useEffect(() => {
