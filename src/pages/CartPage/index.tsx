@@ -13,6 +13,7 @@ import {
 const CartPage = () => {
   const { cartProducts } = useCartContext();
 
+
   const valorProducts = cartProducts.map((item) => item.price.replace(",", "."));
   
   const valorTotal = valorProducts.map(Number)
@@ -23,6 +24,7 @@ const CartPage = () => {
       <MenuSearch />
       <Div>
         <Titulo>Meu carrinho:</Titulo>
+
         <Paragrafo>Subtotal: R${valorTotal.reduce((acc, current) => acc + current, 0).toFixed(2)}</Paragrafo>
       </Div>
 
