@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 95%;
   padding: 10px;
-  margin: 50px auto 0;
+  margin: 50px auto 5px;
   background-color: var(--purple);
   border-radius: 20px;
   display: flex;
@@ -91,11 +91,11 @@ export const Container = styled.div`
     width: 99%;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 
     .institutional {
       margin: 15px 0;
-      padding: 0 15px;
+      padding: 0 3%;
       border-top: 1px solid transparent;
       border-bottom: 1px solid transparent;
       border-left: 1px solid var(--white);

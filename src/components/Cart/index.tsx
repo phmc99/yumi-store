@@ -24,7 +24,7 @@ const Cart = ({ product }: ProductsProps) => {
   const handlePlusQuantity = () => {
     setQuantityValue(quantityValue + 1);
     cartProducts.map((item) => {
-      if (item.id === product.id) {
+      if (item._id === product._id) {
         item.__v++;
       }
       return item;
@@ -35,7 +35,7 @@ const Cart = ({ product }: ProductsProps) => {
     if (quantityValue !== 0) {
       setQuantityValue(quantityValue - 1);
       cartProducts.map((item) => {
-        if (item.id === product.id) {
+        if (item._id === product._id) {
           item.__v--;
         }
         return item;

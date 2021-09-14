@@ -38,7 +38,7 @@ export const FilteredProducts = () => {
       </Pesquisou>
       <Category>
         {filteredProducts.map((item) => (
-          <li key={item.id}>
+          <li key={item._id}>
             <CardProds prod={item} />
           </li>
         ))}
