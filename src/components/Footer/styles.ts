@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 95%;
   padding: 10px;
-  margin: 50px auto 0;
+  margin: 50px auto 5px;
   background-color: var(--purple);
   border-radius: 20px;
   display: flex;
@@ -20,7 +20,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 5px;
 
     h3 {
       margin: 20px 0 10px;
@@ -91,11 +91,11 @@ export const Container = styled.div`
     width: 99%;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 
     .institutional {
       margin: 15px 0;
-      padding: 0 15px;
+      padding: 0 3%;
       border-top: 1px solid transparent;
       border-bottom: 1px solid transparent;
       border-left: 1px solid var(--white);
@@ -169,7 +169,7 @@ export const Support = styled.div`
   }
 
   @media (min-width: 650px) {
-    width: 50%;
+    width: 30vw;
     max-width: 480px;
   }
 `;

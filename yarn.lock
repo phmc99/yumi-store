@@ -995,6 +995,14 @@
     "@babel/helper-create-regexp-features-plugin" "^7.12.13"
     "@babel/helper-plugin-utils" "^7.12.13"
 
+"@babel/polyfill@^7.12.1":
+  version "7.12.1"
+  resolved "https://registry.npmjs.org/@babel/polyfill/-/polyfill-7.12.1.tgz"
+  integrity sha512-X0pi0V6gxLi6lFZpGmeNa4zxtwEmCs42isWLNjZZDE0Y8yVfgu0T2OAHlzBbdYlqbW/YXVvoBHpATEM+goCj8g==
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.4"
+
 "@babel/preset-env@7.12.1":
   version "7.12.1"
   resolved "https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.12.1.tgz"
@@ -1197,14 +1205,14 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.4", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.1", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.4.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.4", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.1", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.9.2":
   version "7.15.4"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.15.4.tgz"
   integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
   version "7.12.18"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.12.18.tgz"
   integrity sha512-BogPQ7ciE6SYAUPtlm9tWbgI9+2AgqSam6QivMgXgAT+fKbgppaj4ZX15MHeLC1PVF5sNk70huBu20XxWOs8Cg==
@@ -1639,7 +1647,7 @@
 
 "@material-ui/icons@^4.11.2":
   version "4.11.2"
-  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.11.2.tgz#b3a7353266519cd743b6461ae9fdfcb1b25eb4c5"
+  resolved "https://registry.npmjs.org/@material-ui/icons/-/icons-4.11.2.tgz"
   integrity sha512-fQNsKX2TxBmqIGJCSi3tGTO/gZ+eJgWmMJkgDiOfyNaunNaxcklJQFaFogYcFl0qFuaEz1qaXYXboa/bUXVSOQ==
   dependencies:
     "@babel/runtime" "^7.4.4"
@@ -1684,51 +1692,6 @@
     native-url "^0.2.6"
     schema-utils "^2.6.5"
     source-map "^0.7.3"
-
-"@react-spring/animated@~9.2.0":
-  version "9.2.4"
-  resolved "https://registry.npmjs.org/@react-spring/animated/-/animated-9.2.4.tgz"
-  integrity sha512-AfV6ZM8pCCAT29GY5C8/1bOPjZrv/7kD0vedjiE/tEYvNDwg9GlscrvsTViWR2XykJoYrDfdkYArrldWpsCJ5g==
-  dependencies:
-    "@react-spring/shared" "~9.2.0"
-    "@react-spring/types" "~9.2.0"
-
-"@react-spring/core@~9.2.0":
-  version "9.2.4"
-  resolved "https://registry.npmjs.org/@react-spring/core/-/core-9.2.4.tgz"
-  integrity sha512-R+PwyfsjiuYCWqaTTfCpYpRmsP0h87RNm7uxC1Uxy7QAHUfHEm2sAHn+AdHPwq/MbVwDssVT8C5yf2WGcqiXGg==
-  dependencies:
-    "@react-spring/animated" "~9.2.0"
-    "@react-spring/shared" "~9.2.0"
-    "@react-spring/types" "~9.2.0"
-
-"@react-spring/rafz@~9.2.0":
-  version "9.2.4"
-  resolved "https://registry.npmjs.org/@react-spring/rafz/-/rafz-9.2.4.tgz"
-  integrity sha512-SOKf9eue+vAX+DGo7kWYNl9i9J3gPUlQjifIcV9Bzw9h3i30wPOOP0TjS7iMG/kLp2cdHQYDNFte6nt23VAZkQ==
-
-"@react-spring/shared@~9.2.0":
-  version "9.2.4"
-  resolved "https://registry.npmjs.org/@react-spring/shared/-/shared-9.2.4.tgz"
-  integrity sha512-ZEr4l2BxmyFRUvRA2VCkPfCJii4E7cGkwbjmTBx1EmcGrOnde/V2eF5dxqCTY3k35QuCegkrWe0coRJVkh8q2Q==
-  dependencies:
-    "@react-spring/rafz" "~9.2.0"
-    "@react-spring/types" "~9.2.0"
-
-"@react-spring/types@~9.2.0":
-  version "9.2.4"
-  resolved "https://registry.npmjs.org/@react-spring/types/-/types-9.2.4.tgz"
-  integrity sha512-zHUXrWO8nweUN/ISjrjqU7GgXXvoEbFca1CgiE0TY0H/dqJb3l+Rhx8ecPVNYimzFg3ZZ1/T0egpLop8SOv4aA==
-
-"@react-spring/web@^9.2.4":
-  version "9.2.4"
-  resolved "https://registry.npmjs.org/@react-spring/web/-/web-9.2.4.tgz"
-  integrity sha512-vtPvOalLFvuju/MDBtoSnCyt0xXSL6Amyv82fljOuWPl1yGd4M1WteijnYL9Zlriljl0a3oXcPunAVYTD9dbDQ==
-  dependencies:
-    "@react-spring/animated" "~9.2.0"
-    "@react-spring/core" "~9.2.0"
-    "@react-spring/shared" "~9.2.0"
-    "@react-spring/types" "~9.2.0"
 
 "@rollup/plugin-node-resolve@^7.1.1":
   version "7.1.3"
@@ -2066,7 +2029,7 @@
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/lodash@^4.14.165":
+"@types/lodash@^4.14.105", "@types/lodash@^4.14.165":
   version "4.14.172"
   resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.172.tgz"
   integrity sha512-/BHF5HAx3em7/KkzVKm3LrsD6HZAXuXO1AJZQ3cRRBZj4oHZDviWPYu0aEplAqDFNHZPW6d3G7KN+ONcCCC7pw==
@@ -2135,10 +2098,26 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-show-more-text@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/@types/react-show-more-text/-/react-show-more-text-1.4.1.tgz"
+  integrity sha512-bcoDFaF7LIl8GHcadBjlmSSeeXw9E3CP/Hs70aTUbwALRnxDSUqnf5O6SwgVAjiWzx/YEu9XWoJ+oJzl82dXLw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^17.0.0":
   version "17.0.20"
   resolved "https://registry.npmjs.org/@types/react/-/react-17.0.20.tgz"
   integrity sha512-wWZrPlihslrPpcKyCSlmIlruakxr57/buQN1RjlIeaaTWDLtJkTtRW429MoQJergvVKc4IWBpRhWw7YNh/7GVA==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^16.0.40":
+  version "16.14.15"
+  resolved "https://registry.npmjs.org/@types/react/-/react-16.14.15.tgz"
+  integrity sha512-jOxlBV9RGZhphdeqJTCv35VZOkjY+XIEY2owwSk84BNDdDv2xS6Csj6fhi+B/q30SR9Tz8lDNt/F2Z5RF3TrRg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3070,15 +3049,6 @@ babel-plugin-transform-react-remove-prop-types@0.4.24:
   resolved "https://registry.npmjs.org/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
 
-babel-polyfill@^6.26.0:
-  version "6.26.0"
-  resolved "https://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.26.0.tgz"
-  integrity sha1-N5k3q8Z9eJWXCtxiHyhM2WbPIVM=
-  dependencies:
-    babel-runtime "^6.26.0"
-    core-js "^2.5.0"
-    regenerator-runtime "^0.10.5"
-
 babel-preset-current-node-syntax@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/babel-preset-current-node-syntax/-/babel-preset-current-node-syntax-1.0.1.tgz"
@@ -3978,7 +3948,7 @@ core-js-pure@^3.0.0:
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.9.0.tgz"
   integrity sha512-3pEcmMZC9Cq0D4ZBh3pe2HLtqxpGNJBLXF/kZ2YzK17RbKp94w0HFbdbSx8H8kAlZG5k76hvLrkPm57Uyef+kg==
 
-core-js@^2.4.0, core-js@^2.5.0:
+core-js@^2.4.0, core-js@^2.6.5:
   version "2.6.12"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
@@ -6253,17 +6223,6 @@ infer-owner@^1.0.3, infer-owner@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/infer-owner/-/infer-owner-1.0.4.tgz"
   integrity sha512-IClj+Xz94+d7irH5qRyfJonOdfTzuDaifE6ZPWfx0N0+/ATZCbuTPq2prFl526urkQd90WyUKIh1DfBQ2hMz9A==
-
-infinite-react-carousel@^1.2.11:
-  version "1.2.11"
-  resolved "https://registry.npmjs.org/infinite-react-carousel/-/infinite-react-carousel-1.2.11.tgz"
-  integrity sha512-7MUNP+eh/6Eud+TViz0HYYvLJq/2CVsdMf9J9X/Ag9jRs/eb319vBpHvNEb0TtmbqrNbnSGHG0D3fVy41edy0g==
-  dependencies:
-    babel-polyfill "^6.26.0"
-    classnames "^2.2.5"
-    lodash "^4.17.15"
-    prop-types "^15.7.2"
-    resize-observer-polyfill "^1.5.0"
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -9985,6 +9944,14 @@ react-multi-carousel@^2.6.5:
   resolved "https://registry.npmjs.org/react-multi-carousel/-/react-multi-carousel-2.6.5.tgz"
   integrity sha512-i5iuAm5XRT/h7uBL9/pGWeRsQXzqvjBrPVP1sobKgDKEvfZuKFpYp/alaQhTRM56Jtkb8jZpSqLn52Ku6jJbDg==
 
+react-rating@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/react-rating/-/react-rating-2.0.5.tgz"
+  integrity sha512-uldxgLCe5bzqGX7V+7/bPgQQj2Kok6eiMgTMxjKOhfhnQkFLDlc4TjMlp7gaJFAHWdbiOnqpiShI7z8as6oWtg==
+  dependencies:
+    "@types/lodash" "^4.14.105"
+    "@types/react" "^16.0.40"
+
 react-refresh@^0.8.3:
   version "0.8.3"
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.8.3.tgz"
@@ -10085,19 +10052,20 @@ react-scripts@4.0.3:
   optionalDependencies:
     fsevents "^2.1.3"
 
+react-show-more-text@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/react-show-more-text/-/react-show-more-text-1.5.0.tgz"
+  integrity sha512-8I0XSS/N9hIN0FTNmPn9NRBkTuDO1AkZOzmsXFuRjzwzyVY+wocnbFmivPi4431bAj966EnMIWaKGJUYRgBUQg==
+  dependencies:
+    "@babel/polyfill" "^7.12.1"
+    prop-types "^15.7.2"
+
 react-spinners@^0.11.0:
   version "0.11.0"
   resolved "https://registry.npmjs.org/react-spinners/-/react-spinners-0.11.0.tgz"
   integrity sha512-rDZc0ABWn/M1OryboGsWVmIPg8uYWl0L35jPUhr40+Yg+syVPjeHwvnB7XWaRpaKus3M0cG9BiJA+ZB0dAwWyw==
   dependencies:
     "@emotion/react" "^11.1.4"
-
-react-touch-carousel@^0.10.2:
-  version "0.10.2"
-  resolved "https://registry.npmjs.org/react-touch-carousel/-/react-touch-carousel-0.10.2.tgz"
-  integrity sha512-nZnZsfHLvOTsb6VITdykY6nvhlOSFWRWqV9l72E/wXv8bNLSmwg71luaq4D0R5+BeY1eLSJC7PUrafJyzdftow==
-  dependencies:
-    "@react-spring/web" "^9.2.4"
 
 react@^17.0.2:
   version "17.0.2"
@@ -10207,11 +10175,6 @@ regenerate@^1.4.0:
   version "1.4.2"
   resolved "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
-
-regenerator-runtime@^0.10.5:
-  version "0.10.5"
-  resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz"
-  integrity sha1-M2w+/BIgrc7dosn6tntaeVWjNlg=
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"

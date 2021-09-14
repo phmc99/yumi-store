@@ -9,12 +9,14 @@ export const Container = styled.div`
     font-size: 3rem;
     color: var(--purple);
     margin-top: 50px;
+    text-shadow: 4px 4px 3px rgb(150 150 150);
   }
 
   p {
     font-size: 1.3rem;
     margin: 0;
     color: var(--gray);
+    text-shadow: 3px 3px 4px rgb(150 150 150);
   }
 
   .more {
@@ -25,7 +27,7 @@ export const Container = styled.div`
     display: block;
     width: 220px;
     background-color: var(--purple);
-    border: 1px solid var(--purple);
+    border: 1px solid transparent;
     border-radius: 10px;
     margin: 50px 0;
     padding: 10px;
@@ -33,15 +35,27 @@ export const Container = styled.div`
     text-align: center;
     color: var(--white);
     font-weight: bold;
+
+    :hover {
+      background: linear-gradient(
+        to bottom,
+        var(--purple) 5%,
+        var(--dark-purple) 100%
+      );
+    }
+
+    :active {
+      position: relative;
+      top: 2px;
+    }
   }
 
   img {
     width: 30%;
     min-width: 300px;
     max-width: 600px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    margin-bottom: -50px;
   }
 
   @media (min-width: 768px) {
@@ -54,6 +68,7 @@ export const Container = styled.div`
     }
 
     a {
-    width: 380px;
+      width: 380px;
+    }
   }
 `;

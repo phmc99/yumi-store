@@ -5,6 +5,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import toast from "react-hot-toast";
 import api from "../../services";
 import { IProducts } from "../../types";
 import { useCartContext } from "../CartProvider";
@@ -38,10 +39,11 @@ export const ProductsProvider = ({ children }: IProductsProps) => {
     getProducts();
   }, []);
 
-  const addProduct = (prod: IProducts) => {
-    
-    setCartProducts([...cartProducts, prod]);
-    localStorage.setItem("cart", JSON.stringify(cartProducts));
+
+  const addProduct = (product: IProducts) => {
+    setCartProducts([...cartProducts, { product, quantity: 1 }]);
+    localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
+    toast.success("Produto adicionado ao carrinho!");
   };
 
   return (

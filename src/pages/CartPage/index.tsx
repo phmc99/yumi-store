@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import Cart from "../../components/Cart";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useCartContext } from "../../providers/CartProvider";
@@ -11,13 +10,7 @@ import {
 } from "./styles";
 
 const CartPage = () => {
-  const { cartProducts } = useCartContext();
-
-
-  const valorProducts = cartProducts.map((item) => item.price.replace(",", "."));
-  
-  const valorTotal = valorProducts.map(Number)
-
+  const { cartProducts, total } = useCartContext();
 
   return (
     <div>
@@ -25,14 +18,14 @@ const CartPage = () => {
       <Div>
         <Titulo>Meu carrinho:</Titulo>
 
-        <Paragrafo>Subtotal: R${valorTotal.reduce((acc, current) => acc + current, 0).toFixed(2)}</Paragrafo>
+        <Paragrafo>Subtotal: R$ {total}</Paragrafo>
       </Div>
 
       <DivPagamento>
         <ButtonPagamento>Confirmar pedido</ButtonPagamento>
       </DivPagamento>
       {cartProducts.map((item, index) => (
-        <Cart product={item} key={index} />
+        <Cart product={item.product} quantity={item.quantity} key={index} />
       ))}
     </div>
   );
