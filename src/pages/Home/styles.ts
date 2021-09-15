@@ -85,7 +85,7 @@ export const Details = styled.div`
   flex-direction: column;
   background-color: #fdb1ac;
   margin-top: 30px;
-  padding: 20px 0;
+  padding: 15px 0;
 
   .info {
     margin: 5px auto;
@@ -97,12 +97,12 @@ export const Details = styled.div`
 
     img {
       width: 20vw;
-      max-width: 85px;
+      max-width: 75px;
     }
 
     h3 {
       margin-left: 20px;
-      font-size: 1.3rem;
+      font-size: 1rem;
       font-variant-caps: petite-caps;
       line-height: 0.9;
       font-weight: 100;
@@ -124,7 +124,7 @@ export const Details = styled.div`
       h3 {
         text-align: center;
         margin-left: 0;
-        margin-top: 10px;
+        margin-top: 15px;
         font-weight: 100;
       }
     }
@@ -133,8 +133,7 @@ export const Details = styled.div`
   @media (min-width: 1000px) {
     .info {
       h3 {
-        font-size: 1.6rem;
-        font-weight: 100;
+        font-size: 1.3rem;
       }
     }
   }
@@ -152,6 +151,10 @@ export const Category = styled.div`
   a {
     text-decoration: none;
   }
+  .carousel-item-padding-40-px{
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const More = styled.div`
@@ -159,10 +162,13 @@ export const More = styled.div`
   height: 450px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-
+  justify-content: flex-start;
+  @media (max-width: 414px) {
+    justify-content: center;
+  }
   svg {
     font-size: 9rem;
     color: var(--purple);
+    margin-top: 40px;
   }
 `;

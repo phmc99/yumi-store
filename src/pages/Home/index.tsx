@@ -143,7 +143,7 @@ const Home = () => {
           ))}
           <More>
             <Link to="/products/category/5">
-              <AiOutlinePlus />
+              <AiOutlinePlus/>
             </Link>
           </More>
         </Carousel>

@@ -2,6 +2,8 @@ import { ModalProfile } from "./style";
 import { useHistory } from "react-router";
 import { useProfile } from "../../providers/Profile";
 import { Link } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io"
+import { BsPersonFill } from "react-icons/bs";
 
 interface CloseButton {
   profileButtonClicked: boolean;
@@ -39,13 +41,22 @@ const ProfileMenu = ({
     >
       {token !== null ? (
         <>
+        <div className="engloba-nome">
+          <BsPersonFill style={{height: "70px", width: "70px"}}/>
+          <div className="nome">
+        <h2>Olá,</h2>
           <h2>{userInfo.name}</h2>
-          <Link to={"/info"}>Endereços</Link>
-          <button onClick={() => handleLogout()}>Sair</button>
+        </div>
+        </div>
+          <div className="logado">
+          <Link to="/info">Meus Dados <IoIosArrowForward className="icone"/></Link>
+          <Link to="/favorite">Favoritos <IoIosArrowForward className="icone"/></Link>
+          <Link to={{}} onClick={() => handleLogout()}>Sair<IoIosArrowForward className="icone"/></Link>
+          </div>
         </>
       ) : (
         <>
-          <div>
+          <div className="deslogado">
             <p className="first">Já possui uma conta?</p>
             <p className="first">Acesse Aqui!</p>
           </div>

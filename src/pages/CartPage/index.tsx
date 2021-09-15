@@ -46,9 +46,11 @@ const CartPage = () => {
         }
       )
       .then((resp) => {
-        window.location.href = `https://yumistoreapi.herokuapp.com/payment/checkout/${
-          resp.data.order._id
-        }/${userInfo.email}/${"Pagamento Yumi Store"}/${total}`;
+        window.open(
+          `https://yumistoreapi.herokuapp.com/payment/checkout/${
+            resp.data.order._id
+          }/${userInfo.email}/${"Pagamento Yumi Store"}/${total}`
+        );
       })
       .catch(() => {
         toast.error("Ops, algo de errado aconteceu!");
@@ -58,24 +60,38 @@ const CartPage = () => {
   return (
     <div>
       <MenuSearch />
-      <Div>
-        <Titulo>Meu carrinho</Titulo>
-      </Div>
+      {cartProducts.length !== 0 ? (
+        <>
+          <Div>
+            <Titulo>Meu carrinho</Titulo>
+          </Div>
 
-      <Box>
-        {cartProducts.map((item, index) => (
-          <Cart product={item.product} quantity={item.quantity} key={index} />
-        ))}
+          <Box>
+            <div className="cart">
+              {cartProducts.map((item, index) => (
+                <Cart
+                  product={item.product}
+                  quantity={item.quantity}
+                  key={index}
+                />
+              ))}
+            </div>
 
-        <DivPagamento>
-          <Paragrafo>Subtotal: R$ {total}</Paragrafo>
+            <DivPagamento>
+              <Paragrafo>Subtotal: R$ {total}</Paragrafo>
 
-          <InfoClient />
-          <ButtonPagamento onClick={handlePayment}>
-            Confirmar pedido
-          </ButtonPagamento>
-        </DivPagamento>
-      </Box>
+              <InfoClient />
+              <ButtonPagamento onClick={handlePayment}>
+                Confirmar pedido
+              </ButtonPagamento>
+            </DivPagamento>
+          </Box>
+        </>
+      ) : (
+        <Div>
+          <Titulo>Carrinho vazio</Titulo>
+        </Div>
+      )}
     </div>
   );
 };

@@ -1,29 +1,33 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import CardProds from "../../components/CardProds";
 
 import CarouselBanner from "../../components/Carousel";
-import api from "../../services";
+import Footer from "../../components/Footer";
+import { MenuSearch } from "../../components/MenuSearch";
+import { useProducts } from "../../providers/Products";
 
-import { IProducts } from "../../types";
 import { Container, BrandImages, Products } from "../CategoryPage/styles";
 
 const BrandPage = () => {
-  const [products, setProducts] = useState([] as IProducts[]);
+  const { products } = useProducts();
+
   const { id } = useParams<{ id: string }>();
 
-  useEffect(() => {
-    const getProducts = async () => {
-      await api
-        .get(`/products?category=${id}`)
-        .then((response) => setProducts(response.data));
-    };
-    getProducts();
-  }, [id]);
+  const productsBrandRoyal = products.filter(({ name }) =>
+    name.includes("Royal Canin")
+  );
+
+  const productsBrandIbasa = products.filter(({ name }) =>
+    name.includes("Ibasa")
+  );
+
+  const productsBrandBeeps = products.filter(({ name }) =>
+    name.includes("Beeps")
+  );
 
   return (
     <>
+      <MenuSearch />
       <CarouselBanner />
       <Container>
         {id === "royalcannin" ? (
@@ -39,6 +43,14 @@ const BrandPage = () => {
                 melhores preços!
               </p>{" "}
             </BrandImages>
+
+            <Products>
+              {productsBrandRoyal.map((item) => (
+                <li key={item._id}>
+                  <CardProds prod={item} />
+                </li>
+              ))}
+            </Products>
           </>
         ) : null}
 
@@ -52,7 +64,7 @@ const BrandPage = () => {
                   alt="Ibasa"
                 />
                 <img
-                  src="https://lh3.googleusercontent.com/proxy/_koREhJIOoPDt_GoOXGoKWeBVDWMiSBZTG9NaqNKrRsxsu_Wy3PJ35lvPisQk2AveloeRBRLMZx3Mq-B5teFbfwqdDmXTVzhJDQEj0orCSXtW_zjvZtd2D_E2Q"
+                  src="https://lh3.googleusercontent.com/proxy/RIT2e34S9F3HRh8B0KVcdp0FB8AGn3i9imRAA-k0ecAF7-mGcUS4Sy8YrpTFqrWcOkalmNvpd0aooP5RwVFaBcoAvICpyKKVv7eg-VwJGvk2VPcg2ZkT3jMBeA"
                   alt="Beeps"
                 />
               </div>
@@ -61,17 +73,22 @@ const BrandPage = () => {
                 com os melhores preços!
               </p>
             </BrandImages>{" "}
+            <Products>
+              {productsBrandIbasa.map((item) => (
+                <li key={item._id}>
+                  <CardProds prod={item} />
+                </li>
+              ))}
+              {productsBrandBeeps.map((item) => (
+                <li key={item._id}>
+                  <CardProds prod={item} />
+                </li>
+              ))}
+            </Products>
           </>
         ) : null}
-
-        <Products>
-          {products.map((item) => (
-            <li key={item._id}>
-              <CardProds prod={item} />
-            </li>
-          ))}
-        </Products>
       </Container>
+      <Footer />
     </>
   );
 };
