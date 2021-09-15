@@ -14,10 +14,10 @@ import Favorites from "../pages/Favorites";
 import Error from "../pages/Error";
 import Product from "../pages/Product/Index";
 import InfoPage from "../pages/InfoPage";
-import { YumiClub } from "../pages/YumiClub"
-import { Adoption } from "../pages/Adoption";
+import { YumiClub } from "../pages/YumiClub";
 import AboutUs from "../pages/AboutUs";
 import Promotion from "../pages/Promotion";
+import Adoption from "../pages/Adoption";
 
 const Routes = () => {
   return (
