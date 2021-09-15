@@ -30,7 +30,7 @@ h4{
     flex-direction:column;
     padding: 0% 10%;
     margin: 0;
-    max-width: 70vw;
+    max-width: 60vw;
     max-height: 50vh;
     background-color: var(--purple);
 
@@ -78,12 +78,17 @@ p{
     font-family: "Suez one", serif;
     font-weight:600; 
 }
+@media (min-width: 800px) {
+    .circular-promo{
+        left: 13pc;
+    }
+}
 
 @media (min-width: 1000px) {
   width:70vw;
   height: 100vh;
   margin:0;
-  flex-direction:row;
+  flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
 
@@ -107,7 +112,7 @@ p{
     h2{
         margin-top: 0;
         text-align: center;
-        margin-left: 15%;
+        margin-left: 13%;
         font-size:28px;
     }
     span{
@@ -116,13 +121,13 @@ p{
     }
    }
    .gift{
-    margin-top: -5rem;
-    width: 85%;
-    margin-left: 1.78rem;
+    position: absolute;
+    width: 18%;
+    
    }
    .circular-promo{
      bottom: 2pc;
-     left:13pc;
+     left:10pc;
      margin-top:0;
    }
  }
