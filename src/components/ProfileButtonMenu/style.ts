@@ -5,6 +5,25 @@ export const ModalProfile = styled.div<{ profileButtonClicked: boolean }>`
     top: 65px;
     right: 0;
   }
+h2{
+  font-family: Suez One;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 33px;
+display: flex;
+    color: black;
+    margin-bottom: 0;
+}
+  a {
+    font-family: Suez One;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 33px;
+display: flex;
+    color: black;
+  }
     height: 300px;
     width: 220px;
     top: 0;
