@@ -152,6 +152,10 @@ export const Category = styled.div`
   a {
     text-decoration: none;
   }
+  .carousel-item-padding-40-px{
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const More = styled.div`

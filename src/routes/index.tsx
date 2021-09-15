@@ -33,6 +33,14 @@ const Routes = () => {
         <Product />
       </Route>
 
+      <Route exact path="/filtered:name">
+        <FilteredProducts />
+      </Route>
+
+      <Route exact path="/not-found">
+        <NotFoundFilteredProducts />
+      </Route>
+
       <Route path="/products/species/:specie">
         <SpeciesPage />
       </Route>
@@ -43,6 +51,10 @@ const Routes = () => {
 
       <Route path="/products/brand/:id">
         <BrandPage />
+      </Route>
+
+      <Route path="/favorite">
+        <Favorites />
       </Route>
 
       <Route path="/cart">
