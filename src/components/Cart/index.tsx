@@ -40,7 +40,7 @@ const Cart = ({ product, quantity }: IProductCart) => {
       updateTotal();
     }
   };
-
+ 
   return (
     <>
       <Box>
