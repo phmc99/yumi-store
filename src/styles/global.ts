@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--black);
     font-size: 1rem;
     font-family: 'Mulish', sans-serif;
+    overflow-x: hidden;
   }
   h1 {
     font-family: 'Suez One', serif;
