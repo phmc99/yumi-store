@@ -8,9 +8,9 @@ import yumiClub from "../../assets/yumiClub.png"
 import {ContainerPage, Containersub, YumiClubSub, MainContainer} from "./style"
 import { AiTwotoneStar } from "react-icons/ai";
 import { MenuSearch } from "../../components/MenuSearch"
+import Footer from "../../components/Footer"
 
-
-export const YumiClub = () => {
+const YumiClub = () => {
 return(
     <div>
 <MenuSearch/>
@@ -74,7 +74,8 @@ return(
     <button> Assine Agora </button>
     </YumiClubSub>
 </MainContainer>
-    
+<Footer/>
     </div>
 )
 }
+export default YumiClub

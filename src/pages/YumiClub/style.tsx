@@ -30,7 +30,7 @@ h4{
     flex-direction:column;
     padding: 0% 10%;
     margin: 0;
-    max-width: 70vw;
+    max-width: 60vw;
     max-height: 50vh;
     background-color: var(--purple);
 
@@ -78,12 +78,17 @@ p{
     font-family: "Suez one", serif;
     font-weight:600; 
 }
+@media (min-width: 800px) {
+    .circular-promo{
+        left: 13pc;
+    }
+}
 
 @media (min-width: 1000px) {
   width:70vw;
   height: 100vh;
   margin:0;
-  flex-direction:row;
+  flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
 
@@ -107,7 +112,7 @@ p{
     h2{
         margin-top: 0;
         text-align: center;
-        margin-left: 15%;
+        margin-left: 13%;
         font-size:28px;
     }
     span{
@@ -116,13 +121,13 @@ p{
     }
    }
    .gift{
-    margin-top: -5rem;
-    width: 85%;
-    margin-left: 1.78rem;
+    position: absolute;
+    width: 18%;
+    
    }
    .circular-promo{
      bottom: 2pc;
-     left:13pc;
+     left:10pc;
      margin-top:0;
    }
  }
@@ -163,21 +168,32 @@ export const Containersub = styled.div`
  @media (min-width: 1000px) {
     .econ{
        margin-left: 3%;
-       margin-top: -8rem;
+       margin-top: 0rem;
        width: 41.5vw;
        height: 30vh;
 
        .econ-sub{
-        margin: 2%;
-        width:100px;
+        margin: 0%;
+        max-width:100px;
        }
        span{
         font-size: 12px;
        }
     }
    p{
-       margin: 0 0 0 3.8rem;
+        width:600px;
+       margin: 0;
    }
+ }
+ @media (min-width: 1400px) {
+    width: 30vw;
+     .econ{
+
+         .econ-sub{
+             margin: 3%;
+             max-width:110px;
+            }
+     }
  }
 `
 export const YumiClubSub = styled.div`
@@ -187,7 +203,7 @@ margin:10%;
 background-color: var(--white);
 border: solid 1px var(--black);
 width: 80vw;
-height: 70vh;
+max-height: 85vh;
 
 .logo{
     margin: 5rem 1.5rem 2rem 1.5rem;
@@ -200,7 +216,7 @@ p{
     margin: 2%;
 }
     button {
-        width: 200px;
+        width: 180px;
         height: 40px;
         font-family: "Suez One", sans-serif;
         border-radius: 13px;
@@ -217,15 +233,21 @@ p{
         height: 95vh;
       
         .logo{
-            margin: 6rem 1rem 6rem 1.5rem;
+            margin: 5rem 1rem 6rem 1.5rem;
         }
         p{
-            margin-top:3rem;
+            margin-top:2rem;
         }
         button{
-            margin: 4rem 0rem 0 2rem;
+            margin: 3rem 0rem 0 0.5rem;
         }
 
+      }
+      @media (min-width: 1100px) {
+        button{
+            width:210px;
+            margin: 3rem 0rem 0 0.8rem;
+        }
       }
 `
 export const MainContainer = styled.div`
