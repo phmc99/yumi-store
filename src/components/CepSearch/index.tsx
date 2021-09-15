@@ -1,29 +1,44 @@
-import { useLocalizaCep } from "../../providers/CepProvider"
+import { useLocalizaCep } from "../../providers/CepProvider";
+import { Container, Info, Box, InputForm, ButtonSearch, Input } from "./styles";
 
 export const CepCard = () => {
+  const { ceps, cepNumber, setCepNumber, handleSearch } = useLocalizaCep();
 
-    const { ceps, cepNumber, setCepNumber, handleSearch } = useLocalizaCep()
-        
-    return (
-        <div>
-            <input placeholder="cep:" onChange={evt => setCepNumber(evt.target.value)} />
-            <button disabled={!cepNumber} onClick={() => handleSearch(cepNumber)}> Buscar </button>
-         
-            {ceps.map((cep, index) => {
-                return (
-                <div key={index}>
-                    <h4>Logradouro: {cep.logradouro}</h4>
-                    <h4>Cep: {cep.cep}</h4>
-                    <h4>Estado: {cep.uf}</h4>
-                    <h4>Cidade: {cep.localidade}</h4>
-                    <h4>Bairro: {cep.bairro}</h4>
-                    <input placeholder="logradouro:" value={cep.logradouro}/>
-                    <input placeholder="Cidade:" value={cep.localidade}/>
-                    <input placeholder="Estado:" value={cep.uf}/>
-                    <input placeholder="bairro:"value={cep.bairro}/>
-                </div>
-                )
-            })}
-            </div>
-    )
-}
+  return (
+    <Container>
+      <Input
+        placeholder=" CEP:"
+        onChange={(evt) => setCepNumber(evt.target.value)}
+      />
+      <ButtonSearch
+        disabled={!cepNumber}
+        onClick={() => handleSearch(cepNumber)}
+      >
+        Buscar
+      </ButtonSearch>
+
+      {ceps.map((cep, index) => {
+        return (
+          <Box key={index}>
+            <Info>CEP: {cep.cep}</Info>
+
+            <span>Logradouro:</span>
+            <InputForm
+              placeholder="Digite o logradouro"
+              value={cep.logradouro}
+            />
+
+            <span>Cidade:</span>
+            <InputForm placeholder="Digite o cidade" value={cep.localidade} />
+
+            <span>Estado:</span>
+            <InputForm placeholder="Digite o estado" value={cep.uf} />
+
+            <span>Bairro:</span>
+            <InputForm placeholder="Digite o bairro" value={cep.bairro} />
+          </Box>
+        );
+      })}
+    </Container>
+  );
+};

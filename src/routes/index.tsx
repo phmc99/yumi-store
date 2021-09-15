@@ -13,6 +13,7 @@ import CartPage from "../pages/CartPage";
 import Favorites from "../pages/Favorites";
 import Error from "../pages/Error";
 import Product from "../pages/Product/Index";
+import InfoPage from "../pages/InfoPage";
 
 const Routes = () => {
   return (
@@ -33,7 +34,7 @@ const Routes = () => {
         <Product />
       </Route>
 
-      <Route exact path="/filtered:name">
+      <Route exact path="/products/filtered/:name">
         <FilteredProducts />
       </Route>
 
@@ -53,12 +54,20 @@ const Routes = () => {
         <BrandPage />
       </Route>
 
+      <Route path="/cart">
+        <CartPage />
+      </Route>
+
       <Route path="/favorite">
         <Favorites />
       </Route>
 
-      <Route path="/cart">
-        <CartPage />
+      <Route path="/info">
+        <InfoPage />
+      </Route>
+
+      <Route>
+        <Error />
       </Route>
     </Switch>
   );

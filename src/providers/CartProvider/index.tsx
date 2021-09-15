@@ -5,6 +5,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
+import toast from "react-hot-toast";
 
 import { IProductCart } from "../../types";
 
@@ -16,7 +17,7 @@ interface CartProviderData {
   cartProducts: IProductCart[];
   setCartProducts: any;
   total: any;
-  setTotal: (item: any) => void;
+  updateTotal: () => void;
   removeCart: (product: IProductCart) => void;
 }
 
@@ -35,17 +36,32 @@ export const CartProvider = ({ children }: CartProviderProps) => {
       .toFixed(2)
   );
 
-  useEffect(() => {
-    localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
-  }, [cartProducts]);
+  const updateTotal = () => {
+    setTotal(
+      cartProducts
+        .map(
+          (item) => Number(item.product.price.replace(",", ".")) * item.quantity
+        )
+        .reduce((acc, current) => acc + current, 0)
+        .toFixed(2)
+    );
+  };
 
   const removeCart = (cartDeleted: IProductCart) => {
     const newList = cartProducts.filter(
       (remove) => remove.product.name !== cartDeleted.product.name
     );
+    localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
     setCartProducts(newList);
-    localStorage.setItem("cart", JSON.stringify(cartProducts));
+    updateTotal();
+    toast.error("Produto removido do carrinho!");
   };
+
+  useEffect(() => {
+    localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
+    updateTotal();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cartProducts]);
 
   return (
     <CartContext.Provider
@@ -54,7 +70,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         removeCart,
         setCartProducts,
         total,
-        setTotal,
+        updateTotal,
       }}
     >
       {children}

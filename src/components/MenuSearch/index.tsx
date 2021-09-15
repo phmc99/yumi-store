@@ -47,9 +47,9 @@ export const MenuSearch = () => {
 
   const Pesquisar = () => {
     if (filtrado !== "" && filteredProducts.length !== 0) {
-      history.push(`filtered:${filtrado}`, filtrado);
+      history.push(`/products/filtered/:${filtrado}`, filtrado);
     } else if (filteredProducts.length === 0) {
-      history.push(`not-found`, filtrado);
+      history.push(`/not-found`, filtrado);
     }
   };
 

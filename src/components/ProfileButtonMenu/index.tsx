@@ -45,11 +45,11 @@ const ProfileMenu = ({
           <BsPersonFill style={{height: "70px", width: "70px"}}/>
           <div className="nome">
         <h2>Olá,</h2>
-          <h2>{userInfo.user.name}</h2>
+          <h2>{userInfo.name}</h2>
         </div>
         </div>
           <div className="logado">
-          <Link to={{}}>Meus Dados <IoIosArrowForward className="icone"/></Link>
+          <Link to="/info">Meus Dados <IoIosArrowForward className="icone"/></Link>
           <Link to="/favorite">Favoritos <IoIosArrowForward className="icone"/></Link>
           <Link to={{}} onClick={() => handleLogout()}>Sair<IoIosArrowForward className="icone"/></Link>
           </div>

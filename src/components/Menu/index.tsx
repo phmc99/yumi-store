@@ -43,7 +43,10 @@ export const Menu = () => {
         <div></div>
       </StyledBurger>
       {profileButtonClicked && (
-        <ProfileMenu profileButtonClicked={profileButtonClicked} setProfileButtonClicked={setProfileButtonClicked} />
+        <ProfileMenu
+          profileButtonClicked={profileButtonClicked}
+          setProfileButtonClicked={setProfileButtonClicked}
+        />
       )}
       <StyledRightNav open={open}>
         <div>
@@ -52,7 +55,11 @@ export const Menu = () => {
               <VscSearch style={{ height: "30px", width: "30px" }} />
             </Link>
           </li>
-          <li key="2" onMouseLeave={() => setProfileButtonClicked(false)} onMouseEnter={() => setProfileButtonClicked(true)}>
+          <li
+            key="2"
+            onMouseLeave={() => setProfileButtonClicked(false)}
+            onMouseEnter={() => setProfileButtonClicked(true)}
+          >
             <Link to={{}}>
               <BsPersonFill style={{ height: "30px", width: "30px" }} />
             </Link>

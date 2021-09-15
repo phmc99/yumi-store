@@ -1,40 +1,67 @@
+import { useHistory, useLocation } from "react-router";
+import { useLocalizaCep } from "../../providers/CepProvider";
 import { useProfile } from "../../providers/Profile";
-import { Box, Titulo, Paragrafo, Bold, Button } from "./styles";
+
+import { BoxInfo, Titulo, Paragrafo, Bold, Button, PageInfo } from "./styles";
 
 const InfoClient = () => {
+  const history = useHistory();
   const { userInfo } = useProfile();
-  
-  return (
-    <>
-      <Box>
-        <Titulo>Confirmar dados</Titulo>
-        <Paragrafo>
-          <Bold>Nome:</Bold> Weslley Bastos
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>CPF:</Bold> 111.111.111-11
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>E-mail:</Bold> wessbastos@gmail.com
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>Telefone:</Bold> (xx) x xxxx-xxxx
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>Endereço:</Bold> Rua X, número 2 - Jd PaulistaSão Paulo-SP
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>Cidade/UF:</Bold> São Paulo/SP
-        </Paragrafo>
-        <Paragrafo>
-          <Bold>CEP:</Bold> 010.101.010-11
-        </Paragrafo>
+  const { ceps } = useLocalizaCep();
 
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button>Editar dados</Button>
+  const location = useLocation();
+
+  const handleCart = () => {
+    history.push("/cart");
+  };
+
+  const handleEdit = () => {
+    history.push("/info");
+  };
+
+  return (
+    <PageInfo>
+      <BoxInfo>
+        <div className="dados">
+          <Titulo>Confirmar dados</Titulo>
+          <Paragrafo>
+            <Bold>Nome:</Bold> {userInfo.name}
+          </Paragrafo>
+          <Paragrafo>
+            <Bold>E-mail:</Bold> {userInfo.email}
+          </Paragrafo>
+          <Paragrafo>
+            <Bold>Telefone:</Bold> {userInfo.phone}
+          </Paragrafo>
         </div>
-      </Box>
-    </>
+        {ceps.map((address, index) => (
+          <div className="cep" key={index}>
+            <Paragrafo>
+              <Bold>Endereço:</Bold> {address.logradouro}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>Cidade/UF:</Bold> {address.localidade}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>CEP:</Bold> {address.cep}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>Bairro:</Bold> {address.bairro}
+            </Paragrafo>
+          </div>
+        ))}
+
+        {location.pathname === "/cart" ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button onClick={handleEdit}>Editar endereço</Button>
+          </div>
+        ) : (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button onClick={handleCart}>Use Este Endereço </Button>
+          </div>
+        )}
+      </BoxInfo>
+    </PageInfo>
   );
 };
 

@@ -163,10 +163,13 @@ export const More = styled.div`
   height: 450px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-
+  justify-content: flex-start;
+  @media (max-width: 414px) {
+    justify-content: center;
+  }
   svg {
     font-size: 9rem;
     color: var(--purple);
+    margin-top: 40px;
   }
 `;

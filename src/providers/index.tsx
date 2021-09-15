@@ -3,6 +3,7 @@ import { ProductsProvider } from "./Products";
 import { CartProvider } from "./CartProvider";
 import { FavoriteProvider } from "./Favorites";
 import { ProfileProvider } from "./Profile";
+import { LocalizaCepProvider } from "./CepProvider";
 
 interface ProviderProps {
   children: ReactNode;
@@ -13,7 +14,9 @@ const Providers = ({ children }: ProviderProps) => {
     <CartProvider>
       <ProductsProvider>
         <ProfileProvider>
-        <FavoriteProvider>{children}</FavoriteProvider>
+          <FavoriteProvider>
+            <LocalizaCepProvider>{children}</LocalizaCepProvider>
+          </FavoriteProvider>
         </ProfileProvider>
       </ProductsProvider>
     </CartProvider>
