@@ -13,7 +13,7 @@ import {
 } from "./styles";
 
 const Cart = ({ product, quantity }: IProductCart) => {
-  const { removeCart, cartProducts, setTotal } = useCartContext();
+  const { removeCart, cartProducts, updateTotal } = useCartContext();
   const [currentQuantity, setCurrentQuantity] = useState<number>(1);
 
   const handlePlusQuantity = (p: IProducts) => {
@@ -24,14 +24,7 @@ const Cart = ({ product, quantity }: IProductCart) => {
       }
       return item;
     });
-    setTotal(
-      cartProducts
-        .map(
-          (item) => Number(item.product.price.replace(",", ".")) * item.quantity
-        )
-        .reduce((acc, current) => acc + current, 0)
-        .toFixed(2)
-    );
+    updateTotal();
   };
 
   const handleSubQuantity = (p: IProducts) => {
@@ -39,20 +32,12 @@ const Cart = ({ product, quantity }: IProductCart) => {
       setCurrentQuantity(currentQuantity - 1);
       cartProducts.map((item) => {
         if (item.product._id === p._id) {
-          item.quantity++;
+          item.quantity--;
         }
         return item;
       });
 
-      setTotal(
-        cartProducts
-          .map(
-            (item) =>
-              Number(item.product.price.replace(",", ".")) * item.quantity
-          )
-          .reduce((acc, current) => acc + current, 0)
-          .toFixed(2)
-      );
+      updateTotal();
     }
   };
 
@@ -72,7 +57,10 @@ const Cart = ({ product, quantity }: IProductCart) => {
             </Button>
           </div>
           <TitlePrice>
-            R$ {parseInt(product.price) * currentQuantity}
+            R${" "}
+            {(
+              Number(product.price.replace(",", ".")) * currentQuantity
+            ).toFixed(2)}
           </TitlePrice>
           <Button onClick={() => removeCart({ product, quantity: quantity })}>
             <BsTrash size="30px" />

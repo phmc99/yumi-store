@@ -1,71 +1,68 @@
-import { useState } from "react";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { useLocalizaCep } from "../../providers/CepProvider";
 import { useProfile } from "../../providers/Profile";
-import { Box, Titulo, Paragrafo, Bold, Button } from "./styles";
+
+import { BoxInfo, Titulo, Paragrafo, Bold, Button, PageInfo } from "./styles";
 
 const InfoClient = () => {
-  const [btn, setBtn] = useState(false);
-
   const history = useHistory();
   const { userInfo } = useProfile();
   const { ceps } = useLocalizaCep();
 
-  const handleBtn = () => {
-    setBtn(true);
-    history.push("/info");
-  };
-  const handleBtn1 = () => {
-    setBtn(false);
+  const location = useLocation();
+
+  const handleCart = () => {
     history.push("/cart");
   };
 
+  const handleEdit = () => {
+    history.push("/info");
+  };
+
   return (
-    <>
-      {userInfo.map((user, index) => (
-        <Box key={index}>
+    <PageInfo>
+      <BoxInfo>
+        <div className="dados">
           <Titulo>Confirmar dados</Titulo>
           <Paragrafo>
-            <Bold>Nome:</Bold> {user.name}
+            <Bold>Nome:</Bold> {userInfo.name}
           </Paragrafo>
           <Paragrafo>
-            <Bold>E-mail:</Bold> {user.email}
+            <Bold>E-mail:</Bold> {userInfo.email}
           </Paragrafo>
           <Paragrafo>
-            <Bold>Telefone:</Bold> {user.phone}
+            <Bold>Telefone:</Bold> {userInfo.phone}
           </Paragrafo>
-          {ceps.map((address) => (
-            <div key={index}>
-              <Paragrafo>
-                <Bold>Endereço:</Bold> {address.logradouro}
-              </Paragrafo>
-              <Paragrafo>
-                <Bold>Cidade/UF:</Bold> {address.localidade}
-              </Paragrafo>
-              <Paragrafo>
-                <Bold>CEP:</Bold> {address.cep}
-              </Paragrafo>
-              <Paragrafo>
-                <Bold>Bairro:</Bold> {address.bairro}
-              </Paragrafo>
-
-            </div>
-          ))}
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            {btn ? (
-              <Button onClick={handleBtn1}>Use Este Endereço </Button>
-            ) : (
-              <Button onClick={handleBtn}>Editar dados</Button>
-            )}
+        </div>
+        {ceps.map((address, index) => (
+          <div className="cep" key={index}>
+            <Paragrafo>
+              <Bold>Endereço:</Bold> {address.logradouro}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>Cidade/UF:</Bold> {address.localidade}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>CEP:</Bold> {address.cep}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>Bairro:</Bold> {address.bairro}
+            </Paragrafo>
           </div>
-        </Box>
-      ))}
-    </>
+        ))}
+
+        {location.pathname === "/cart" ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button onClick={handleEdit}>Editar endereço</Button>
+          </div>
+        ) : (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button onClick={handleCart}>Use Este Endereço </Button>
+          </div>
+        )}
+      </BoxInfo>
+    </PageInfo>
   );
 };
 
 export default InfoClient;
-/* function ola(ola: any) {
-  throw new Error("Function not implemented.");
-}
- */

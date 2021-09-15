@@ -1,13 +1,25 @@
 import styled from "styled-components";
 
-export const Box = styled.div`
+export const PageInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const BoxInfo = styled.div`
   width: 90vw;
-  height: 420px;
+  height: auto;
   border: 2px solid #8f4bc7;
   border-radius: 12px;
+  padding: 10px;
+
+  .dados {
+    display: flex;
+    flex-direction: column;
+  }
 
   @media (min-width: 760px) {
-    width: 535px;
+    width: 480px;
     height: 545px;
     margin-right: 1rem;
     margin: 10px;
@@ -42,8 +54,8 @@ export const Bold = styled.strong`
 `;
 
 export const Button = styled.button`
-  background-color: #fff;
-  border: 2px solid #8f4bc7;
+  background-color: var(--purple);
+  color: var(--white);
   width: 75vw;
   height: 35px;
   border-radius: 12px;

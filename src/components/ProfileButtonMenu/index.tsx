@@ -39,11 +39,8 @@ const ProfileMenu = ({
     >
       {token !== null ? (
         <>
-          <h2>{userInfo.user.name}</h2>
-          <Link to={{}}>Dados</Link>
-          <Link to={{}}>Endereços</Link>
-          <Link to={{}}>Favoritos</Link>
-          <Link to={{}}>Avaliar Produto</Link>
+          <h2>{userInfo.name}</h2>
+          <Link to={"/info"}>Endereços</Link>
           <button onClick={() => handleLogout()}>Sair</button>
         </>
       ) : (

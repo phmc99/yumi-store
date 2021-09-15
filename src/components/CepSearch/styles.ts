@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 535px;
-  height: 545px;
+  width: 90vw;
   border: 2px solid #8f4bc7;
   border-radius: 12px;
   margin: 10px;
@@ -21,12 +20,13 @@ export const Box = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  padding: 10px;
 `;
 export const Info = styled.h4`
   display: flex;
   font-weight: bold;
   border: 1px solid #8f4bc7;
-  width: 95%;
+  width: 100%;
   height: 40px;
   margin: 0.8rem auto;
   padding: 0.4rem;
@@ -36,7 +36,7 @@ export const Info = styled.h4`
 `;
 
 export const InputForm = styled.input`
-  width: 45%;
+  width: 100%;
   margin: 5px auto;
   border: 1px solid #8f4bc7;
   height: 40px;

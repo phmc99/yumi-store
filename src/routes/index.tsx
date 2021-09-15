@@ -62,12 +62,12 @@ const Routes = () => {
         <Favorites />
       </Route>
 
-      <Route>
-        <Error />
-      </Route>
-
       <Route path="/info">
         <InfoPage />
+      </Route>
+
+      <Route>
+        <Error />
       </Route>
     </Switch>
   );

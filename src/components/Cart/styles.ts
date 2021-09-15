@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  width: 70vw;
+  width: 100%;
   margin: 0 auto;
 
   @media (min-width: 760px) {
     margin: 1rem;
   }
 `;
-export const ListCart = styled.ul`
+export const ListCart = styled.div`
   text-align: center;
   border-bottom: 1px solid black;
   margin: 2rem 0rem 0rem 0.6rem;
@@ -16,6 +16,7 @@ export const ListCart = styled.ul`
 
   .input-quantity {
     display: flex;
+    justify-content: center;
     align-items: center;
 
     p {

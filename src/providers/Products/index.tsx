@@ -24,7 +24,7 @@ const ProductsContext = createContext<ProductsData>({} as ProductsData);
 export const ProductsProvider = ({ children }: IProductsProps) => {
   const [products, setProducts] = useState<IProducts[]>([]);
 
-  const { cartProducts, setCartProducts } = useCartContext();
+  const { cartProducts, setCartProducts, updateTotal } = useCartContext();
 
   const getProducts = async () => {
     await api
@@ -39,10 +39,10 @@ export const ProductsProvider = ({ children }: IProductsProps) => {
     getProducts();
   }, []);
 
-
   const addProduct = (product: IProducts) => {
-    setCartProducts([...cartProducts, { product, quantity: 1 }]);
     localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
+    setCartProducts([...cartProducts, { product, quantity: 1 }]);
+    updateTotal();
     toast.success("Produto adicionado ao carrinho!");
   };
 
