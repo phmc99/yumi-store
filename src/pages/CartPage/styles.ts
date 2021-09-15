@@ -51,7 +51,6 @@ export const DivPagamento = styled.div`
   width: 85vw;
 
   @media (min-width: 760px) {
-    
   }
 `;
 
@@ -68,8 +67,14 @@ export const ButtonPagamento = styled.button`
   margin: 0 auto;
 
   @media (min-width: 760px) {
-      width: 220px;
-      height: 40px;
-      margin-right: 0%;
+    width: 220px;
+    height: 40px;
+    margin-right: 0%;
   }
+`;
+
+export const Box = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
 `;

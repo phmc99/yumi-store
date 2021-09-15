@@ -8,6 +8,7 @@ interface IUserInfo {
     name: string;
     email: string;
     phone: string;
+    address: [];
   }
 
   }
@@ -31,11 +32,12 @@ const ProfileContext = createContext<IProfileContextData>({} as IProfileContextD
 export const ProfileProvider = ({ children }: IProviderProps) => {
     const [userInfo, setUserInfo] = useState<IUserInfo>({} as IUserInfo)
 
+    
     const id = JSON.parse(localStorage.getItem("@yumi:id") || "null");
     
     const getUser = async () => {
         const resp = await api.get(`/auth/user/${id}`)
-        setUserInfo(resp.data)
+        setUserInfo([resp.data.user]);
     }
 
   useEffect(() => {

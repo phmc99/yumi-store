@@ -7,6 +7,7 @@ interface ILocation{
     uf: string;
     localidade: string;
     bairro: string;
+    gia: string;
 }
 
 interface ILocationProps {
@@ -17,6 +18,7 @@ interface LocationData {
     ceps: ILocation[];
     cepNumber: any;
     setCepNumber: any;
+    setCeps: any;
     handleSearch: (local: ILocation) => void;
 }
 
@@ -40,10 +42,11 @@ export const LocalizaCepProvider = ({ children }: ILocationProps) => {
     setCeps(cepNumber);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    
+
+
 
     return (
-        <LocalizaCepContext.Provider value={{ceps, setCepNumber, cepNumber, handleSearch}}>
+        <LocalizaCepContext.Provider value={{ceps, setCepNumber, cepNumber, handleSearch, setCeps }}>
             {children}
         </LocalizaCepContext.Provider>
     )

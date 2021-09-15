@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  width: 90vw;
+  width: 70vw;
   margin: 0 auto;
 
   @media (min-width: 760px) {
@@ -26,7 +26,7 @@ export const ListCart = styled.ul`
   @media (min-width: 760px) {
     display: flex;
     margin: 2rem 0rem 0rem 2.6rem;
-    width: 750px;
+    width: 50vw;
   }
 `;
 
