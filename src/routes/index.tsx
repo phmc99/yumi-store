@@ -16,6 +16,7 @@ import Product from "../pages/Product/Index";
 import InfoPage from "../pages/InfoPage";
 import YumiClub from "../pages/YumiClub"
 import Adoption from "../pages/Adoption";
+import Checkout from "../pages/CheckOut";
 
 const Routes = () => {
   return (
@@ -60,6 +61,10 @@ const Routes = () => {
         <CartPage />
       </Route>
 
+      <Route path="/checkout">
+        <Checkout />
+      </Route>
+
       <Route path="/favorite">
         <Favorites />
       </Route>
@@ -71,6 +76,7 @@ const Routes = () => {
       <Route path="/adote">
         <Adoption />
       </Route>
+
       <Route path="/yumiclub">
         <YumiClub />
       </Route>
