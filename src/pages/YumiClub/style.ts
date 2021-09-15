@@ -128,110 +128,107 @@ p{
  }
 
 }
-`
+`;
 export const Containersub = styled.div`
-
-.econ{
-    display:flex;
+  .econ {
+    display: flex;
     flex-wrap: wrap;
     margin: 0;
     width: 80vw;
     background-color: var(--purple);
     color: var(--white);
-    
-    p{
-        font-size: 22px;
-        font-family: "Suez one", serif;
-        font-weight:600;
+
+    p {
+      font-size: 22px;
+      font-family: "Suez one", serif;
+      font-weight: 600;
     }
 
-    .icons{
-        width: 70px;
-        height: 70px;
-     }
-
-    .econ-sub{
-        width: 40vw;
+    .icons {
+      width: 70px;
+      height: 70px;
     }
 
-    span{
-        font-size: 15px;
-        font-family: "Suez one", serif;
-        font-weight:600;
-     }
- }  
- @media (min-width: 1000px) {
-    .econ{
-       margin-left: 3%;
-       margin-top: -8rem;
-       width: 41.5vw;
-       height: 30vh;
+    .econ-sub {
+      width: 40vw;
+    }
 
-       .econ-sub{
+    span {
+      font-size: 15px;
+      font-family: "Suez one", serif;
+      font-weight: 600;
+    }
+  }
+  @media (min-width: 1000px) {
+    .econ {
+      margin-left: 3%;
+      margin-top: -8rem;
+      width: 41.5vw;
+      height: 30vh;
+
+      .econ-sub {
         margin: 2%;
-        width:100px;
-       }
-       span{
+        width: 100px;
+      }
+      span {
         font-size: 12px;
-       }
+      }
     }
-   p{
-       margin: 0 0 0 3.8rem;
-   }
- }
-`
+    p {
+      margin: 0 0 0 3.8rem;
+    }
+  }
+`;
 export const YumiClubSub = styled.div`
-display: flex;
-flex-direction: column;
-margin:10%;
-background-color: var(--white);
-border: solid 1px var(--black);
-width: 80vw;
-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
+  background-color: var(--white);
+  border: solid 1px var(--black);
+  width: 80vw;
+  height: 70vh;
 
-.logo{
+  .logo {
     margin: 5rem 1.5rem 2rem 1.5rem;
     width: 80%;
-}
-p{
+  }
+  p {
     font-family: "Mulish", sans-serif;
     font-weight: bold;
     font-size: 1.2em;
     margin: 2%;
-}
+  }
+  button {
+    width: 200px;
+    height: 40px;
+    font-family: "Suez One", sans-serif;
+    border-radius: 13px;
+    background-color: var(--purple);
+    color: var(--white);
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 1rem;
+  }
+
+  @media (min-width: 1000px) {
+    margin: 2%;
+    width: 20vw;
+    height: 95vh;
+
+    .logo {
+      margin: 6rem 1rem 6rem 1.5rem;
+    }
+    p {
+      margin-top: 3rem;
+    }
     button {
-        width: 200px;
-        height: 40px;
-        font-family: "Suez One", sans-serif;
-        border-radius: 13px;
-        background-color: var(--purple);
-        color: var(--white);
-        font-size: 15px;
-        text-transform: uppercase;
-        margin: 1rem ;
-      }
-
-      @media (min-width: 1000px) {
-        margin: 2%;
-        width: 20vw;
-        height: 95vh;
-      
-        .logo{
-            margin: 6rem 1rem 6rem 1.5rem;
-        }
-        p{
-            margin-top:3rem;
-        }
-        button{
-            margin: 4rem 0rem 0 2rem;
-        }
-
-      }
-`
+      margin: 4rem 0rem 0 2rem;
+    }
+  }
+`;
 export const MainContainer = styled.div`
-
-@media (min-width: 1000px) {
-display: flex;
-margin: 2%;
-}
-`
+  @media (min-width: 1000px) {
+    display: flex;
+    margin: 2%;
+  }
+`;

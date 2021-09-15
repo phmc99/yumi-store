@@ -54,6 +54,10 @@ export const StyledRightNav = styled.ul<{ open: boolean }>`
     width: 50px;
     border-bottom: 3px solid transparent;
 
+    sup {
+      background-color: var(--purple);
+    }
+
     &:hover {
       border-bottom: 3px solid #0d2538;
       @media (max-width: 414px) {
