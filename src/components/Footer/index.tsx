@@ -1,6 +1,7 @@
 import { Container, Support } from "./styles";
 import { Link } from "react-router-dom";
 import { AiOutlineMail } from "react-icons/ai";
+import { useHistory } from "react-router";
 
 //Images
 import Instagram from "../../assets/instagram.png";
@@ -9,6 +10,8 @@ import Twitter from "../../assets/twitter.png";
 import FooterImage from "../../assets/footer.png";
 
 const Footer = () => {
+  const history = useHistory();
+
   return (
     <Container>
       <Support>
@@ -23,7 +26,9 @@ const Footer = () => {
             Cidadania Animal. Seja você também um apoiador!
           </p>
         </div>
-        <button>Saiba como ajudar</button>
+        <button onClick={() => history.push("/adoption")}>
+          Saiba como ajudar
+        </button>
       </Support>
 
       <div className="socialMedia">
