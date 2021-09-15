@@ -17,7 +17,7 @@ import InfoPage from "../pages/InfoPage";
 
 const Routes = () => {
   return (
-    <Switch>
+<Switch>
       <Route exact path="/">
         <Home />
       </Route>
@@ -70,6 +70,8 @@ const Routes = () => {
         <Error />
       </Route>
     </Switch>
+  
+
   );
 };
 
