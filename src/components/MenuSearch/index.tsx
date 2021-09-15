@@ -46,9 +46,9 @@ export const MenuSearch = () => {
   );
   const Pesquisar = () => {
     if (filtrado !== "" && filteredProducts.length !== 0) {
-      history.push(`/products/filtered:${filtrado}`, filtrado);
+      history.push(`/products/search/filtered:${filtrado}`, filtrado);
     } else if (filteredProducts.length === 0) {
-      history.push(`/products/not-found`, filtrado);
+      history.push(`/products/search/not-found`, filtrado);
     }
   };
 
@@ -65,7 +65,7 @@ export const MenuSearch = () => {
   const menuAdote = (
     <Menu>
       <Menu.Item>
-        <Link rel="noopener noreferrer" to={{}}>
+        <Link rel="noopener noreferrer" to="/adoption">
           Acolha
         </Link>
       </Menu.Item>

@@ -70,6 +70,7 @@ export const BrandImages = styled.div`
 
 export const Products = styled.div`
   width: 90%;
+  min-height: 35vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
