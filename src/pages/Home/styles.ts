@@ -151,6 +151,10 @@ export const Category = styled.div`
   a {
     text-decoration: none;
   }
+  .carousel-item-padding-40-px{
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const More = styled.div`
@@ -158,10 +162,13 @@ export const More = styled.div`
   height: 450px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-
+  justify-content: flex-start;
+  @media (max-width: 414px) {
+    justify-content: center;
+  }
   svg {
     font-size: 9rem;
     color: var(--purple);
+    margin-top: 40px;
   }
 `;

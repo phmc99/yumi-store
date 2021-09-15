@@ -11,6 +11,7 @@ import {} from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../../services";
 import { Menu } from "../../components/Menu";
+import { useProfile } from "../../providers/Profile";
 
 interface IRegisterForm {
   email: string;
@@ -19,6 +20,7 @@ interface IRegisterForm {
 
 const LoginPage = () => {
   const history = useHistory();
+  const { setUserInfo } = useProfile();
 
   const schema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
@@ -44,7 +46,8 @@ const LoginPage = () => {
           "@yumi:id",
           JSON.stringify(response.data.user._id)
         );
-        history.push("/cart");
+        setUserInfo(response.data.user);
+        history.push("/");
       })
       .catch(() => {
         toast.error("Ops, algo de errado aconteceu!");

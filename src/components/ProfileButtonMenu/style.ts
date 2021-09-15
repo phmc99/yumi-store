@@ -5,23 +5,34 @@ export const ModalProfile = styled.div<{ profileButtonClicked: boolean }>`
     top: 65px;
     right: 0;
   }
-  h2 {
-    font-family: Suez One;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 25px;
-    line-height: 33px;
-    display: flex;
+  .icone{
+    margin-left: 10px;
+    height: 33px;
+  }
+h2{
+  font-family: Suez One;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 33px;
+display: flex;
     color: black;
     margin-bottom: 0;
-  }
+}
+a:hover {
+  color: #8F4BC7;
+    transition: all 0.4s;
+}
   a {
+    margin: 5px 0 5px 20px;
     font-family: Suez One;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 33px;
-    display: flex;
+    width: 80%;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 33px;
+display: flex;
+justify-content: space-between;
     color: black;
   }
   height: 300px;
@@ -49,11 +60,60 @@ export const ModalProfile = styled.div<{ profileButtonClicked: boolean }>`
   animation-name: example;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
-
-  div {
+  .engloba-nome{
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+  }
+    .nome {
+      width: 70%;
+    }
+    .deslogado{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .logado{
+      width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    p{
+        font-family: Suez One;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 33px;
+display: flex;
+align-items: center;
+text-align: center;
+    }
+    .first {
+        margin: 0;
+        line-height: 25px;
+    }
+    button {
+        background: #8F4BC7;
+opacity: 0.94;
+border: 2px solid #8F4BC7;
+box-sizing: border-box;
+border-radius: 11px;
+font-family: Suez One;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 33px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+width: 150px;
+text-transform: uppercase;
+&:hover {
+    filter: brightness(0.85);
+    transition: all 0.4s;
   }
   p {
     font-family: Suez One;

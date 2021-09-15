@@ -78,6 +78,12 @@ export const Box = styled.div`
   align-items: center;
   padding: 20px;
 
+  .cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   @media (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
