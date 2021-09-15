@@ -21,7 +21,7 @@ import Promotion from "../pages/Promotion";
 
 const Routes = () => {
   return (
-    <Switch>
+<Switch>
       <Route exact path="/">
         <Home />
       </Route>
@@ -95,6 +95,8 @@ const Routes = () => {
         <Error />
       </Route>
     </Switch>
+  
+
   );
 };
 
