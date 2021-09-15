@@ -14,6 +14,10 @@ import Favorites from "../pages/Favorites";
 import Error from "../pages/Error";
 import Product from "../pages/Product/Index";
 import InfoPage from "../pages/InfoPage";
+import { YumiClub } from "../pages/YumiClub"
+import { Adoption } from "../pages/Adoption";
+import AboutUs from "../pages/AboutUs";
+import Promotion from "../pages/Promotion";
 
 const Routes = () => {
   return (
@@ -34,11 +38,12 @@ const Routes = () => {
         <Product />
       </Route>
 
-      <Route exact path="/products/filtered:name">
+      <Route exact path="/products/filtered/:name">
         <FilteredProducts />
       </Route>
 
-      <Route exact path="/products/not-found">
+      <Route exact path="/not-found">
+
         <NotFoundFilteredProducts />
       </Route>
 
@@ -64,6 +69,26 @@ const Routes = () => {
 
       <Route path="/info">
         <InfoPage />
+      </Route>
+
+      <Route path="/adote">
+        <Adoption />
+      </Route>
+
+      <Route path="/yumiclub">
+        <YumiClub />
+      </Route>
+
+      <Route path="/aboutus">
+        <AboutUs />
+      </Route>
+
+      <Route path="/adoption">
+        <Adoption />
+      </Route>
+
+      <Route path="/products/promotion/inverno">
+        <Promotion />
       </Route>
 
       <Route>
