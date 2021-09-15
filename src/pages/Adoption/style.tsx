@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
 max-width: 100vw;
-max-height: 1200px;
+max-height: 1250px;
 display:flex;
 flex-direction: column;
 align-items: center;
@@ -31,6 +31,25 @@ p{
     text-align: center;
     background-color: var(--red);
     border-radius:15px;
+
+    a{
+        color: var(--white);
+        text-decoration: none;
+    }
+}
+.btn-info{
+    margin-top: 1rem;
+    background-color: var(--yellow);
+    padding: 2%;
+    width: 250px;
+    height: 40px;
+    border-radius: 14px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--orange);
+        transition: ease-out 1s;
+    }
 }
 
 @media (min-width: 800px){
@@ -44,11 +63,11 @@ p{
     .centered-cart{
      width: 100vw;
      display: flex;
-     justfy-content: space-between;
+     justfy-content: space-around;
      background-color: var(--yellow);
 
      .ong{
-         margin:4rem 3rem 5rem 5rem;
+         margin:4rem 3rem 5rem 7rem;
          width: 300px;
          height: 300px;
      }
@@ -61,6 +80,9 @@ p{
         max- height: 800px;
         width: 300px;
      }
+    .btn-info{
+        padding: 0;
+     }
     }
     
 }
@@ -68,7 +90,7 @@ p{
     .centered-cart{
         max-heigtht: 100vh;
         .ong{
-            margin:4rem 3rem 5rem 8rem;
+            margin:4rem 3rem 5rem 10rem;
             width: 200px;
             height: 200px;
         }
