@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { useCartContext } from "../../providers/CartProvider";
-import { IProducts } from "../../types";
+import { IProductCart, IProducts } from "../../types";
 import {
   ListCart,
   Image,
@@ -12,59 +12,73 @@ import {
   Box,
 } from "./styles";
 
-interface ProductsProps {
-  product: IProducts;
-}
+const Cart = ({ product, quantity }: IProductCart) => {
+  const { removeCart, cartProducts, setTotal } = useCartContext();
+  const [currentQuantity, setCurrentQuantity] = useState<number>(1);
 
-const Cart = ({ product }: ProductsProps) => {
-  const { removeCart, addCart, cartProducts } = useCartContext();
-
-  const [quantityValue, setQuantityValue] = useState(product.__v);
-
-  const handlePlusQuantity = () => {
-    setQuantityValue(quantityValue + 1);
+  const handlePlusQuantity = (p: IProducts) => {
+    setCurrentQuantity(currentQuantity + 1);
     cartProducts.map((item) => {
-      if (item.id === product.id) {
-        item.__v++;
+      if (item.product._id === p._id) {
+        item.quantity++;
       }
       return item;
     });
+    setTotal(
+      cartProducts
+        .map(
+          (item) => Number(item.product.price.replace(",", ".")) * item.quantity
+        )
+        .reduce((acc, current) => acc + current, 0)
+        .toFixed(2)
+    );
   };
 
-  const handleSubQuantity = () => {
-    if (quantityValue !== 0) {
-      setQuantityValue(quantityValue - 1);
+  const handleSubQuantity = (p: IProducts) => {
+    if (currentQuantity > 1) {
+      setCurrentQuantity(currentQuantity - 1);
       cartProducts.map((item) => {
-        if (item.id === product.id) {
-          item.__v--;
+        if (item.product._id === p._id) {
+          item.quantity++;
         }
         return item;
       });
+
+      setTotal(
+        cartProducts
+          .map(
+            (item) =>
+              Number(item.product.price.replace(",", ".")) * item.quantity
+          )
+          .reduce((acc, current) => acc + current, 0)
+          .toFixed(2)
+      );
     }
   };
 
-  console.log(cartProducts);
   return (
     <>
       <Box>
         <ListCart>
           <Image src={product.image_url} alt="roupa" />
           <ParagrafoProduct>{product.name}</ParagrafoProduct>
-          <Button onClick={handleSubQuantity}>
-            <AiOutlineMinusSquare size="30px" color={"8F4BC7"} />
-          </Button>
-          <p>{product.__v}</p>
-          <Button onClick={handlePlusQuantity}>
-            <AiOutlinePlusSquare size="30px" color={"8F4BC7"} />
-          </Button>
-          <TitlePrice>R$ {parseInt(product.price) * quantityValue}</TitlePrice>
-          <Button>
+          <div className="input-quantity">
+            <Button onClick={() => handleSubQuantity(product)}>
+              <AiOutlineMinusSquare size="30px" color={"8F4BC7"} />
+            </Button>
+            <p>{currentQuantity}</p>
+            <Button onClick={() => handlePlusQuantity(product)}>
+              <AiOutlinePlusSquare size="30px" color={"8F4BC7"} />
+            </Button>
+          </div>
+          <TitlePrice>
+            R$ {parseInt(product.price) * currentQuantity}
+          </TitlePrice>
+          <Button onClick={() => removeCart({ product, quantity: quantity })}>
             <BsTrash size="30px" />
           </Button>
         </ListCart>
       </Box>
-
-      {console.log(quantityValue)}
     </>
   );
 };

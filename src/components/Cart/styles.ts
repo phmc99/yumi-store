@@ -14,6 +14,15 @@ export const ListCart = styled.ul`
   margin: 2rem 0rem 0rem 0.6rem;
   padding: 0.5rem;
 
+  .input-quantity {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
   @media (min-width: 760px) {
     display: flex;
     margin: 2rem 0rem 0rem 2.6rem;
