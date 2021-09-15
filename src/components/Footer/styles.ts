@@ -155,11 +155,12 @@ export const Support = styled.div`
     .text {
       img {
         margin-top: 0;
+        margin-left: 5px;
         width: 135px;
         height: 135px;
       }
       p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
     }
 
@@ -168,7 +169,7 @@ export const Support = styled.div`
     }
   }
 
-  @media (min-width: 650px) {
+  @media (min-width: 900px) {
     width: 30vw;
     max-width: 480px;
   }
