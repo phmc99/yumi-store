@@ -15,7 +15,7 @@ import Error from "../pages/Error";
 import Product from "../pages/Product/Index";
 import InfoPage from "../pages/InfoPage";
 import { YumiClub } from "../pages/YumiClub"
-import { Adoption } from "../pages/Adoption";
+import Adoption from "../pages/Adoption";
 import AboutUs from "../pages/AboutUs";
 import Promotion from "../pages/Promotion";
 

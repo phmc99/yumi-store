@@ -1,5 +1,6 @@
 import {useContext,createContext,useState,useEffect,ReactNode} from "react";
 import axios from "axios"
+import toast from "react-hot-toast";
 
 interface ILocation{
     cep: string;
@@ -15,7 +16,7 @@ interface ILocationProps {
 }
 
 interface LocationData {
-    ceps: ILocation[];
+    ceps: ILocation;
     cepNumber: any;
     setCepNumber: any;
     setCeps: any;
@@ -26,20 +27,20 @@ const LocalizaCepContext = createContext<LocationData>({} as LocationData)
 
 export const LocalizaCepProvider = ({ children }: ILocationProps) => {
    
-    const [ceps, setCeps] = useState<ILocation[]>([]);
-    const [cepNumber, setCepNumber] = useState<ILocation[]>([]);
+    const [ceps, setCeps] = useState({} as ILocation);
+    const [cepNumber, setCepNumber] = useState<string>("");
 
     const handleSearch = async () => {
         await axios
         .get(`https://viacep.com.br/ws/${cepNumber}/json/`)
         .then((res) => {
-            setCeps([res.data]);
+            setCeps(res.data);
         })
-        .catch((err)=> console.log(err));
+        .catch((err)=> toast.error("Erro ao consultar cep"));
         }
 
     useEffect(() => {
-    setCeps(cepNumber);
+    setCepNumber(cepNumber);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

@@ -1,6 +1,7 @@
 import { useHistory, useLocation } from "react-router";
 import { useLocalizaCep } from "../../providers/CepProvider";
 import { useProfile } from "../../providers/Profile";
+import api from "../../services";
 
 import { BoxInfo, Titulo, Paragrafo, Bold, Button, PageInfo } from "./styles";
 
@@ -11,8 +12,15 @@ const InfoClient = () => {
 
   const location = useLocation();
 
+  const id = JSON.parse(localStorage.getItem("@yumi:id") || "null");
+
+  const editCep = async (address: Object) => {
+        await api.put(`/auth/user/${id}/`, {address: address})
+  }
+
   const handleCart = () => {
     history.push("/cart");
+    editCep(ceps)
   };
 
   const handleEdit = () => {
@@ -34,22 +42,20 @@ const InfoClient = () => {
             <Bold>Telefone:</Bold> {userInfo.phone}
           </Paragrafo>
         </div>
-        {ceps.map((address, index) => (
-          <div className="cep" key={index}>
+          <div className="cep">
             <Paragrafo>
-              <Bold>Endereço:</Bold> {address.logradouro}
+              <Bold>Endereço:</Bold> {ceps.logradouro}
             </Paragrafo>
             <Paragrafo>
-              <Bold>Cidade/UF:</Bold> {address.localidade}
+              <Bold>Cidade/UF:</Bold> {ceps.localidade}
             </Paragrafo>
             <Paragrafo>
-              <Bold>CEP:</Bold> {address.cep}
+              <Bold>CEP:</Bold> {ceps.cep}
             </Paragrafo>
             <Paragrafo>
-              <Bold>Bairro:</Bold> {address.bairro}
+              <Bold>Bairro:</Bold> {ceps.bairro}
             </Paragrafo>
           </div>
-        ))}
 
         {location.pathname === "/cart" ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
