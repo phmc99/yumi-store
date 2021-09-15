@@ -1,33 +1,33 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-max-width: 100vw;
-max-height: 1250px;
-display:flex;
-flex-direction: column;
-align-items: center;
-margin:5%;
-background-color: var(--yellow);
-font-family: "Suez one", serif;
-text-align: center;
+  max-width: 100vw;
+  max-height: 1250px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:5%;
+  background-color: var(--yellow);
+  font-family: "Suez one", serif;
+  text-align: center;
 
-h1{
-    color: var(--white);
+  h1 {
+    color: var(--dark-blue);
     margin-top: 2rem;
     text-transform: uppercase;
-}
-h3{
+  }
+  h3 {
     color: var(--red);
     text-transform: uppercase;
-}
-p{
- padding: 1rem;
- margin-top: 1rem;
- color: var(--white);
- font-size:1.2rem;
- text-align: left;
-}
-.contact{
+  }
+  p {
+    padding: 1rem;
+    margin-top: 1rem;
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+    text-align: left;
+  }
+  .contact {
     text-align: center;
     background-color: var(--red);
     border-radius:15px;
@@ -52,12 +52,13 @@ p{
     }
 }
 
-@media (min-width: 800px){
+
+  @media (min-width: 800px) {
     background-color: var(--white);
     margin: 2%;
 
-    h1{
-    color: var(--yellow);
+    h1 {
+      color: var(--yellow);
     }
 
     .centered-cart{
@@ -76,8 +77,24 @@ p{
          width:500px;
      }
      .contact{
+
         margin: 2rem 0 0 3rem;
-        max- height: 800px;
+        max-height: 800px;
+        width: 300px;
+      }
+    }
+  }
+  @media (min-width: 1000px) {
+    .centered-cart {
+      max-height: 100vh;
+      .ong {
+        margin: 4rem 3rem 5rem 8rem;
+        width: 200px;
+        height: 200px;
+      }
+      .contact {
+        margin: 2rem 0 0 3rem;
+        max-height: 300px;
         width: 300px;
      }
     .btn-info{

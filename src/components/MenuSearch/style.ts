@@ -20,10 +20,14 @@ export const StyledMenuBar = styled.nav`
   }
 `;
 
-export const ContainerLogo = styled.div`
+export const ContainerLogo = styled.div<{open: boolean}>`
   cursor: pointer;
 
   .logo-button {
+    width: ${({ open }) => (open ? "0" : "100%")};
+    height: ${({ open }) => (open ? "0" : "100%")};
+    transition: opacity 1.5s;
+    opacity: ${({ open }) => (open ? "0" : "100%")};
     display: flex;
     h1 {
       font-family: "Merienda", cursive;
@@ -46,8 +50,8 @@ export const StyledRightNav = styled.ul<{ open: boolean }>`
     flex-direction: row;
     flex-wrap: no-wrap;
     height: 60px;
+    margin: 0;
   }
-
   li {
     cursor: pointer;
     padding: 18px 10px;
@@ -152,7 +156,7 @@ export const StyledBurger = styled.div<{ open: boolean }>`
   }
 `;
 
-export const Search = styled.div`
+export const Search = styled.div<{open: boolean}>`
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 30px;
@@ -174,25 +178,30 @@ export const Search = styled.div`
     cursor: pointer;
   }
   @media (max-width: 767px) {
-    height: 0;
-    width: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
+    transition: opacity 2s;
+    transition: width 1.5s;
+    transition: margin 1.5s;
+    opacity: ${({ open }) => (open ? "100%" : "0")};
+    width: ${({ open }) => (open ? "80%" : "0")};
+    margin: ${({ open }) => (open ? "10px" : "0")};
+z-index: 9999;
     div {
-      height: 0;
-      width: 0;
-      margin: 0;
-      padding: 0;
-      border: none;
-      color: transparent;
+      transition: width 1.5s;
+    transition: margin-left 1.5s;
+    transition: opacity 1.5s;
+    transition: height 1.5s;
+      opacity: ${({ open }) => (open ? "100%" : "0")};
+      height: ${({ open }) => (open ? "25px" : "0")};
+    width: ${({ open }) => (open ? "25px" : "0")};
+    margin-left: ${({ open }) => (open ? "5" : "0")};
     }
     input {
-      height: 0;
-      width: 0;
-      margin: 0;
-      padding: 0;
-      border: none;
+      transition: opacity 1.5s;
+      transition: width 1.5s;
+    transition: height 1.5s;
+      opacity: ${({ open }) => (open ? "100%" : "0")};
+      height: ${({ open }) => (open ? "80%" : "0")};
+    width: ${({ open }) => (open ? "85%" : "0")};
     }
   }
 `;
