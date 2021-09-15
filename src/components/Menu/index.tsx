@@ -65,12 +65,12 @@ export const Menu = () => {
             </Link>
           </li>
           <li key="3">
-            <Link to={{}}>
+            <Link to={"/favorite"}>
               <VscHeart style={{ height: "30px", width: "30px" }} />
             </Link>
           </li>
           <li key="4">
-            <Link to={{}}>
+            <Link to={"/cart"}>
               <HiShoppingCart style={{ height: "30px", width: "30px" }} />
             </Link>
           </li>

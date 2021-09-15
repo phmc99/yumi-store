@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useState } from "react";
 import CardProds from "../../components/CardProds";
+import Footer from "../../components/Footer";
 
 export const FilteredProducts = () => {
   const { products } = useProducts();
@@ -42,6 +43,7 @@ export const FilteredProducts = () => {
           </li>
         ))}
       </Category>
+      <Footer />
     </>
   );
 };

@@ -44,7 +44,7 @@ export const MenuSearch = () => {
           .replace(/[\u0300-\u036f]/g, "")
       )
   );
-
+  
   const Pesquisar = () => {
     if (filtrado !== "" && filteredProducts.length !== 0) {
       history.push(`/products/filtered/:${filtrado}`, filtrado);
@@ -66,7 +66,7 @@ export const MenuSearch = () => {
   const menuAdote = (
     <Menu>
       <Menu.Item>
-        <Link rel="noopener noreferrer" to={{}}>
+        <Link rel="noopener noreferrer" to="/adoption">
           Acolha
         </Link>
       </Menu.Item>
