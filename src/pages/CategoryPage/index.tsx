@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CardProds from "../../components/CardProds";
 
 import CarouselBanner from "../../components/Carousel";
+import Footer from "../../components/Footer";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useProducts } from "../../providers/Products";
 
@@ -41,6 +42,7 @@ const CategoryPage = () => {
           ))}
         </Products>
       </Container>
+      <Footer />
     </>
   );
 };
