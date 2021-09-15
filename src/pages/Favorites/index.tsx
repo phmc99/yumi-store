@@ -1,6 +1,7 @@
 import CardProds from "../../components/CardProds";
 
 import CarouselBanner from "../../components/Carousel";
+import Footer from "../../components/Footer";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useFavoriteContext } from "../../providers/Favorites";
 
@@ -24,6 +25,7 @@ const Favorites = () => {
           ))}
         </Products>
       </Container>
+      <Footer />
     </>
   );
 };
