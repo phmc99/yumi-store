@@ -44,7 +44,6 @@ const Routes = () => {
       </Route>
 
       <Route exact path="/not-found">
-
         <NotFoundFilteredProducts />
       </Route>
 
