@@ -32,17 +32,18 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
   const [userInfo, setUserInfo] = useState({} as IUserInfo);
 
   const id = JSON.parse(localStorage.getItem("@yumi:id") || "null");
-
+  
+  
   const getUser = async () => {
     const resp = await api.get(`/auth/user/${id}`);
     setUserInfo(resp.data.user);
   };
-
+  
   useEffect(() => {
     getUser();
     // eslint-disable-next-line
   }, []);
-
+  
   return (
     <ProfileContext.Provider value={{ userInfo }}>
       {children}
