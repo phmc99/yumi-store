@@ -38,11 +38,12 @@ const Routes = () => {
         <Product />
       </Route>
 
-      <Route exact path="/products/search/filtered:name">
+      <Route exact path="/products/filtered/:name">
         <FilteredProducts />
       </Route>
 
-      <Route exact path="/products/search/not-found">
+      <Route exact path="/not-found">
+
         <NotFoundFilteredProducts />
       </Route>
 

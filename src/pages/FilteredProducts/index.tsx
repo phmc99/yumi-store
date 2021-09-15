@@ -27,7 +27,7 @@ export const FilteredProducts = () => {
   if (filteredProducts.length === 0) {
     setNotFinded(true);
   }
-
+ 
   return (
     <>
       <MenuSearch />
