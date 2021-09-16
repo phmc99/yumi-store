@@ -142,11 +142,6 @@ export const MenuSearch = () => {
           Yumi Club
         </Link>
       </Menu.Item>
-      <Menu.Item>
-        <Link rel="noopener noreferrer" to="/yumiclub">
-          Yumi Club
-        </Link>
-      </Menu.Item>
     </Menu>
   );
 
