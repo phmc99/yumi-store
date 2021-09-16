@@ -17,6 +17,7 @@ import { Badge } from "antd";
 import { useCartContext } from "../../providers/CartProvider";
 import { useProducts } from "../../providers/Products";
 import { useState } from "react";
+import { IoIosHome } from "react-icons/io";
 
 export const MenuSearch = () => {
   const { products } = useProducts();
@@ -44,7 +45,7 @@ export const MenuSearch = () => {
           .replace(/[\u0300-\u036f]/g, "")
       )
   );
-  
+
   const Pesquisar = () => {
     if (filtrado !== "" && filteredProducts.length !== 0) {
       history.push(`/products/filtered/:${filtrado}`, filtrado);
@@ -164,8 +165,8 @@ export const MenuSearch = () => {
           <div className="right-nav">
             {open && (
               <li key="1" onClick={() => Pesquisar()}>
-                <Link to={{}}>
-                  <VscSearch style={{ height: "30px", width: "30px" }} />
+                <Link to={"/"}>
+                  <IoIosHome style={{ height: "30px", width: "30px" }} />
                 </Link>
               </li>
             )}

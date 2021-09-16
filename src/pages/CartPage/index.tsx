@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import Cart from "../../components/Cart";
 import InfoClient from "../../components/InfoClient";
 import { MenuSearch } from "../../components/MenuSearch";
@@ -90,6 +91,7 @@ const CartPage = () => {
       ) : (
         <Div>
           <Titulo>Carrinho vazio</Titulo>
+          <Link to="/">Voltar as compras</Link>
         </Div>
       )}
     </div>

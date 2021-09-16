@@ -20,7 +20,7 @@ export const StyledMenuBar = styled.nav`
   }
 `;
 
-export const ContainerLogo = styled.div<{open: boolean}>`
+export const ContainerLogo = styled.div<{ open: boolean }>`
   cursor: pointer;
 
   .logo-button {
@@ -160,7 +160,7 @@ export const StyledBurger = styled.div<{ open: boolean }>`
   }
 `;
 
-export const Search = styled.div<{open: boolean}>`
+export const Search = styled.div<{ open: boolean }>`
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 30px;
@@ -188,24 +188,24 @@ export const Search = styled.div<{open: boolean}>`
     opacity: ${({ open }) => (open ? "100%" : "0")};
     width: ${({ open }) => (open ? "80%" : "0")};
     margin: ${({ open }) => (open ? "10px" : "0")};
-z-index: 9999;
+    z-index: 9999;
     div {
       transition: width 1.5s;
-    transition: margin-left 1.5s;
-    transition: opacity 1.5s;
-    transition: height 1.5s;
+      transition: margin-left 1.5s;
+      transition: opacity 1.5s;
+      transition: height 1.5s;
       opacity: ${({ open }) => (open ? "100%" : "0")};
       height: ${({ open }) => (open ? "25px" : "0")};
-    width: ${({ open }) => (open ? "25px" : "0")};
-    margin-left: ${({ open }) => (open ? "5" : "0")};
+      width: ${({ open }) => (open ? "25px" : "0")};
+      margin-left: ${({ open }) => (open ? "5" : "0")};
     }
     input {
       transition: opacity 1.5s;
       transition: width 1.5s;
-    transition: height 1.5s;
+      transition: height 1.5s;
       opacity: ${({ open }) => (open ? "100%" : "0")};
       height: ${({ open }) => (open ? "80%" : "0")};
-    width: ${({ open }) => (open ? "85%" : "0")};
+      width: ${({ open }) => (open ? "85%" : "0")};
     }
   }
 `;
