@@ -1,4 +1,4 @@
-import { FormBox, FormPage } from "../../components/FormBox";
+import { FormBoxLogin, FormPage } from "../../components/FormBox";
 import { Input } from "../../components/Input";
 import { IoIosLock, IoMdMail } from "react-icons/io";
 import FormButton from "../../components/FormButton";
@@ -64,7 +64,7 @@ const LoginPage = () => {
     <>
       <Menu />
       <FormPage>
-        <FormBox className="form">
+        <FormBoxLogin className="form">
           <h1>Login</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Input
@@ -89,7 +89,7 @@ const LoginPage = () => {
             </span>
             <FormButton type="submit">Entrar</FormButton>
           </form>
-        </FormBox>
+        </FormBoxLogin>
         <aside className="illustration login-illustration">
           <img src={loginImg} alt="imagem" />
         </aside>

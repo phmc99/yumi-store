@@ -45,7 +45,6 @@ export const StyledRightNav = styled.ul<{ open: boolean }>`
   li {
     padding: 18px 10px;
     width: 50px;
-
     border-bottom: 2px solid transparent;
 
     &:hover {
@@ -82,7 +81,7 @@ export const StyledRightNav = styled.ul<{ open: boolean }>`
   @media (max-width: 414px) {
     div {
       display: flex;
-      background-color: white;
+      background-color: transparent;
       height: 50px;
       width: 100vw;
       justify-content: space-between;
@@ -96,7 +95,8 @@ export const StyledRightNav = styled.ul<{ open: boolean }>`
     right: 0;
     height: 100vh;
     width: 100%;
-    padding-top: 3.5rem;
+    padding-top: 40px;
+    background-color: transparent;
     transition: transform 0.3s ease-in-out;
 
     li {

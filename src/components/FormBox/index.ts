@@ -1,6 +1,52 @@
 import styled from "styled-components";
 
 export const FormBox = styled.div`
+  @media (max-width: 414px) {
+    @media (max-height: 736px) {
+      margin-top: 70px;
+    }
+  }
+  @media (max-width: 320px) {
+    @media (max-height: 568px) {
+      margin-top: 110px;
+    }
+  }
+  width: 100%;
+  max-width: 460px;
+  padding: 10px;
+  text-align: center;
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  span {
+    color: var(--gray);
+    font-size: 1.1rem;
+    a {
+      font-size: 1.1rem;
+
+      color: var(--purple);
+      text-decoration: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 80%;
+    max-width: 520px;
+    h1 {
+      font-size: 3rem;
+    }
+  }
+`;
+
+export const FormBoxLogin = styled.div`
   width: 100%;
   max-width: 460px;
   padding: 10px;
