@@ -48,7 +48,7 @@ const RegisterPage = () => {
       .string()
       .required("Campo obrigatório")
       .matches(
-        /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/,
+        /^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}-?[0-9]{4}$/,
         "Número errado"
       ),
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
