@@ -1,7 +1,8 @@
 import { MenuSearch } from "../../components/MenuSearch"
 import "./style"
 import apoio from "../../assets/apoio.png"
-import {MainContainer} from "./style"
+import sos from "../../assets/sos.png"
+import {MainContainer, MainContainer2} from "./style"
 import Footer from "../../components/Footer"
 
 const Adoption = () => {
@@ -34,6 +35,28 @@ const Adoption = () => {
             </div>
         </div>
         </MainContainer>
+        <MainContainer2>
+           
+        <div className="centered-cart-2">
+           <img className="ong-2" src={sos} alt="icons"/>
+                <p className="description-2"> 
+                Desde 1989, a SOS Vida Animal promove um trabalho para 
+                a comunidade de Londrina e região, mantido por voluntários que se dedicam 
+                à causa animal.Nós não acolhemos animais, e sim promovemos o bem-estar de 
+                cães e gatos, através de eventos para adoções e campanhas de conscientização. As Feiras de Adoção de Cães e Gatos, promovidas pela SOS Vida Animal, são realizadas
+                para que você encontre o seu novo melhor amigo.
+                Elas acontecem todos os sábados (exceto em feriados). Adotar é um gesto de amor,
+                e os nossos animais estão esperando por você! Confira o calendário das feirinhas e apareça por lá.
+                </p>
+            <div className="contact-2">
+                <p>
+                Doações: Banco Itaú | Agência 4019 | Conta Corrente 07820-5
+                Doações: Banco do Brasil | Agência 5047-4 | Conta Corrente 7507-8
+                   <button className="btn-info-2"><a rel="noreferrer" target={"_blank"} href={"https://www.sosvidaanimal.org.br/"}> Saiba mais </a></button>
+                </p>
+            </div>
+        </div>
+        </MainContainer2>
         <Footer/>
         </div>
     )

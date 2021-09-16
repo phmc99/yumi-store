@@ -195,7 +195,7 @@ export const Search = styled.div<{ open: boolean }>`
       transition: opacity 1.5s;
       transition: height 1.5s;
       opacity: ${({ open }) => (open ? "100%" : "0")};
-      height: ${({ open }) => (open ? "25px" : "0")};
+      height: ${({ open }) => (open ? "35px" : "0")};
       width: ${({ open }) => (open ? "25px" : "0")};
       margin-left: ${({ open }) => (open ? "5" : "0")};
     }
@@ -205,7 +205,7 @@ export const Search = styled.div<{ open: boolean }>`
       transition: height 1.5s;
       opacity: ${({ open }) => (open ? "100%" : "0")};
       height: ${({ open }) => (open ? "80%" : "0")};
-      width: ${({ open }) => (open ? "85%" : "0")};
+      width: ${({ open }) => (open ? "86%" : "0")};
     }
   }
 `;
