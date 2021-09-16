@@ -18,6 +18,7 @@ interface IUserInfo {
 
 interface IProfileContextData {
   userInfo: IUserInfo;
+  setUserInfo: (item: IUserInfo) => void;
 }
 
 interface IProviderProps {
@@ -45,7 +46,7 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
   }, []);
   
   return (
-    <ProfileContext.Provider value={{ userInfo }}>
+    <ProfileContext.Provider value={{ userInfo, setUserInfo }}>
       {children}
     </ProfileContext.Provider>
   );

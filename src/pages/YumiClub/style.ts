@@ -30,7 +30,7 @@ h4{
     flex-direction:column;
     padding: 0% 10%;
     margin: 0;
-    max-width: 70vw;
+    max-width: 60vw;
     max-height: 50vh;
     background-color: var(--purple);
 
@@ -78,12 +78,17 @@ p{
     font-family: "Suez one", serif;
     font-weight:600; 
 }
+@media (min-width: 800px) {
+    .circular-promo{
+        left: 13pc;
+    }
+}
 
 @media (min-width: 1000px) {
   width:70vw;
   height: 100vh;
   margin:0;
-  flex-direction:row;
+  flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
 
@@ -107,7 +112,7 @@ p{
     h2{
         margin-top: 0;
         text-align: center;
-        margin-left: 15%;
+        margin-left: 13%;
         font-size:28px;
     }
     span{
@@ -116,122 +121,119 @@ p{
     }
    }
    .gift{
-    margin-top: -5rem;
-    width: 85%;
-    margin-left: 1.78rem;
+    position: absolute;
+    width: 18%;
+    
    }
    .circular-promo{
      bottom: 2pc;
-     left:13pc;
+     left:10pc;
      margin-top:0;
    }
  }
 
 }
-`
+`;
 export const Containersub = styled.div`
-
-.econ{
-    display:flex;
+  .econ {
+    display: flex;
     flex-wrap: wrap;
     margin: 0;
     width: 80vw;
     background-color: var(--purple);
     color: var(--white);
-    
-    p{
-        font-size: 22px;
-        font-family: "Suez one", serif;
-        font-weight:600;
+
+    p {
+      font-size: 22px;
+      font-family: "Suez one", serif;
+      font-weight: 600;
     }
 
-    .icons{
-        width: 70px;
-        height: 70px;
-     }
-
-    .econ-sub{
-        width: 40vw;
+    .icons {
+      width: 70px;
+      height: 70px;
     }
 
-    span{
-        font-size: 15px;
-        font-family: "Suez one", serif;
-        font-weight:600;
-     }
- }  
- @media (min-width: 1000px) {
-    .econ{
-       margin-left: 3%;
-       margin-top: -8rem;
-       width: 41.5vw;
-       height: 30vh;
+    .econ-sub {
+      width: 40vw;
+    }
 
-       .econ-sub{
+    span {
+      font-size: 15px;
+      font-family: "Suez one", serif;
+      font-weight: 600;
+    }
+  }
+  @media (min-width: 1000px) {
+    .econ {
+      margin-left: 3%;
+      margin-top: -8rem;
+      width: 41.5vw;
+      height: 30vh;
+
+      .econ-sub {
         margin: 2%;
-        width:100px;
-       }
-       span{
+        width: 100px;
+      }
+      span {
         font-size: 12px;
-       }
+      }
     }
-   p{
-       margin: 0 0 0 3.8rem;
-   }
- }
-`
+    p {
+      margin: 0 0 0 3.8rem;
+    }
+  }
+`;
 export const YumiClubSub = styled.div`
-display: flex;
-flex-direction: column;
-margin:10%;
-background-color: var(--white);
-border: solid 1px var(--black);
-width: 80vw;
-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
+  background-color: var(--white);
+  border: solid 1px var(--black);
+  width: 80vw;
+  height: 70vh;
 
-.logo{
+  .logo {
     margin: 5rem 1.5rem 2rem 1.5rem;
     width: 80%;
-}
-p{
+  }
+  p {
     font-family: "Mulish", sans-serif;
     font-weight: bold;
     font-size: 1.2em;
     margin: 2%;
-}
+  }
+  button {
+    width: 200px;
+    height: 40px;
+    font-family: "Suez One", sans-serif;
+    border-radius: 13px;
+    background-color: var(--purple);
+    color: var(--white);
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 1rem;
+  }
+
+  @media (min-width: 1000px) {
+    margin: 2%;
+    width: 20vw;
+    height: 95vh;
+
+    .logo {
+      margin: 6rem 1rem 6rem 1.5rem;
+    }
+    p {
+      margin-top: 3rem;
+    }
     button {
-        width: 200px;
-        height: 40px;
-        font-family: "Suez One", sans-serif;
-        border-radius: 13px;
-        background-color: var(--purple);
-        color: var(--white);
-        font-size: 15px;
-        text-transform: uppercase;
-        margin: 1rem ;
-      }
-
-      @media (min-width: 1000px) {
-        margin: 2%;
-        width: 20vw;
-        height: 95vh;
-      
-        .logo{
-            margin: 6rem 1rem 6rem 1.5rem;
-        }
-        p{
-            margin-top:3rem;
-        }
-        button{
-            margin: 4rem 0rem 0 2rem;
-        }
-
-      }
-`
+      margin: 4rem 0rem 0 2rem;
+    }
+  }
+`;
 export const MainContainer = styled.div`
-
-@media (min-width: 1000px) {
-display: flex;
-margin: 2%;
-}
-`
+  @media (min-width: 1000px) {
+    display: flex;
+    margin: 2%;
+  }
+`;

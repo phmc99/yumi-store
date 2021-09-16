@@ -44,11 +44,12 @@ export const MenuSearch = () => {
           .replace(/[\u0300-\u036f]/g, "")
       )
   );
+  
   const Pesquisar = () => {
     if (filtrado !== "" && filteredProducts.length !== 0) {
-      history.push(`/products/filtered:${filtrado}`, filtrado);
+      history.push(`/products/filtered/:${filtrado}`, filtrado);
     } else if (filteredProducts.length === 0) {
-      history.push(`/products/not-found`, filtrado);
+      history.push(`/not-found`, filtrado);
     }
   };
 
@@ -65,7 +66,7 @@ export const MenuSearch = () => {
   const menuAdote = (
     <Menu>
       <Menu.Item>
-        <Link rel="noopener noreferrer" to={{}}>
+        <Link rel="noopener noreferrer" to="/adoption">
           Acolha
         </Link>
       </Menu.Item>
@@ -126,7 +127,7 @@ export const MenuSearch = () => {
   return (
     <div>
       <StyledMenuBar>
-        <ContainerLogo>
+        <ContainerLogo open={open}>
           <div className="logo-button" onClick={() => changePage("")}>
             <img
               style={{ height: "55px", width: "55px" }}
@@ -138,7 +139,7 @@ export const MenuSearch = () => {
             <h1 className="titleMenu-2">Store</h1>
           </div>
         </ContainerLogo>
-        <Search>
+        <Search open={open}>
           <input
             value={filtrado}
             onChange={(event) => setFiltrado(event.target.value)}
@@ -162,7 +163,7 @@ export const MenuSearch = () => {
         <StyledRightNav open={open}>
           <div className="right-nav">
             {open && (
-              <li key="1" onClick={() => setOpen(false)}>
+              <li key="1" onClick={() => Pesquisar()}>
                 <Link to={{}}>
                   <VscSearch style={{ height: "30px", width: "30px" }} />
                 </Link>

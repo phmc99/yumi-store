@@ -46,9 +46,11 @@ const CartPage = () => {
         }
       )
       .then((resp) => {
-        window.location.href = `https://yumistoreapi.herokuapp.com/payment/checkout/${
-          resp.data.order._id
-        }/${userInfo.email}/${"Pagamento Yumi Store"}/${total}`;
+        window.open(
+          `https://yumistoreapi.herokuapp.com/payment/checkout/${
+            resp.data.order._id
+          }/${userInfo.email}/${"Pagamento Yumi Store"}/${total}`
+        );
       })
       .catch(() => {
         toast.error("Ops, algo de errado aconteceu!");
@@ -58,10 +60,11 @@ const CartPage = () => {
   return (
     <div>
       <MenuSearch />
-      <Div>
-        <Titulo>Meu carrinho</Titulo>
-      </Div>
-
+      {cartProducts.length !== 0 ? (
+        <>
+          <Div>
+            <Titulo>Meu carrinho</Titulo>
+          </Div>
       <Box>
         <div>
           {cartProducts.map((item, index) => (
@@ -80,6 +83,7 @@ const CartPage = () => {
           </DivPagamento>
         </div>
       </Box>
+
     </div>
   );
 };

@@ -14,7 +14,7 @@ import {
 
 const Cart = ({ product, quantity }: IProductCart) => {
   const { removeCart, cartProducts, updateTotal } = useCartContext();
-  const [currentQuantity, setCurrentQuantity] = useState<number>(1);
+  const [currentQuantity, setCurrentQuantity] = useState<number>(quantity);
 
   const handlePlusQuantity = (p: IProducts) => {
     setCurrentQuantity(currentQuantity + 1);

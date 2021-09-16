@@ -47,6 +47,7 @@ const CardProds = ({ prod, favorite = false }: ICardProdsProps) => {
                 fullSymbol={<AiTwotoneStar color="var(--yellow)" />}
               />
             </p>
+            <span className="number">({prod.rating.grades.length})</span>
             <h4>R${prod.price}</h4>
             <h4 className="club-price">
               R${prod.member_price}
