@@ -1,48 +1,72 @@
+import { useState } from "react";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { useCartContext } from "../../providers/CartProvider";
+import { IProductCart, IProducts } from "../../types";
 import {
   ListCart,
   Image,
   ParagrafoProduct,
   Button,
   TitlePrice,
+  Box,
 } from "./styles";
 
-interface Products {
-  name: string;
-  image_url: string;
-  price: number;
-}
+const Cart = ({ product, quantity }: IProductCart) => {
+  const { removeCart, cartProducts, updateTotal } = useCartContext();
+  const [currentQuantity, setCurrentQuantity] = useState<number>(quantity);
 
-interface ProductsProps {
-  products: Products;
-}
+  const handlePlusQuantity = (p: IProducts) => {
+    setCurrentQuantity(currentQuantity + 1);
+    cartProducts.map((item) => {
+      if (item.product._id === p._id) {
+        item.quantity++;
+      }
+      return item;
+    });
+    updateTotal();
+  };
 
-const Cart = ({ products }: ProductsProps) => {
-  const { removeCart, addCart } = useCartContext();
+  const handleSubQuantity = (p: IProducts) => {
+    if (currentQuantity > 1) {
+      setCurrentQuantity(currentQuantity - 1);
+      cartProducts.map((item) => {
+        if (item.product._id === p._id) {
+          item.quantity--;
+        }
+        return item;
+      });
 
-  const { name, price, image_url } = products;
-
+      updateTotal();
+    }
+  };
+ 
   return (
     <>
-      <div>
-        <ListCart>
-          <Image src={image_url} alt="roupa" />
-          <ParagrafoProduct>{name}</ParagrafoProduct>
-          <Button onClick={() => addCart(products)}>
-            <AiOutlinePlusSquare size="25px" />
-          </Button>
-          1
-          <Button onClick={() => removeCart(products)}>
-            <AiOutlineMinusSquare size="25px" />
-          </Button>
-          <TitlePrice>R$ {price}</TitlePrice>
-          <Button style={{ marginLeft: "7rem" }}>
-            <BsTrash size="20px" />
-          </Button>
-        </ListCart>
-      </div>
+      <Box>
+          <ListCart>
+            <Image src={product.image_url} alt="roupa" />
+            <ParagrafoProduct>{product.name}</ParagrafoProduct>
+            <div className="input-quantity">
+              <Button onClick={() => handleSubQuantity(product)}>
+                <AiOutlineMinusSquare size="30px" color={"8F4BC7"} />
+              </Button>
+              <p>{currentQuantity}</p>
+              <Button onClick={() => handlePlusQuantity(product)}>
+                <AiOutlinePlusSquare size="30px" color={"8F4BC7"} />
+              </Button>
+            </div>
+            <TitlePrice>
+              R${" "}
+              {(
+                Number(product.price.replace(",", ".")) * currentQuantity
+              ).toFixed(2)}
+            </TitlePrice>
+            <Button onClick={() => removeCart({ product, quantity: quantity })}>
+              <BsTrash size="30px" />
+            </Button>
+          </ListCart>
+      </Box>
     </>
   );
 };

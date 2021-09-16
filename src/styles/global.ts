@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--black);
     font-size: 1rem;
     font-family: 'Mulish', sans-serif;
+    overflow-x: hidden;
   }
   h1 {
     font-family: 'Suez One', serif;
@@ -47,6 +48,27 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  ::-webkit-scrollbar{
+  width: 10px;
+  height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb{
+  background: var(--purple);
+  border-radius: 30px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover{
+  background: var(--dark-purple);
+
+  }
+
+  ::-webkit-scrollbar-track{
+  background: #E3E3E3;
+  border-radius: 30px;
+  box-shadow: inset 0px 0px 0px 0px #F0F0F0;
   }
   
 `;
