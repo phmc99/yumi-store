@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import Cart from "../../components/Cart";
 import InfoClient from "../../components/InfoClient";
 import { MenuSearch } from "../../components/MenuSearch";
@@ -65,9 +66,8 @@ const CartPage = () => {
           <Div>
             <Titulo>Meu carrinho</Titulo>
           </Div>
-
           <Box>
-            <div className="cart">
+            <div>
               {cartProducts.map((item, index) => (
                 <Cart
                   product={item.product}
@@ -77,19 +77,22 @@ const CartPage = () => {
               ))}
             </div>
 
-            <DivPagamento>
-              <Paragrafo>Subtotal: R$ {total}</Paragrafo>
+            <div>
+              <DivPagamento>
+                <Paragrafo>Subtotal: R$ {total}</Paragrafo>
 
-              <InfoClient />
-              <ButtonPagamento onClick={handlePayment}>
-                Confirmar pedido
-              </ButtonPagamento>
-            </DivPagamento>
+                <InfoClient />
+                <ButtonPagamento onClick={handlePayment}>
+                  Confirmar pedido
+                </ButtonPagamento>
+              </DivPagamento>
+            </div>
           </Box>
         </>
       ) : (
         <Div>
           <Titulo>Carrinho vazio</Titulo>
+          <Link to="/">Voltar as compras</Link>
         </Div>
       )}
     </div>

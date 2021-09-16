@@ -54,11 +54,6 @@ const LoginPage = () => {
       });
   };
 
-  // toast.promise(onSubmit: SubmitHandler<IRegisterForm>, {
-  //   loading: "Carregando",
-  //   success: "Bem vindo",
-  //   error: "Ops, algo de errado aconteceu!",
-  // });
   const token = localStorage.getItem("@yumi:token");
 
   if (token !== null) {

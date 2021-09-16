@@ -1,7 +1,8 @@
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import imageLogo from "../../assets/dogImage.png";
-import { VscSearch, VscHeart } from "react-icons/vsc";
+import { VscHeart } from "react-icons/vsc";
+import { IoIosHome } from "react-icons/io";
 import { BsPersonFill } from "react-icons/bs";
 import { HiShoppingCart } from "react-icons/hi";
 import {
@@ -52,7 +53,7 @@ export const Menu = () => {
         <div>
           <li key="1" onClick={() => goHome()}>
             <Link to={{}}>
-              <VscSearch style={{ height: "30px", width: "30px" }} />
+              <IoIosHome style={{ height: "30px", width: "30px" }} />
             </Link>
           </li>
           <li

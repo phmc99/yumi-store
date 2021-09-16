@@ -17,6 +17,8 @@ export const Titulo = styled.h1`
 export const Div = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Paragrafo = styled.p`
@@ -47,8 +49,8 @@ export const DivPagamento = styled.div`
   align-items: center;
   gap: 10px;
 
-  @media (min-width: 768px) {
-    width: 50vw;
+  @media (min-width: 974px) {
+    width: 25vw;
   }
 `;
 
@@ -66,7 +68,7 @@ export const ButtonPagamento = styled.button`
 
   color: #fff;
 
-  @media (min-width: 760px) {
+  @media (min-width: 974px) {
     width: 280px;
     height: 50px;
   }
@@ -78,14 +80,11 @@ export const Box = styled.div`
   align-items: center;
   padding: 20px;
 
-  .cart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  @media (min-width: 768px) {
-    flex-direction: row;
+  @media (min-width: 974px) {
+    width: 95vw;
+    flex-direction: initial;
+    justify-content: space-between;
     align-items: flex-start;
   }
 `;
+

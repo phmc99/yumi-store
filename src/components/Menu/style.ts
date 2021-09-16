@@ -7,7 +7,6 @@ export const StyledMenuBar = styled.nav`
   padding: 0 20px 0 5px;
   display: flex;
   justify-content: space-between;
-  position: absolute;
   z-index: 100;
   .logo {
     margin-top: 0;

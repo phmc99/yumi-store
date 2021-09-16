@@ -53,7 +53,6 @@ export const ProductsProvider = ({ children }: IProductsProps) => {
         }
         return item;
       });
-
       setCartProducts([...prod]);
     }
     updateTotal();

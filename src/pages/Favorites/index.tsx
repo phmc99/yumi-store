@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import CardProds from "../../components/CardProds";
 
 import CarouselBanner from "../../components/Carousel";
 import Footer from "../../components/Footer";
+import { Titulo } from "../../components/InfoClient/styles";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useFavoriteContext } from "../../providers/Favorites";
 
@@ -13,19 +15,28 @@ const Favorites = () => {
   return (
     <>
       <MenuSearch />
-      <CarouselBanner />
       <Container>
-        <h1>Meus produtos favoritos</h1>
+        {favoritesProducts.length !== 0 ? (
+          <>
+            <CarouselBanner />
+            <h1>Meus produtos favoritos</h1>
 
-        <Products>
-          {favoritesProducts.map((item) => (
-            <li key={item._id}>
-              <CardProds prod={item} favorite={true} />
-            </li>
-          ))}
-        </Products>
+            <Products>
+              {favoritesProducts.map((item) => (
+                <li key={item._id}>
+                  <CardProds prod={item} favorite={true} />
+                </li>
+              ))}
+            </Products>
+            <Footer />
+          </>
+        ) : (
+          <>
+            <Titulo>Você não adicionou nada aos favoritos</Titulo>
+            <Link to="/">Voltar as compras</Link>
+          </>
+        )}
       </Container>
-      <Footer />
     </>
   );
 };

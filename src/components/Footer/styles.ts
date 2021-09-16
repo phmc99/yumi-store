@@ -80,7 +80,11 @@ export const Container = styled.div`
     }
 
     a {
-      color: var(--white);
+      color: var(--yellow);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: -1.7px;
+
       .aboutus {
         cursor: pointer;
       }
