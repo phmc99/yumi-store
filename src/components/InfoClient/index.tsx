@@ -19,6 +19,8 @@ const InfoClient = () => {
     history.push("/info");
   };
 
+  console.log(userInfo)
+
   return (
     <PageInfo>
       <BoxInfo>

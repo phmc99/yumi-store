@@ -65,33 +65,25 @@ const CartPage = () => {
           <Div>
             <Titulo>Meu carrinho</Titulo>
           </Div>
+      <Box>
+        <div>
+          {cartProducts.map((item, index) => (
+            <Cart product={item.product} quantity={item.quantity} key={index} />
+          ))}
+        </div>
 
-          <Box>
-            <div className="cart">
-              {cartProducts.map((item, index) => (
-                <Cart
-                  product={item.product}
-                  quantity={item.quantity}
-                  key={index}
-                />
-              ))}
-            </div>
+        <div>
+          <DivPagamento>
+            <Paragrafo>Subtotal: R$ {total}</Paragrafo>
 
-            <DivPagamento>
-              <Paragrafo>Subtotal: R$ {total}</Paragrafo>
+            <InfoClient />
+            <ButtonPagamento onClick={handlePayment}>
+              Confirmar pedido
+            </ButtonPagamento>
+          </DivPagamento>
+        </div>
+      </Box>
 
-              <InfoClient />
-              <ButtonPagamento onClick={handlePayment}>
-                Confirmar pedido
-              </ButtonPagamento>
-            </DivPagamento>
-          </Box>
-        </>
-      ) : (
-        <Div>
-          <Titulo>Carrinho vazio</Titulo>
-        </Div>
-      )}
     </div>
   );
 };
