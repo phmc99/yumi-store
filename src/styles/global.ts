@@ -71,4 +71,10 @@ export const GlobalStyle = createGlobalStyle`
   box-shadow: inset 0px 0px 0px 0px #F0F0F0;
   }
   
+  button {
+    &:hover {
+      filter: brightness(.85);
+      transition: all .2s;
+    }
+  }
 `;

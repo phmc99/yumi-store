@@ -19,6 +19,7 @@ interface CartProviderData {
   total: any;
   updateTotal: () => void;
   removeCart: (product: IProductCart) => void;
+  resetCart: () => void;
 }
 
 const CartContext = createContext<CartProviderData>({} as CartProviderData);
@@ -57,6 +58,12 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     toast.error("Produto removido do carrinho!");
   };
 
+  const resetCart = () => {
+    setCartProducts([]);
+    localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
+    setTotal("");
+  };
+
   useEffect(() => {
     localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
     updateTotal();
@@ -71,6 +78,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         setCartProducts,
         total,
         updateTotal,
+        resetCart,
       }}
     >
       {children}

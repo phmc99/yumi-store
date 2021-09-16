@@ -7,7 +7,6 @@ export const Box = styled.div`
   @media (min-width: 974px) {
     margin: 1rem;
     width: 50vw;
-    
   }
 `;
 export const ListCart = styled.div`
@@ -65,6 +64,10 @@ export const Button = styled.button`
   cursor: pointer;
   outline: none;
   margin: 0.5rem;
+
+  &:hover {
+    filter: none;
+  }
 
   @media (min-width: 974px) {
     padding: 0.6rem;

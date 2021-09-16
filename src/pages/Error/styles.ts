@@ -51,16 +51,23 @@ export const Container = styled.div`
   }
 
   img {
-    width: 30%;
-    min-width: 300px;
-    max-width: 600px;
-    position: relative;
-    margin-bottom: -50px;
+    display: none;
   }
 
   @media (min-width: 768px) {
     h1 {
       font-size: 4rem;
+    }
+
+    img {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+      width: 30%;
+      min-width: 300px;
+      max-width: 600px;
     }
 
     p {

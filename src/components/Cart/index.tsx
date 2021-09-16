@@ -12,9 +12,14 @@ import {
   Box,
 } from "./styles";
 
-const Cart = ({ product, quantity }: IProductCart) => {
+interface ICartProps {
+  prod: IProductCart;
+  type: string;
+}
+
+const Cart = ({ prod, type }: ICartProps) => {
   const { removeCart, cartProducts, updateTotal } = useCartContext();
-  const [currentQuantity, setCurrentQuantity] = useState<number>(quantity);
+  const [currentQuantity, setCurrentQuantity] = useState<number>(prod.quantity);
 
   const handlePlusQuantity = (p: IProducts) => {
     setCurrentQuantity(currentQuantity + 1);
@@ -40,32 +45,44 @@ const Cart = ({ product, quantity }: IProductCart) => {
       updateTotal();
     }
   };
- 
+
   return (
     <>
       <Box>
-          <ListCart>
-            <Image src={product.image_url} alt="roupa" />
-            <ParagrafoProduct>{product.name}</ParagrafoProduct>
-            <div className="input-quantity">
-              <Button onClick={() => handleSubQuantity(product)}>
+        <ListCart>
+          <Image src={prod.product.image_url} alt="roupa" />
+          <ParagrafoProduct>{prod.product.name}</ParagrafoProduct>
+          <div className="input-quantity">
+            {type === "cart" && (
+              <Button onClick={() => handleSubQuantity(prod.product)}>
                 <AiOutlineMinusSquare size="30px" color={"8F4BC7"} />
               </Button>
+            )}
+            {type === "finish" ? (
+              <p>
+                Quantidade: &nbsp;<b>{currentQuantity}</b>
+              </p>
+            ) : (
               <p>{currentQuantity}</p>
-              <Button onClick={() => handlePlusQuantity(product)}>
+            )}
+            {type === "cart" && (
+              <Button onClick={() => handlePlusQuantity(prod.product)}>
                 <AiOutlinePlusSquare size="30px" color={"8F4BC7"} />
               </Button>
-            </div>
-            <TitlePrice>
-              R${" "}
-              {(
-                Number(product.price.replace(",", ".")) * currentQuantity
-              ).toFixed(2)}
-            </TitlePrice>
-            <Button onClick={() => removeCart({ product, quantity: quantity })}>
+            )}
+          </div>
+          <TitlePrice>
+            R${" "}
+            {(
+              Number(prod.product.price.replace(",", ".")) * currentQuantity
+            ).toFixed(2)}
+          </TitlePrice>
+          {type === "cart" && (
+            <Button onClick={() => removeCart(prod)}>
               <BsTrash size="30px" />
             </Button>
-          </ListCart>
+          )}
+        </ListCart>
       </Box>
     </>
   );

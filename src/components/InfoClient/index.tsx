@@ -1,7 +1,7 @@
+import { useEffect } from "react";
 import { useHistory, useLocation } from "react-router";
 import { useLocalizaCep } from "../../providers/CepProvider";
 import { useProfile } from "../../providers/Profile";
-import api from "../../services";
 
 import { BoxInfo, Titulo, Paragrafo, Bold, Button, PageInfo } from "./styles";
 
@@ -12,21 +12,18 @@ const InfoClient = () => {
 
   const location = useLocation();
 
-  const id = JSON.parse(localStorage.getItem("@yumi:id") || "null");
-
-  const editCep = async (address: Object) => {
-    await api.put(`/auth/user/${id}/`, { address: address });
-  };
-
   const handleCart = () => {
     history.push("/cart");
-    editCep(ceps);
-    getUser();
   };
 
   const handleEdit = () => {
     history.push("/info");
   };
+
+  useEffect(() => {
+    getUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ceps]);
 
   return (
     <PageInfo>
@@ -67,7 +64,7 @@ const InfoClient = () => {
           </div>
         ) : (
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Button onClick={handleCart}>Use Este Endereço </Button>
+            <Button onClick={handleCart}>Use esse endereço </Button>
           </div>
         )}
       </BoxInfo>
