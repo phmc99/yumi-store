@@ -41,7 +41,22 @@ export const ProductsProvider = ({ children }: IProductsProps) => {
 
   const addProduct = (product: IProducts) => {
     localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
-    setCartProducts([...cartProducts, { product, quantity: 1 }]);
+
+    const find = cartProducts.find((item) => item.product._id === product._id);
+
+    console.log(find);
+
+    if (find === undefined) {
+      setCartProducts([...cartProducts, { product, quantity: 1 }]);
+    } else {
+      const prod = cartProducts.map((item) => {
+        if (item.product._id === product._id) {
+          item.quantity++;
+        }
+        return item;
+      });
+      setCartProducts([...prod]);
+    }
     updateTotal();
     toast.success("Produto adicionado ao carrinho!");
   };
