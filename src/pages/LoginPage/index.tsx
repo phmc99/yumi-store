@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { FormBoxLogin, FormPage } from "../../components/FormBox";
-=======
-import { FormBox, FormPage, Load } from "../../components/FormBox";
->>>>>>> 01aa528889b26052ef3fd9ee06ff19c8d1a0ba0b
+import { FormBoxLogin, FormPage, Load } from "../../components/FormBox";
 import { Input } from "../../components/Input";
 import { IoIosLock, IoMdMail } from "react-icons/io";
 import FormButton from "../../components/FormButton";
