@@ -43,22 +43,6 @@ const InfoClient = () => {
             <Bold>Telefone:</Bold> {userInfo.phone}
           </Paragrafo>
         </div>
-<<<<<<< HEAD
-        <div className="cep">
-          <Paragrafo>
-            <Bold>Endereço:</Bold> {ceps.logradouro}
-          </Paragrafo>
-          <Paragrafo>
-            <Bold>Cidade/UF:</Bold> {ceps.localidade}
-          </Paragrafo>
-          <Paragrafo>
-            <Bold>CEP:</Bold> {ceps.cep}
-          </Paragrafo>
-          <Paragrafo>
-            <Bold>Bairro:</Bold> {ceps.bairro}
-          </Paragrafo>
-        </div>
-=======
         {userInfo.address && (
           <div className="cep">
             <Paragrafo>
@@ -76,7 +60,6 @@ const InfoClient = () => {
             </Paragrafo>
           </div>
         )}
->>>>>>> 01aa528889b26052ef3fd9ee06ff19c8d1a0ba0b
 
         {location.pathname === "/cart" ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
