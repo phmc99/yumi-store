@@ -18,9 +18,9 @@ export const BoxInfo = styled.div`
     flex-direction: column;
   }
 
-  @media (min-width: 760px) {
-    width: 480px;
-    height: 545px;
+  @media (min-width: 974px) {
+    width: 30vw;
+    height: 565px;
     margin-right: 1rem;
     margin: 10px;
   }
@@ -33,8 +33,8 @@ export const Titulo = styled.h2`
   font-family: "Mulish";
   font-size: 1.5rem;
 
-  @media (min-width: 760px) {
-    font-size: 2rem;
+  @media (min-width: 974px) {
+    font-size: 1.75rem;
   }
 `;
 
@@ -44,8 +44,8 @@ export const Paragrafo = styled.p`
   margin: 0.7rem;
   font-size: 1.2rem;
 
-  @media (min-width: 760px) {
-    font-size: 1.5rem;
+  @media (min-width: 974px) {
+    font-size: 1.38rem;
   }
 `;
 
@@ -63,7 +63,7 @@ export const Button = styled.button`
   font-family: "Mulish";
   font-size: 1rem;
 
-  @media (min-width: 760px) {
+  @media (min-width: 974px) {
     width: 340px;
     font-size: 1.2rem;
   }

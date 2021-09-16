@@ -4,8 +4,10 @@ export const Box = styled.div`
   width: 100%;
   margin: 0 auto;
 
-  @media (min-width: 760px) {
+  @media (min-width: 974px) {
     margin: 1rem;
+    width: 50vw;
+    
   }
 `;
 export const ListCart = styled.div`
@@ -24,9 +26,9 @@ export const ListCart = styled.div`
     }
   }
 
-  @media (min-width: 760px) {
+  @media (min-width: 974px) {
     display: flex;
-    margin: 2rem 0rem 0rem 2.6rem;
+    margin: 2rem 0rem 0rem 1rem;
     width: 50vw;
   }
 `;
@@ -35,7 +37,7 @@ export const Image = styled.img`
   width: 107px;
   height: 107px;
 
-  @media (min-width: 760px) {
+  @media (min-width: 974px) {
     width: 127px;
     height: 127px;
   }
@@ -45,14 +47,14 @@ export const ParagrafoProduct = styled.p`
   margin: 10px;
   font-family: "Mulish", sans-serif;
   font-weight: bold;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   text-align: center;
 
-  @media (min-width: 760px) {
-    font-size: 1.2rem;
+  @media (min-width: 974px) {
+    font-size: 1.1rem;
     text-align: start;
-    padding: 1.5rem;
-    width: 350px;
+    padding: 1.2rem;
+    width: 280px;
     margin-top: 1rem;
   }
 `;
@@ -64,7 +66,7 @@ export const Button = styled.button`
   outline: none;
   margin: 0.5rem;
 
-  @media (min-width: 760px) {
+  @media (min-width: 974px) {
     padding: 0.6rem;
     margin-top: 1rem;
   }
@@ -73,12 +75,13 @@ export const Button = styled.button`
 export const TitlePrice = styled.p`
   font-family: "Mulish", sans-serif;
   font-weight: bold;
+  font-size: 1.3rem;
 
-  @media (min-width: 760px) {
+  @media (min-width: 974px) {
     display: flex;
     align-items: center;
     margin: 0.5rem;
-    width: 200px;
+    width: 150px;
     font-size: 1.3rem;
     justify-content: center;
   }

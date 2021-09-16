@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useProducts } from "../../providers/Products";
 import {
   ContainerProd,
@@ -14,12 +14,23 @@ import { useFavoriteContext } from "../../providers/Favorites";
 import ShowMoreText from "react-show-more-text";
 import Rating from "react-rating";
 import { IProducts } from "../../types";
+import axios from "axios";
+import { useHistory } from "react-router";
 
 interface IProductProps {
   prod: IProducts;
 }
 
+interface ICat {
+  breeds: [];
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+}
+
 const ProductDetail = ({ prod }: IProductProps) => {
+  const history = useHistory();
   const { addProduct } = useProducts();
   const { handleAddFavorite } = useFavoriteContext();
 
@@ -39,22 +50,46 @@ const ProductDetail = ({ prod }: IProductProps) => {
 
   const { Option } = Select;
 
+  const [catImage, setCatImage] = useState<ICat[]>([]);
+  const [dogImage, setDogImage] = useState<ICat[]>([]);
+
+  useEffect(() => {
+    const getImage = async () => {
+      await axios
+        .get(`https://api.thecatapi.com/v1/images/search`)
+        .then((response) => setCatImage(response.data));
+    };
+    getImage();
+  }, []);
+
+  useEffect(() => {
+    const getImage = async () => {
+      await axios
+        .get(`https://api.thedogapi.com/v1/images/search`)
+        .then((response) => setDogImage(response.data));
+    };
+    getImage();
+  }, []);
+
   return (
     <div>
       <ContainerProd key={prod._id}>
         <ContainerInfo>
           <h4>{prod.name}</h4>
-          <div className="stars">
-            <Rating
-              initialRating={
-                prod.rating.grades.reduce((sum, num) => sum + num, 0) /
-                prod.rating.grades.length
-              }
-              readonly
-              emptySymbol={<AiTwotoneStar color="var(--gray)" />}
-              placeholderSymbol={<AiTwotoneStar color="var(--yellow)" />}
-              fullSymbol={<AiTwotoneStar color="var(--yellow)" />}
-            />
+          <div>
+            <div className="stars">
+              <Rating
+                initialRating={
+                  prod.rating.grades.reduce((sum, num) => sum + num, 0) /
+                  prod.rating.grades.length
+                }
+                readonly
+                emptySymbol={<AiTwotoneStar color="var(--gray)" />}
+                placeholderSymbol={<AiTwotoneStar color="var(--yellow)" />}
+                fullSymbol={<AiTwotoneStar color="var(--yellow)" />}
+              />
+            </div>
+            <span className="rating">({prod.rating.grades.length})</span>
           </div>
         </ContainerInfo>
 
@@ -62,10 +97,16 @@ const ProductDetail = ({ prod }: IProductProps) => {
           <div className="images">
             <SideImage>
               <div onClick={showModal}>
-                <img src={prod.image_url} alt={prod.image_url} />
+                <img
+                  src={catImage[0] && catImage[0].url}
+                  alt={catImage[0] && catImage[0].id}
+                />
               </div>
               <div onClick={showModal}>
-                <img src={prod.image_url} alt={prod.image_url} />
+                <img
+                  src={dogImage[0] && dogImage[0].url}
+                  alt={dogImage[0] && dogImage[0].id}
+                />
               </div>
             </SideImage>
             <MainImage onClick={showModal}>
@@ -75,29 +116,36 @@ const ProductDetail = ({ prod }: IProductProps) => {
 
           <Modal
             className="show-room"
-            title="Showroom"
+            title={prod.name}
             visible={isModalVisible}
             onOk={handleOk}
             onCancel={handleCancel}
             width={"700px"}
-            mask={false}
+            mask={true}
             footer={null}
-            bodyStyle={{ boxShadow: "revert" }}
+            bodyStyle={{
+              boxShadow: "revert",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }}
             centered={true}
           >
             <Image.PreviewGroup>
               <Image
                 width={200}
-                src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-              />
-              <Image
-                width={200}
-                src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+                src={catImage[0] && catImage[0].url}
+                alt={catImage[0] && catImage[0].id}
               />
               <Image
                 src={prod.image_url}
                 alt={prod.image_url}
                 width={"200px"}
+              />
+              <Image
+                width={200}
+                src={dogImage[0] && dogImage[0].url}
+                alt={dogImage[0] && dogImage[0].id}
               />
             </Image.PreviewGroup>
           </Modal>
@@ -145,7 +193,14 @@ const ProductDetail = ({ prod }: IProductProps) => {
                   <span className="club-logo">Club</span>
                 </span>
               </div>
-              <button onClick={() => addProduct(prod)}>Comprar</button>
+              <button
+                onClick={() => {
+                  addProduct(prod);
+                  history.push("/cart");
+                }}
+              >
+                Comprar
+              </button>
             </ContainerPrice>
           </ContainerCart>
         </div>

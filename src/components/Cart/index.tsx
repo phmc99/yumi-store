@@ -14,7 +14,7 @@ import {
 
 const Cart = ({ product, quantity }: IProductCart) => {
   const { removeCart, cartProducts, updateTotal } = useCartContext();
-  const [currentQuantity, setCurrentQuantity] = useState<number>(1);
+  const [currentQuantity, setCurrentQuantity] = useState<number>(quantity);
 
   const handlePlusQuantity = (p: IProducts) => {
     setCurrentQuantity(currentQuantity + 1);
@@ -44,28 +44,28 @@ const Cart = ({ product, quantity }: IProductCart) => {
   return (
     <>
       <Box>
-        <ListCart>
-          <Image src={product.image_url} alt="roupa" />
-          <ParagrafoProduct>{product.name}</ParagrafoProduct>
-          <div className="input-quantity">
-            <Button onClick={() => handleSubQuantity(product)}>
-              <AiOutlineMinusSquare size="30px" color={"8F4BC7"} />
+          <ListCart>
+            <Image src={product.image_url} alt="roupa" />
+            <ParagrafoProduct>{product.name}</ParagrafoProduct>
+            <div className="input-quantity">
+              <Button onClick={() => handleSubQuantity(product)}>
+                <AiOutlineMinusSquare size="30px" color={"8F4BC7"} />
+              </Button>
+              <p>{currentQuantity}</p>
+              <Button onClick={() => handlePlusQuantity(product)}>
+                <AiOutlinePlusSquare size="30px" color={"8F4BC7"} />
+              </Button>
+            </div>
+            <TitlePrice>
+              R${" "}
+              {(
+                Number(product.price.replace(",", ".")) * currentQuantity
+              ).toFixed(2)}
+            </TitlePrice>
+            <Button onClick={() => removeCart({ product, quantity: quantity })}>
+              <BsTrash size="30px" />
             </Button>
-            <p>{currentQuantity}</p>
-            <Button onClick={() => handlePlusQuantity(product)}>
-              <AiOutlinePlusSquare size="30px" color={"8F4BC7"} />
-            </Button>
-          </div>
-          <TitlePrice>
-            R${" "}
-            {(
-              Number(product.price.replace(",", ".")) * currentQuantity
-            ).toFixed(2)}
-          </TitlePrice>
-          <Button onClick={() => removeCart({ product, quantity: quantity })}>
-            <BsTrash size="30px" />
-          </Button>
-        </ListCart>
+          </ListCart>
       </Box>
     </>
   );

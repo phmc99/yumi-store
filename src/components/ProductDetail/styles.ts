@@ -110,9 +110,15 @@ export const ContainerInfo = styled.div`
   }
 
   .stars {
-    display: flex;
-    flex-direction: row-reverse;
-    margin: 10px 0;
+    margin: 0 0 10px;
+    text-align: left;
+    display: inline;
+  }
+
+  .rating {
+    display: inline-block;
+    font-size: 0.7rem;
+    margin-left: 8px;
   }
 `;
 
