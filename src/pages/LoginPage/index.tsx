@@ -24,7 +24,7 @@ const LoginPage = () => {
   const history = useHistory();
   const { setUserInfo } = useProfile();
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const schema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
@@ -60,8 +60,6 @@ const LoginPage = () => {
         toast.error("Ops, algo de errado aconteceu!");
       });
   };
-
-  console.log(loading);
 
   const token = localStorage.getItem("@yumi:token");
 

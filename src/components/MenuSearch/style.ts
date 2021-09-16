@@ -213,6 +213,12 @@ export const Search = styled.div<{ open: boolean }>`
 export const BottomMenu = styled.ul<{ open: boolean }>`
   list-style: none;
 
+  button {
+    &:hover {
+      filter: none;
+    }
+  }
+
   div {
     transition: opacity 0.2s;
     opacity: ${({ open }) => (open ? "0" : "100%")};

@@ -19,7 +19,7 @@ export const Paragrafo = styled.p`
   height: 45px;
   border-radius: 0.7rem;
   align-items: center;
-  padding: 1rem;
+  padding: 0.9rem;
   font-size: 1rem;
   font-weight: bold;
   justify-content: center;
@@ -28,7 +28,7 @@ export const Paragrafo = styled.p`
     margin: 3.5rem 2.5rem 0rem 2.5rem;
     width: 350px;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1rem;
     justify-content: center;
   }
 `;
@@ -36,16 +36,15 @@ export const CheckoutContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   max-width: 320px;
-  max-height: 300px;
+  max-height: 380px;
   justify-content: center;
   margin: 0 auto;
-  border: solid 2px var(--purple);
+  border: solid 4px var(--purple);
   border-radius: 15px;
 
   img {
-    margin-top: -2rem;
-    width: 280px;
-    height: 180px;
+    width: 260px;
+    height: 170px;
   }
   button {
     width: 250px;
@@ -59,8 +58,9 @@ export const CheckoutContainer = styled.div`
     margin: 2rem 1rem;
   }
   &:hover {
-    border: solid 2px var(--blue);
-    transition: ease-in-out 1s;
+    border: solid 4px var(--blue);
+    transition: all 0.5s;
+
     button {
       background: rgb(105, 204, 227);
       background: linear-gradient(
@@ -70,7 +70,6 @@ export const CheckoutContainer = styled.div`
         rgba(25, 32, 103, 1) 73%,
         rgba(106, 144, 225, 1) 100%
       );
-      transition: ease-in-out 1s;
     }
     .subtotal {
       border: solid 2px var(--blue);
@@ -82,7 +81,6 @@ export const MainContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     max-width: 1800px;
-
     .resume {
       width: 55vw;
     }

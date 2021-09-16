@@ -63,7 +63,7 @@ const Routes = () => {
         <CartPage />
       </Route>
 
-      <Route path="/checkout">
+      <Route path="/checkout/:id">
         <Checkout />
       </Route>
 
