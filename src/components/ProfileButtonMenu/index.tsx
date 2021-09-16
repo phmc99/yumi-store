@@ -2,8 +2,9 @@ import { ModalProfile } from "./style";
 import { useHistory } from "react-router";
 import { useProfile } from "../../providers/Profile";
 import { Link } from "react-router-dom";
-import { IoIosArrowForward } from "react-icons/io"
+import { IoIosArrowForward } from "react-icons/io";
 import { BsPersonFill } from "react-icons/bs";
+import toast from "react-hot-toast";
 
 interface CloseButton {
   profileButtonClicked: boolean;
@@ -30,7 +31,10 @@ const ProfileMenu = ({
 
   const handleLogout = () => {
     localStorage.clear();
-    history.push("/login");
+    toast(<b>Até a próxima!</b>, {
+      icon: "👋",
+    });
+    history.push("/");
   };
 
   return (
@@ -41,17 +45,24 @@ const ProfileMenu = ({
     >
       {token !== null ? (
         <>
-        <div className="engloba-nome">
-          <BsPersonFill style={{height: "70px", width: "70px"}}/>
-          <div className="nome">
-        <h2>Olá,</h2>
-          <h2>{userInfo.name}</h2>
-        </div>
-        </div>
+          <div className="engloba-nome">
+            <BsPersonFill style={{ height: "70px", width: "70px" }} />
+            <div className="nome">
+              <h2>Olá,</h2>
+              <h2>{userInfo.name}</h2>
+            </div>
+          </div>
           <div className="logado">
-          <Link to="/info">Meus Dados <IoIosArrowForward className="icone"/></Link>
-          <Link to="/favorite">Favoritos <IoIosArrowForward className="icone"/></Link>
-          <Link to={{}} onClick={() => handleLogout()}>Sair<IoIosArrowForward className="icone"/></Link>
+            <Link to="/info">
+              Meus Dados <IoIosArrowForward className="icone" />
+            </Link>
+            <Link to="/favorite">
+              Favoritos <IoIosArrowForward className="icone" />
+            </Link>
+            <Link to={{}} onClick={() => handleLogout()}>
+              Sair
+              <IoIosArrowForward className="icone" />
+            </Link>
           </div>
         </>
       ) : (

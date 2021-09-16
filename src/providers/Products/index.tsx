@@ -44,8 +44,6 @@ export const ProductsProvider = ({ children }: IProductsProps) => {
 
     const find = cartProducts.find((item) => item.product._id === product._id);
 
-    console.log(find);
-
     if (find === undefined) {
       setCartProducts([...cartProducts, { product, quantity: 1 }]);
     } else {

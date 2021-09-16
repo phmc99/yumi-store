@@ -21,6 +21,19 @@ export const Box = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   padding: 10px;
+
+  .newAdress {
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #8f4bc7;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 auto;
+  }
 `;
 export const Info = styled.h4`
   display: flex;
@@ -28,7 +41,7 @@ export const Info = styled.h4`
   border: 1px solid #8f4bc7;
   width: 100%;
   height: 40px;
-  margin: 0.8rem auto;
+  margin: 5px auto;
   padding: 0.4rem;
   align-items: center;
   border-radius: 7px;
@@ -47,7 +60,7 @@ export const InputForm = styled.input`
 `;
 
 export const ButtonSearch = styled.button`
-max-width: 180px;
+  max-width: 180px;
   width: 50%;
   height: 40px;
   border-radius: 5px;
