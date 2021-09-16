@@ -47,6 +47,7 @@ export const InputForm = styled.input`
 `;
 
 export const ButtonSearch = styled.button`
+max-width: 180px;
   width: 50%;
   height: 40px;
   border-radius: 5px;
