@@ -10,23 +10,29 @@ export const ContainerProd = styled.button`
 
   img {
     margin: 6%;
-    width: 150px;
+    max-width: 150px;
+    height: 150px;
   }
 `;
 export const CardDivisor = styled.div`
   padding: 4%;
   margin: 20px;
   width: 215px;
-  height: 455px;
+  height: 465px;
   border: solid 1px var(--gray);
   border-radius: 10px;
   box-shadow: 0px 0px 10px 2px #a0a0a0;
   display: flex;
   justify-content: center;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `;
 
 export const ContainerInfo = styled.div`
-  text-align: left;
   font-size: 17px;
   padding: 3%;
 
@@ -34,6 +40,7 @@ export const ContainerInfo = styled.div`
     height: 70px;
     font-size: 15px;
     font-family: "Mulish", serif;
+    text-align: left;
     margin: 4% 0 4% 0;
   }
 `;
@@ -76,16 +83,29 @@ export const ContainerPrice = styled.div`
     display: flex;
     background: initial;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     svg {
       font-size: 1.5rem;
       color: #f00;
+
+      :hover {
+        color: #d20000;
+      }
+
+      :active {
+        position: relative;
+        top: 2px;
+      }
     }
     p {
       font-size: 0.85rem;
       color: #f00;
       margin: 0;
+
+      :hover {
+        color: #d20000;
+      }
     }
   }
 `;

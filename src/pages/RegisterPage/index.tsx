@@ -1,4 +1,4 @@
-import { FormBox, FormPage } from "../../components/FormBox";
+import { FormBox, FormPage, Load } from "../../components/FormBox";
 import { Input } from "../../components/Input";
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiFillPhone } from "react-icons/ai";
@@ -12,6 +12,8 @@ import * as yup from "yup";
 import toast from "react-hot-toast";
 import api from "../../services";
 import { Menu } from "../../components/Menu";
+import { useState } from "react";
+import { FadeLoader } from "react-spinners";
 
 interface IRegisterForm {
   name: string;
@@ -24,6 +26,7 @@ interface IRegisterForm {
 
 const RegisterPage = () => {
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
 
   const schema = yup.object().shape({
     name: yup
@@ -41,7 +44,13 @@ const RegisterPage = () => {
         /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})$/,
         "CPF Inválido"
       ),
-    phone: yup.string().required("Campo obrigatório").matches(/^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/, "Número errado"),
+    phone: yup
+      .string()
+      .required("Campo obrigatório")
+      .matches(
+        /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/,
+        "Número errado"
+      ),
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
     password: yup.string().required("Campo obrigatório"),
     confirmPassword: yup
@@ -57,7 +66,7 @@ const RegisterPage = () => {
   } = useForm<IRegisterForm>({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<IRegisterForm> = async (data) => {
-    console.log(data);
+    setLoading(true);
     await api
       .post(
         "auth/register",
@@ -69,10 +78,12 @@ const RegisterPage = () => {
         }
       )
       .then(() => {
+        setLoading(false);
         toast.success("Cadastro concluído!");
         history.push("/login");
       })
       .catch(() => {
+        setLoading(false);
         toast.error("Ops, algo de errado aconteceu!");
       });
   };
@@ -145,6 +156,20 @@ const RegisterPage = () => {
           <img src={registerImg} alt="imagem" />
         </aside>
       </FormPage>
+      {loading && (
+        <Load>
+          <div className="spinner">
+            <FadeLoader
+              loading={loading}
+              color="var(--purple)"
+              height={30}
+              radius={8}
+              width={7}
+              margin={7}
+            />
+          </div>
+        </Load>
+      )}
     </>
   );
 };

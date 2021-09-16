@@ -29,7 +29,7 @@ const CardProds = ({ prod, favorite = false }: ICardProdsProps) => {
   return (
     <ContainerProd>
       <CardDivisor>
-        <div key={prod._id}>
+        <div key={prod._id} className="card">
           <ContainerInfo>
             <img src={prod.image_url} alt={prod.image_url} />
             <h3>{prod.name}</h3>
@@ -55,7 +55,7 @@ const CardProds = ({ prod, favorite = false }: ICardProdsProps) => {
                 <span className="logo-tar">&nbsp; Yumi</span>Club
               </span>
             </h4>
-            {favorite ? (
+            {favorite && (
               <button
                 className="favButton"
                 onClick={() => handleRemoveFavorite(prod)}
@@ -63,9 +63,9 @@ const CardProds = ({ prod, favorite = false }: ICardProdsProps) => {
                 <GiBrokenHeart />
                 <p>Remover dos favoritos</p>
               </button>
-            ) : (
-              <AddButton onClick={() => seeMore(prod._id)}>Ver mais</AddButton>
             )}
+
+            <AddButton onClick={() => seeMore(prod._id)}>Ver mais</AddButton>
           </ContainerPrice>
         </div>
       </CardDivisor>

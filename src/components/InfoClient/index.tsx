@@ -7,7 +7,7 @@ import { BoxInfo, Titulo, Paragrafo, Bold, Button, PageInfo } from "./styles";
 
 const InfoClient = () => {
   const history = useHistory();
-  const { userInfo } = useProfile();
+  const { userInfo, getUser } = useProfile();
   const { ceps } = useLocalizaCep();
 
   const location = useLocation();
@@ -15,19 +15,18 @@ const InfoClient = () => {
   const id = JSON.parse(localStorage.getItem("@yumi:id") || "null");
 
   const editCep = async (address: Object) => {
-        await api.put(`/auth/user/${id}/`, {address: address})
-  }
+    await api.put(`/auth/user/${id}/`, { address: address });
+  };
 
   const handleCart = () => {
     history.push("/cart");
-    editCep(ceps)
+    editCep(ceps);
+    getUser();
   };
 
   const handleEdit = () => {
     history.push("/info");
   };
-
-  console.log(userInfo)
 
   return (
     <PageInfo>
@@ -44,20 +43,23 @@ const InfoClient = () => {
             <Bold>Telefone:</Bold> {userInfo.phone}
           </Paragrafo>
         </div>
+        {userInfo.address && (
           <div className="cep">
             <Paragrafo>
-              <Bold>Endereço:</Bold> {ceps.logradouro}
+              <Bold>Endereço:</Bold> {userInfo.address.logradouro}
             </Paragrafo>
             <Paragrafo>
-              <Bold>Cidade/UF:</Bold> {ceps.localidade}
+              <Bold>Bairro:</Bold> {userInfo.address.bairro}
             </Paragrafo>
             <Paragrafo>
-              <Bold>CEP:</Bold> {ceps.cep}
+              <Bold>Cidade/UF:</Bold> {userInfo.address.localidade}
+              {userInfo.address.uf}
             </Paragrafo>
             <Paragrafo>
-              <Bold>Bairro:</Bold> {ceps.bairro}
+              <Bold>CEP:</Bold> {userInfo.address.cep}
             </Paragrafo>
           </div>
+        )}
 
         {location.pathname === "/cart" ? (
           <div style={{ display: "flex", justifyContent: "center" }}>

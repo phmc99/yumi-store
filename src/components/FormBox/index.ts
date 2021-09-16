@@ -89,3 +89,19 @@ export const FormPage = styled.div`
     }
   }
 `;
+
+export const Load = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 60%);
+  position: fixed;
+
+  top: 0;
+
+  .spinner {
+    margin-top: 40vh;
+  }
+`;
