@@ -34,8 +34,14 @@ const RegisterPage = () => {
         "Nome deve conter apenas letras."
       )
       .max(50, "Nome deve conter no máximo 50 caracteres."),
-    cpf: yup.string().required("Campo obrigatório"),
-    phone: yup.string().required("Campo obrigatório"),
+    cpf: yup
+      .string()
+      .required("Campo obrigatório")
+      .matches(
+        /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})$/,
+        "CPF Inválido"
+      ),
+    phone: yup.string().required("Campo obrigatório").matches(/^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/, "Número errado"),
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
     password: yup.string().required("Campo obrigatório"),
     confirmPassword: yup
@@ -51,6 +57,7 @@ const RegisterPage = () => {
   } = useForm<IRegisterForm>({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<IRegisterForm> = async (data) => {
+    console.log(data);
     await api
       .post(
         "auth/register",

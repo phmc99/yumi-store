@@ -19,6 +19,7 @@ import Checkout from "../pages/CheckOut";
 import { YumiClub } from "../pages/YumiClub"
 import AboutUs from "../pages/AboutUs";
 import Promotion from "../pages/Promotion";
+import Adoption from "../pages/Adoption";
 
 const Routes = () => {
   return (
