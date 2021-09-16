@@ -61,6 +61,11 @@ export const MenuSearch = () => {
           Beleza e Higiene
         </Link>
       </Menu.Item>
+      <Menu.Item>
+        <Link rel="noopener noreferrer" to="/products/category/2">
+          Alimentação
+        </Link>
+      </Menu.Item>
     </Menu>
   );
 
@@ -81,24 +86,39 @@ export const MenuSearch = () => {
           Roupas
         </Link>
       </Menu.Item>
-    </Menu>
-  );
-
-  const menuCaninos = (
-    <Menu>
       <Menu.Item>
-        <Link rel="noopener noreferrer" to="/products/species/cachorro">
-          Caninos
+        <Link rel="noopener noreferrer" to="/products/promotion/inverno">
+          Inverno
         </Link>
       </Menu.Item>
     </Menu>
   );
 
-  const menuFelinos = (
+  const menuEspecies = (
     <Menu>
       <Menu.Item>
+        <Link rel="noopener noreferrer" to="/products/species/cachorro">
+          Cachorros
+        </Link>
+      </Menu.Item>
+      <Menu.Item>
         <Link rel="noopener noreferrer" to="/products/species/gato">
-          Felinos
+          Gatos
+        </Link>
+      </Menu.Item>
+    </Menu>
+  );
+
+  const menuMarcas = (
+    <Menu>
+      <Menu.Item>
+        <Link rel="noopener noreferrer" to="/products/brand/royalcannin">
+          Royal Canin
+        </Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link rel="noopener noreferrer" to="/products/brand/ibasaebeeps">
+          Ibasa &amp; Beeps
         </Link>
       </Menu.Item>
     </Menu>
@@ -118,8 +138,8 @@ export const MenuSearch = () => {
         </Link>
       </Menu.Item>
       <Menu.Item>
-        <Link rel="noopener noreferrer" to="/products/category/2">
-          Rações
+        <Link rel="noopener noreferrer" to="/yumiclub">
+          Yumi Club
         </Link>
       </Menu.Item>
       <Menu.Item>
@@ -152,7 +172,9 @@ export const MenuSearch = () => {
             placeholder="Exemplo: Casa Iglu Furacão Pet Preta para Cães"
           ></input>
           <div onClick={() => Pesquisar()}>
-            <VscSearch style={{ height: "25px", width: "25px" }} />
+            <VscSearch
+              style={{ height: "25px", width: "25px", marginTop: "5px" }}
+            />
           </div>
         </Search>
         <StyledBurger open={open} onClick={() => setOpen(!open)}>
@@ -198,20 +220,20 @@ export const MenuSearch = () => {
         <div style={{ width: "100%" }}>
           <Dropdown
             className="item"
-            overlay={menuCaninos}
+            overlay={menuEspecies}
             placement="bottomCenter"
             arrow
             key="1"
           >
-            <Button>Cachorros</Button>
+            <Button>Espécies</Button>
           </Dropdown>
           <Dropdown
             className="item"
-            overlay={menuFelinos}
+            overlay={menuMarcas}
             placement="bottomCenter"
             arrow
           >
-            <Button>Gatos</Button>
+            <Button>Marcas</Button>
           </Dropdown>
           <Dropdown
             className="item"

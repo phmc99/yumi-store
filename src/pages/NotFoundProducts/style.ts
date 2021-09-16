@@ -18,8 +18,13 @@ export const Pesquisou = styled.div`
 export const AfterPesquisou = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     h2 {
-      width: 220px;
+      font-family: "Mulish", sans-serif;
+      font-size: 20px;
+      margin-bottom: 20px;
+      font-weight: bold;
     }
   }
 `;

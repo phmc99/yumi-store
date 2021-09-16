@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { FormBoxLogin, FormPage } from "../../components/FormBox";
+=======
 import { FormBox, FormPage, Load } from "../../components/FormBox";
+>>>>>>> 01aa528889b26052ef3fd9ee06ff19c8d1a0ba0b
 import { Input } from "../../components/Input";
 import { IoIosLock, IoMdMail } from "react-icons/io";
 import FormButton from "../../components/FormButton";
@@ -73,7 +77,7 @@ const LoginPage = () => {
     <>
       <Menu />
       <FormPage>
-        <FormBox className="form">
+        <FormBoxLogin className="form">
           <h1>Login</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Input
@@ -98,7 +102,7 @@ const LoginPage = () => {
             </span>
             <FormButton type="submit">Entrar</FormButton>
           </form>
-        </FormBox>
+        </FormBoxLogin>
         <aside className="illustration login-illustration">
           <img src={loginImg} alt="imagem" />
         </aside>
