@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import Cart from "../../components/Cart";
+import Footer from "../../components/Footer";
 import InfoClient from "../../components/InfoClient";
 import { MenuSearch } from "../../components/MenuSearch";
 import { useCartContext } from "../../providers/CartProvider";
@@ -18,10 +20,14 @@ import {
 
 const CartPage = () => {
   const { cartProducts, total } = useCartContext();
-  const { userInfo } = useProfile();
+  const { userInfo, getUser } = useProfile();
   const history = useHistory();
 
   const token = JSON.parse(localStorage.getItem("@yumi:token") || "null");
+
+  useEffect(() => {
+    getUser();
+  }, [getUser]);
 
   const handlePayment = async () => {
     if (token === null) {
@@ -95,6 +101,7 @@ const CartPage = () => {
           <Link to="/">Voltar as compras</Link>
         </Div>
       )}
+      <Footer />
     </div>
   );
 };

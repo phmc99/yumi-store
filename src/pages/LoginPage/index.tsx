@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { FormBoxLogin, FormPage } from "../../components/FormBox";
+=======
+import { FormBox, FormPage, Load } from "../../components/FormBox";
+>>>>>>> 01aa528889b26052ef3fd9ee06ff19c8d1a0ba0b
 import { Input } from "../../components/Input";
 import { IoIosLock, IoMdMail } from "react-icons/io";
 import FormButton from "../../components/FormButton";
@@ -12,6 +16,8 @@ import toast from "react-hot-toast";
 import api from "../../services";
 import { Menu } from "../../components/Menu";
 import { useProfile } from "../../providers/Profile";
+import { useState } from "react";
+import { FadeLoader } from "react-spinners";
 
 interface IRegisterForm {
   email: string;
@@ -21,6 +27,8 @@ interface IRegisterForm {
 const LoginPage = () => {
   const history = useHistory();
   const { setUserInfo } = useProfile();
+
+  const [loading, setLoading] = useState(false);
 
   const schema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
@@ -34,9 +42,11 @@ const LoginPage = () => {
   } = useForm<IRegisterForm>({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<IRegisterForm> = async (data) => {
+    setLoading(true);
     await api
       .post("auth/login", data)
       .then((response: any) => {
+        setLoading(false);
         toast.success("Bem vindx!");
         localStorage.setItem(
           "@yumi:token",
@@ -50,9 +60,12 @@ const LoginPage = () => {
         history.push("/");
       })
       .catch(() => {
+        setLoading(false);
         toast.error("Ops, algo de errado aconteceu!");
       });
   };
+
+  console.log(loading);
 
   const token = localStorage.getItem("@yumi:token");
 
@@ -94,6 +107,21 @@ const LoginPage = () => {
           <img src={loginImg} alt="imagem" />
         </aside>
       </FormPage>
+
+      {loading && (
+        <Load>
+          <div className="spinner">
+            <FadeLoader
+              loading={loading}
+              color="var(--purple)"
+              height={30}
+              radius={8}
+              width={7}
+              margin={7}
+            />
+          </div>
+        </Load>
+      )}
     </>
   );
 };

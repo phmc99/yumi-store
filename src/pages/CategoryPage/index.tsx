@@ -6,6 +6,7 @@ import CardProds from "../../components/CardProds";
 import CarouselBanner from "../../components/Carousel";
 import Footer from "../../components/Footer";
 import { MenuSearch } from "../../components/MenuSearch";
+import ScrollButton from "../../components/ScrollButton";
 import { useProducts } from "../../providers/Products";
 
 import { IProducts } from "../../types";
@@ -41,6 +42,7 @@ const CategoryPage = () => {
             </li>
           ))}
         </Products>
+        <ScrollButton />
       </Container>
       <Footer />
     </>

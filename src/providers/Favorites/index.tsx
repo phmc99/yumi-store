@@ -29,11 +29,15 @@ export const FavoriteProvider = ({ children }: FavoriteProviderProps) => {
   );
 
   const handleAddFavorite = (item: IProducts) => {
-    if (favoritesProducts.includes(item) === false) {
+    const find = favoritesProducts.find((el) => el.name === item.name);
+
+    if (find === undefined) {
       setFavoritesProducts([...favoritesProducts, item]);
       toast("Produto favoritado!", {
         icon: "❤️",
       });
+    } else {
+      toast.success("Produto já foi favoritado!");
     }
   };
 

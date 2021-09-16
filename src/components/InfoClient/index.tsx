@@ -7,7 +7,7 @@ import { BoxInfo, Titulo, Paragrafo, Bold, Button, PageInfo } from "./styles";
 
 const InfoClient = () => {
   const history = useHistory();
-  const { userInfo } = useProfile();
+  const { userInfo, getUser } = useProfile();
   const { ceps } = useLocalizaCep();
 
   const location = useLocation();
@@ -21,6 +21,7 @@ const InfoClient = () => {
   const handleCart = () => {
     history.push("/cart");
     editCep(ceps);
+    getUser();
   };
 
   const handleEdit = () => {
@@ -42,6 +43,7 @@ const InfoClient = () => {
             <Bold>Telefone:</Bold> {userInfo.phone}
           </Paragrafo>
         </div>
+<<<<<<< HEAD
         <div className="cep">
           <Paragrafo>
             <Bold>Endereço:</Bold> {ceps.logradouro}
@@ -56,6 +58,25 @@ const InfoClient = () => {
             <Bold>Bairro:</Bold> {ceps.bairro}
           </Paragrafo>
         </div>
+=======
+        {userInfo.address && (
+          <div className="cep">
+            <Paragrafo>
+              <Bold>Endereço:</Bold> {userInfo.address.logradouro}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>Bairro:</Bold> {userInfo.address.bairro}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>Cidade/UF:</Bold> {userInfo.address.localidade}
+              {userInfo.address.uf}
+            </Paragrafo>
+            <Paragrafo>
+              <Bold>CEP:</Bold> {userInfo.address.cep}
+            </Paragrafo>
+          </div>
+        )}
+>>>>>>> 01aa528889b26052ef3fd9ee06ff19c8d1a0ba0b
 
         {location.pathname === "/cart" ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
