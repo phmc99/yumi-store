@@ -36,12 +36,10 @@ const Checkout = () => {
     }
 
     window.open(
-      `https://yumistoreapi.herokuapp.com/payments/checkout/${id}/${
+      `https://yumistoreapi.herokuapp.com/payment/checkout/${id}/${
         userInfo.email
       }/${"Pagamento Yumi Store"}/${total}`
     );
-
-    console.log(token);
 
     await api
       .put(

@@ -245,6 +245,11 @@ export const YumiClubSub = styled.div`
     font-size: 15px;
     text-transform: uppercase;
     margin: 1rem;
+
+    &:disabled {
+      filter: brightness(0.7);
+      cursor: not-allowed;
+    }
   }
 
   @media (min-width: 1000px) {

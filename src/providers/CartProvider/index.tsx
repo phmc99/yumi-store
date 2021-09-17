@@ -8,6 +8,7 @@ import {
 import toast from "react-hot-toast";
 
 import { IProductCart } from "../../types";
+import { useProfile } from "../Profile";
 
 interface CartProviderProps {
   children: ReactNode;
@@ -25,27 +26,35 @@ interface CartProviderData {
 const CartContext = createContext<CartProviderData>({} as CartProviderData);
 
 export const CartProvider = ({ children }: CartProviderProps) => {
+  const { userInfo } = useProfile();
+
   const [cartProducts, setCartProducts] = useState<IProductCart[]>(
     JSON.parse(localStorage.getItem("@yumistore:cart") || "[]")
   );
-  const [total, setTotal] = useState<any>(
-    cartProducts
-      .map(
-        (item) => Number(item.product.price.replace(",", ".")) * item.quantity
-      )
-      .reduce((acc, current) => acc + current, 0)
-      .toFixed(2)
-  );
 
-  const updateTotal = () => {
-    setTotal(
-      cartProducts
+  const calculatePrice = () => {
+    if (userInfo.yumiClub === true) {
+      return cartProducts
+        .map(
+          (item) =>
+            Number(item.product.member_price.replace(",", ".")) * item.quantity
+        )
+        .reduce((acc, current) => acc + current, 0)
+        .toFixed(2);
+    } else {
+      return cartProducts
         .map(
           (item) => Number(item.product.price.replace(",", ".")) * item.quantity
         )
         .reduce((acc, current) => acc + current, 0)
-        .toFixed(2)
-    );
+        .toFixed(2);
+    }
+  };
+
+  const [total, setTotal] = useState<any>(calculatePrice);
+
+  const updateTotal = () => {
+    setTotal(calculatePrice);
   };
 
   const removeCart = (cartDeleted: IProductCart) => {
@@ -68,7 +77,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     localStorage.setItem("@yumistore:cart", JSON.stringify(cartProducts));
     updateTotal();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cartProducts]);
+  }, [cartProducts, userInfo]);
 
   return (
     <CartContext.Provider

@@ -11,15 +11,15 @@ interface ProviderProps {
 
 const Providers = ({ children }: ProviderProps) => {
   return (
-    <CartProvider>
-      <ProductsProvider>
-        <ProfileProvider>
+    <ProfileProvider>
+      <CartProvider>
+        <ProductsProvider>
           <FavoriteProvider>
             <LocalizaCepProvider>{children}</LocalizaCepProvider>
           </FavoriteProvider>
-        </ProfileProvider>
-      </ProductsProvider>
-    </CartProvider>
+        </ProductsProvider>
+      </CartProvider>
+    </ProfileProvider>
   );
 };
 

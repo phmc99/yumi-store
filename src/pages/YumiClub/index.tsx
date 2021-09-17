@@ -18,15 +18,21 @@ import toast from "react-hot-toast";
 import { useProfile } from "../../providers/Profile";
 import { useHistory } from "react-router";
 import api from "../../services";
+import { useState } from "react";
+import { Load } from "../../components/FormBox";
+import { FadeLoader } from "react-spinners";
 
 export const YumiClub = () => {
   const history = useHistory();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const token = JSON.parse(localStorage.getItem("@yumi:token") || "null");
 
   const { userInfo } = useProfile();
 
   const handlePayment = async () => {
+    setLoading(true);
+
     if (token === null) {
       history.push("/login");
       toast.error("Faça o login para concluir a compra!");
@@ -36,7 +42,11 @@ export const YumiClub = () => {
       .post(
         "/orders",
         {
-          cart: [],
+          cart: [
+            {
+              yumiClub: 1,
+            },
+          ],
           total_price: `69.90`,
           payment: {
             isPaid: false,
@@ -55,9 +65,10 @@ export const YumiClub = () => {
             resp.data.order._id
           }/${userInfo.email}/${"Assinatura Yumi Club"}/69.90`
         );
+        setLoading(false);
       })
       .catch(() => {
-        toast.error("Ops, algo de errado aconteceu!");
+        setLoading(false);
       });
 
     await api.put(`/auth/user/${userInfo._id}`, { yumiClub: true });
@@ -136,10 +147,27 @@ export const YumiClub = () => {
           </p>
           <p>R$ 69,90</p>
 
-          <button onClick={handlePayment}> Assine Agora </button>
+          <button onClick={handlePayment} disabled={userInfo.yumiClub}>
+            {" "}
+            Assine Agora{" "}
+          </button>
         </YumiClubSub>
       </MainContainer>
       <Footer />
+      {loading && (
+        <Load>
+          <div className="spinner">
+            <FadeLoader
+              loading={loading}
+              color="var(--purple)"
+              height={30}
+              radius={8}
+              width={7}
+              margin={7}
+            />
+          </div>
+        </Load>
+      )}
     </div>
   );
 };

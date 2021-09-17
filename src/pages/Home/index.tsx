@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CarouselBanner from "../../components/Carousel";
-import { Images, HoverText, Details, Category, More } from "./styles";
+import {
+  Images,
+  HoverText,
+  Details,
+  Category,
+  More,
+  ProductsContainer,
+} from "./styles";
 import { IProducts } from "../../types";
 import { AiOutlinePlus } from "react-icons/ai";
 import Footer from "../../components/Footer";
@@ -118,67 +125,69 @@ const Home = () => {
           <h3>A primeira troca é grátis!</h3>
         </div>
       </Details>
-      <Category>
-        <Link to="/products/category/5">
-          <h1>Roupas</h1>
-        </Link>
-        <Carousel
-          renderArrowsWhenDisabled={true}
-          swipeable={true}
-          showDots={true}
-          responsive={responsive}
-          ssr={true}
-          infinite={true}
-          keyBoardControl={true}
-          customTransition="transform 500ms ease-in-out"
-          transitionDuration={500}
-          containerClass="carousel-container"
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px"
-        >
-          {filterClothes.map((item) => (
-            <li key={item._id}>
-              <CardProds prod={item} />
-            </li>
-          ))}
-          <More>
-            <Link to="/products/category/5">
-              <AiOutlinePlus/>
-            </Link>
-          </More>
-        </Carousel>
-      </Category>
+      <ProductsContainer>
+        <Category>
+          <Link to="/products/category/5">
+            <h1>Roupas</h1>
+          </Link>
+          <Carousel
+            renderArrowsWhenDisabled={true}
+            swipeable={true}
+            showDots={true}
+            responsive={responsive}
+            ssr={true}
+            infinite={true}
+            keyBoardControl={true}
+            customTransition="transform 500ms ease-in-out"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {filterClothes.map((item) => (
+              <li key={item._id}>
+                <CardProds prod={item} />
+              </li>
+            ))}
+            <More>
+              <Link to="/products/category/5">
+                <AiOutlinePlus />
+              </Link>
+            </More>
+          </Carousel>
+        </Category>
 
-      <Category>
-        <Link to="/products/category/4">
-          <h1>Brinquedos</h1>
-        </Link>
-        <Carousel
-          renderArrowsWhenDisabled={true}
-          swipeable={true}
-          showDots={true}
-          responsive={responsive}
-          ssr={true}
-          infinite={true}
-          keyBoardControl={true}
-          customTransition="transform 500ms ease-in-out"
-          transitionDuration={500}
-          containerClass="carousel-container"
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px"
-        >
-          {filterToys.map((item) => (
-            <li key={item._id}>
-              <CardProds prod={item} />
-            </li>
-          ))}
-          <More>
-            <Link to="/products/category/4">
-              <AiOutlinePlus />
-            </Link>
-          </More>
-        </Carousel>
-      </Category>
+        <Category>
+          <Link to="/products/category/4">
+            <h1>Brinquedos</h1>
+          </Link>
+          <Carousel
+            renderArrowsWhenDisabled={true}
+            swipeable={true}
+            showDots={true}
+            responsive={responsive}
+            ssr={true}
+            infinite={true}
+            keyBoardControl={true}
+            customTransition="transform 500ms ease-in-out"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {filterToys.map((item) => (
+              <li key={item._id}>
+                <CardProds prod={item} />
+              </li>
+            ))}
+            <More>
+              <Link to="/products/category/4">
+                <AiOutlinePlus />
+              </Link>
+            </More>
+          </Carousel>
+        </Category>
+      </ProductsContainer>
       <Footer />
     </>
   );

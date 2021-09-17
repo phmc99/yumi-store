@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import { useCartContext } from "../../providers/CartProvider";
+import { useProfile } from "../../providers/Profile";
 import { IProductCart, IProducts } from "../../types";
 import {
   ListCart,
@@ -19,6 +20,7 @@ interface ICartProps {
 
 const Cart = ({ prod, type }: ICartProps) => {
   const { removeCart, cartProducts, updateTotal } = useCartContext();
+  const { userInfo } = useProfile();
   const [currentQuantity, setCurrentQuantity] = useState<number>(prod.quantity);
 
   const handlePlusQuantity = (p: IProducts) => {
@@ -73,9 +75,14 @@ const Cart = ({ prod, type }: ICartProps) => {
           </div>
           <TitlePrice>
             R${" "}
-            {(
-              Number(prod.product.price.replace(",", ".")) * currentQuantity
-            ).toFixed(2)}
+            {userInfo.yumiClub
+              ? (
+                  Number(prod.product.member_price.replace(",", ".")) *
+                  currentQuantity
+                ).toFixed(2)
+              : (
+                  Number(prod.product.price.replace(",", ".")) * currentQuantity
+                ).toFixed(2)}
           </TitlePrice>
           {type === "cart" && (
             <Button onClick={() => removeCart(prod)}>

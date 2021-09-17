@@ -151,7 +151,7 @@ export const Category = styled.div`
   a {
     text-decoration: none;
   }
-  .carousel-item-padding-40-px{
+  .carousel-item-padding-40-px {
     display: flex;
     justify-content: center;
   }
@@ -170,5 +170,15 @@ export const More = styled.div`
     font-size: 9rem;
     color: var(--purple);
     margin-top: 40px;
+  }
+`;
+
+export const ProductsContainer = styled.div`
+  @media (min-width: 768px) {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  @media (min-width: 1920px) {
+    max-width: 85vw;
   }
 `;

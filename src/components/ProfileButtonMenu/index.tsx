@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { BsPersonFill } from "react-icons/bs";
 import toast from "react-hot-toast";
+import { useCartContext } from "../../providers/CartProvider";
 
 interface CloseButton {
   profileButtonClicked: boolean;
@@ -18,6 +19,7 @@ const ProfileMenu = ({
   const history = useHistory();
 
   const { userInfo } = useProfile();
+  const { resetCart } = useCartContext();
 
   const token = localStorage.getItem("@yumi:token");
 
@@ -30,6 +32,7 @@ const ProfileMenu = ({
   };
 
   const handleLogout = () => {
+    resetCart();
     localStorage.clear();
     toast(<b>Até a próxima!</b>, {
       icon: "👋",
