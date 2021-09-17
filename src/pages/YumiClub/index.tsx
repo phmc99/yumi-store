@@ -10,6 +10,7 @@ import {
   Containersub,
   YumiClubSub,
   MainContainer,
+  YumiClubPage,
 } from "./style";
 import { AiTwotoneStar } from "react-icons/ai";
 import { MenuSearch } from "../../components/MenuSearch";
@@ -51,7 +52,7 @@ export const YumiClub = () => {
       )
       .then((resp) => {
         window.open(
-          `https://yumistoreapi.herokuapp.com/payment/checkout/${
+          `https://yumistoreapi.herokuapp.com/payments/checkout/${
             resp.data.order._id
           }/${userInfo.email}/${"Assinatura Yumi Club"}/69.90`
         );
@@ -64,7 +65,7 @@ export const YumiClub = () => {
   };
 
   return (
-    <div>
+    <YumiClubPage>
       <MenuSearch />
       <MainContainer>
         <ContainerPage>
@@ -140,6 +141,6 @@ export const YumiClub = () => {
         </YumiClubSub>
       </MainContainer>
       <Footer />
-    </div>
+    </YumiClubPage>
   );
 };

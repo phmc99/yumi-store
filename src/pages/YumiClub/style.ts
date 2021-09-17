@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerPage = styled.div`
   width: 100vw;
+  max-height: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,6 +38,7 @@ export const ContainerPage = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 10px;
+    height: 100%;
 
     .left {
       display: flex;
@@ -250,8 +252,10 @@ export const YumiClubSub = styled.div`
   @media (min-width: 1000px) {
     margin-top: 0;
     width: 20vw;
-    height: 100vh;
+    height: 90vh;
     margin-left: 10px;
+    
+
 
     .logo {
     }
@@ -266,8 +270,15 @@ export const YumiClubSub = styled.div`
   }
 `;
 export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   @media (min-width: 1000px) {
-    display: flex;
-    margin: 2%;
+    flex-direction: row;
+    margin: 0 10px;
+    gap: 0;
   }
 `;
+
+export const YumiClubPage = styled.div``;
