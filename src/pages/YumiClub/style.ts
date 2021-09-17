@@ -16,8 +16,14 @@ export const ContainerPage = styled.div`
     align-items: center;
     width: 100%;
     h1 {
+      font-size: 5rem;
+      text-align: center;
+      margin: 20px;
       color: var(--purple);
-      text-transform: uppercase;
+      text-shadow: 3px 3px 3px rgb(144 144 144);
+      font-variant: small-caps;
+      letter-spacing: 2px;
+      line-height: 70px;
     }
     h2 {
       color: var(--purple);
@@ -37,7 +43,7 @@ export const ContainerPage = styled.div`
     .left {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       height: 100%;
       gap: 10px;
 
@@ -55,6 +61,7 @@ export const ContainerPage = styled.div`
           height: 275px;
           background-color: var(--purple);
           border-radius: 5px;
+          align-items: center;
 
           h4 {
             margin-top: 10px;
@@ -95,7 +102,7 @@ export const ContainerPage = styled.div`
     margin-left: 20px;
     .gift {
       width: 70%;
-      max-width: 280px;
+      max-width: 265px;
     }
 
     p {
@@ -145,6 +152,7 @@ export const ContainerPage = styled.div`
   @media (min-width: 1300px) {
     figure {
       display: flex;
+      max-width: 415px;
     }
   }
 `;
@@ -161,9 +169,10 @@ export const Containersub = styled.div`
     padding: 10px;
 
     p {
-      font-size: 22px;
-      font-family: "Suez one", serif;
+      font-size: 20px;
+      font-family: "Mulish";
       font-weight: 600;
+      text-transform: uppercase;
     }
 
     .econ-sub-flex {
@@ -184,8 +193,8 @@ export const Containersub = styled.div`
   }
   @media (min-width: 1000px) {
     .econ {
-      width: 41.5vw;
-      max-width: 800px;
+      width: 52.5vw;
+      max-width: 680px;
 
       .econ-sub-flex {
         flex-direction: row;
@@ -217,7 +226,7 @@ export const YumiClubSub = styled.div`
   width: 80vw;
   height: 70vh;
   max-height: 800px;
-  margin-left: 20px;
+  margin: 20px auto 0;
   padding: 10px;
 
   .logo {
@@ -241,8 +250,12 @@ export const YumiClubSub = styled.div`
   }
 
   @media (min-width: 1000px) {
+    margin-top: 0;
     width: 20vw;
     height: 90vh;
+    margin-left: 10px;
+    
+
 
     .logo {
     }
