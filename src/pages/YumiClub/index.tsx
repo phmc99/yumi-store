@@ -4,7 +4,7 @@ import econo1 from "../../assets/econo1.png";
 import econo2 from "../../assets/econo2.png";
 import econo3 from "../../assets/econo3.png";
 import econo4 from "../../assets/econo4.png";
-import yumiClub from "../../assets/yumiClub.png";
+import yumiclub from "../../assets/yumiclub.png";
 import {
   ContainerPage,
   Containersub,
@@ -134,7 +134,7 @@ export const YumiClub = () => {
           </div>
         </ContainerPage>
         <YumiClubSub>
-          <img className="logo" src={yumiClub} alt="logo" />
+          <img className="logo" src={yumiclub} alt="logo" />
           <p>
             {" "}
             Assinatura Mensal YumiClub

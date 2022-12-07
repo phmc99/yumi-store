@@ -36,7 +36,7 @@ const Checkout = () => {
     }
 
     window.open(
-      `https://yumistoreapi.herokuapp.com/payment/checkout/${id}/${
+      `http://localhost:5001/payment/checkout/${id}/${
         userInfo.email
       }/${"Pagamento Yumi Store"}/${total}`
     );
