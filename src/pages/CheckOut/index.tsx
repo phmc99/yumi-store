@@ -36,7 +36,7 @@ const Checkout = () => {
     }
 
     window.open(
-      `http://localhost:5001/payment/checkout/${id}/${
+      `${process.env.REACT_APP_API_URL}payment/checkout/${id}/${
         userInfo.email
       }/${"Pagamento Yumi Store"}/${total}`
     );
