@@ -36,4 +36,4 @@ E-commerce para pets desenvolvido por um grupo de devs. Nesse projeto você enco
 
 ## 🌐 API
 
-[Link da API](https://github.com/phmc99/web-space-api)
+[Link da API](https://github.com/phmc99/yumi-store-api)
