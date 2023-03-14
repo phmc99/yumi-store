@@ -8,7 +8,7 @@
 E-commerce para pets desenvolvido por um grupo de devs. Nesse projeto você encontra diversas features.
 
 ### Apresentação em vídeo
-[Vídeo publicado no Linkedin](https://www.linkedin.com/posts/phmc99_react-ui-desenvolvimento-activity-6845832866308345856-e-Zx?utm_source=share&utm_medium=member_desktop)
+[Vídeo publicado no YouTube](https://youtu.be/BqKd1nja29c)
 
 ## 🔨 Implementações
 
